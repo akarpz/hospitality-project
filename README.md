@@ -1,30 +1,18 @@
+#Hospitality Webstack
 
-     ,-----.,--.                  ,--. ,---.   ,--.,------.  ,------.
-    '  .--./|  | ,---. ,--.,--. ,-|  || o   \  |  ||  .-.  \ |  .---'
-    |  |    |  || .-. ||  ||  |' .-. |`..'  |  |  ||  |  \  :|  `--, 
-    '  '--'\|  |' '-' ''  ''  '\ `-' | .'  /   |  ||  '--'  /|  `---.
-     `-----'`--' `---'  `----'  `---'  `--'    `--'`-------' `------'
-    ----------------------------------------------------------------- 
+A web app that allows users to input information about community service hours that they have performed for UD's Hospitality department.
+The app will have a view for Students to input their hours and check on status, 
+Supervisors who will fill out a separate form to approve hours performed,
+and Internal users who will need to see all information in a simplistic form.
 
+###Starting the Server:
+* In a BASH terminal, execute the following command: `apache2`
 
-Hi there! Welcome to Cloud9 IDE!
+###Checking the Server:
+* To check if the server is running, execute the following command: `ps aux | grep apache2`
 
-To get you started, we have created a small hello world application.
+###Killing the Server:
+* To kill the server, execute the following command: `killall apache2`
 
-1) Open the hello-world.php file
-
-2) Follow the run instructions in the file's comments
-
-3) If you want to look at the Apache logs, check out ~/lib/apache2/log
-
-And that's all there is to it! Just have fun. Go ahead and edit the code, 
-or add new files. It's all up to you! 
-
-Happy coding!
-The Cloud9 IDE team
-
-
-## Support & Documentation
-
-Visit http://docs.c9.io for support, or to learn more about using Cloud9 IDE. 
-To watch some training videos, visit http://www.youtube.com/user/c9ide
+###Updating the running webpage with your changes:
+* The server doesn't need to be restarted to update the page with changes. Just save the file `Ctrl + S` and refresh the page `Ctrl + R`

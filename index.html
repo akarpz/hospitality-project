@@ -15,8 +15,6 @@
 <link rel="stylesheet" id="colormag_style-css" href="themes/mylerner/style.css" type="text/css" media="all">
 <link rel="stylesheet" id="colormag-fontawesome-css" href="themes/colormag/fontawesome/css/font-awesome.css" type="text/css" media="all">
 
-<!--<script type="text/javascript" src="themes/colormag/js/colormag-custom.js"></script>-->
-
 <link rel="shortcut icon" href="themes/img/favicon.png" type="image/x-icon"><style id="fit-vids-style">.fluid-width-video-wrapper{width:100%;position:relative;padding:0;}.fluid-width-video-wrapper iframe,.fluid-width-video-wrapper object,.fluid-width-video-wrapper embed {position:absolute;top:0;left:0;width:100%;height:100%;}</style></head>
 
 <body class="post-template-default single single-post postid-236 single-format-standard  wide">
@@ -25,7 +23,7 @@
 		<div id="header-text-nav-container" class="clearfix">
             <div class="news-bar">
                <div class="inner-wrap clearfix">
-                    <div class="date-in-header">Keep Current Date here? form: Friday, March 10, 2017</div>
+                    <div class="date-in-header" id="header-date">Date Locaton</div>
                   
     <div class="social-links clearfix">
 		<ul>
@@ -149,7 +147,7 @@
         </div>
         <br>
         <div>
-            <a href="studentform.html">Community Service Form</a>
+            <button id="redirect-button">Community Service Form</button>
         </div>
    	</div>
 
@@ -165,61 +163,6 @@
 		</ul>
 
 	</div><!-- #primary -->
-
-<!--the below html and inline css is just for the right news pane and can be removed when we decide what to do with that section-->	
-<div id="secondary">
-		<aside id="text-2" class="widget widget_text clearfix"><h3 class="widget-title"><span>Tips box with advice for what counts as hours etc?</span></h3>			<div class="textwidget"><div id="eventlist">
-<script style="background-color: transparent; padding: 0;" type="text/javascript" src="https://events.udel.edu/widget/view?schools=udel&amp;days=120&amp;num=5&amp;types=8135&amp;hidedesc=0&amp;hideimage=1&amp;show_times=1&amp;target_blank=1"></script><style type="text/css" media="screen"> #lw { width:100%;background-color:white;font-family:arial;overflow:hidden;} #lw ul {list-style:none;} #lw li.lwe {padding:10px;border-bottom: 1px dotted #ccc;} .lwn {font-weight:bold;color:#222;font-size:16px;line-height:19px;overflow:hidden;} .lwn0 {font-weight:normal;float:right;font-size:14px;color:#444;} .lwd {padding-top: 5px;color:#222;font-size:12px;line-height:15px;overflow:hidden;} .lwi0 {float:left;padding:2px 6px 0px 0px;margin:0;} .lwi1 {float:left;padding:0px 6px 0px 0px;margin:0;} .lwl{ font-weight:bold;padding-top:5px;color:#222;font-size:12px;line-height:14px;overflow:hidden;clear:both;} .lwl0 {font-weight:normal;padding-right:3px;} .lwi { padding:2px; border: 1px solid #ccc; } </style> <div id="lw"> <div class="lw"> <ul id="lwe"> <li class="lwe"> <div class="lwn"> <span class="lwn0"> Mar 9, 2017 11am </span> <a href="https://events.udel.edu/event/vanguard_information_table_7032?utm_campaign=widget&amp;utm_medium=widget&amp;utm_source=University+of+Delaware" target="_blank">Vanguard Information Table</a> </div> <div class="lwd">Stop by the information table to learn about opportunities at Vanguard.</div> <div class="lwl"><span class="lwl0">Location:</span> <a href="https://events.udel.edu/purnell_hall?utm_campaign=widget&amp;utm_medium=widget&amp;utm_source=University+of+Delaware" target="_blank">Purnell Hall</a> </div> </li> <li class="lwe"> <div class="lwn"> <span class="lwn0"> Mar 9, 2017 3pm </span> <a href="https://events.udel.edu/event/vanguard_coffee_chats?utm_campaign=widget&amp;utm_medium=widget&amp;utm_source=University+of+Delaware" target="_blank">Vanguard Coffee Chats</a> </div> <div class="lwd">Stop by for some coffee and chat about Vanguard's sweet career opportunities!</div> <div class="lwl"><span class="lwl0">Location:</span> <a href="https://events.udel.edu/alfred_lerner_hall?utm_campaign=widget&amp;utm_medium=widget&amp;utm_source=University+of+Delaware" target="_blank">Alfred Lerner Hall</a> </div> </li> <li class="lwe"> <div class="lwn"> <span class="lwn0"> Mar 9, 2017 5pm </span> <a href="https://events.udel.edu/event/2017_government_nonprofit_social_service_career_internship_meetup?utm_campaign=widget&amp;utm_medium=widget&amp;utm_source=University+of+Delaware" target="_blank">2017 Government, Nonprofit &amp; Social Service Career &amp; Internship Meetup</a> </div> <div class="lwd">Interested in a Career in Government, Nonprofit, or Helping Professions? Join us for an evening of networking and panel discussions on careers in government, nonprofit,...</div> <div class="lwl"><span class="lwl0">Location:</span> <a href="https://events.udel.edu/trabant_university_center?utm_campaign=widget&amp;utm_medium=widget&amp;utm_source=University+of+Delaware" target="_blank">Trabant University Center</a> </div> </li> <li class="lwe"> <div class="lwn"> <span class="lwn0"> Mar 9, 2017 5pm </span> <a href="https://events.udel.edu/event/vanguard_information_session_3909?utm_campaign=widget&amp;utm_medium=widget&amp;utm_source=University+of+Delaware" target="_blank">Vanguard Information Session</a> </div> <div class="lwd">Need a study break! Meet with Vanguard and hear about their sweet career opportunities.</div> <div class="lwl"><span class="lwl0">Location:</span> <a href="https://events.udel.edu/alfred_lerner_hall?utm_campaign=widget&amp;utm_medium=widget&amp;utm_source=University+of+Delaware" target="_blank">Alfred Lerner Hall</a> </div> </li> <li class="lwe"> <div class="lwn"> <span class="lwn0"> Mar 10, 2017 - May 5, 2017 </span> <a href="https://events.udel.edu/event/finance_seminar_daniel_bradley?utm_campaign=widget&amp;utm_medium=widget&amp;utm_source=University+of+Delaware" target="_blank">"The Value of Hot News: Intellectual Property and the Sell-side Research Industry" Finance Seminar with Daniel Bradley </a> </div> <div class="lwd">Daniel Bradley - University of South Florida, Muma College of Business</div> <div class="lwl"><span class="lwl0">Location:</span> <a href="https://events.udel.edu/alfred_lerner_hall?utm_campaign=widget&amp;utm_medium=widget&amp;utm_source=University+of+Delaware" target="_blank">Alfred Lerner Hall</a> </div> </li> </ul> </div> </div>
-
-<style type="text/css" media="screen">
-		
-#lw {	width:100%;
-		overflow:hidden;
-		line-height: 1.6;
-		margin-bottom: 15px;
-		font-family: 'Open Sans', serif;
-		font-size: 100% !important;
-	}
-
-#lw ul {list-style:none;padding:0;margin:0;}
-
-#lw li.lwe {padding:10px;border-bottom: none;}
-
-/* TITLE */
-.lwn {	
-	font-weight:bold;
-	display:block; 
-	margin-bottom: 0px;
-	}	
-.lwn a {	   
-  	font-weight:bold;
-}  
-
-/* DATE */
-.lwn0 {text-transform: uppercase;color: #444444; float:none; display:block; margin-bottom: 0px; } 							
-.lwi0 {float:none;padding:0px;margin:0;}
-
-.lwi1 {float:none;padding:0px;margin:0;}
-
-.lwl0 {display: none;}
-
-.lwe {margin-bottom: 0px;}
-
-/* LOCATION */
-a {font-weight: normal;}
-.lwl {}
-.lwl a {}
-
-/* DESCRIPTION */
-.lwd {}		
-
-</style>
-
-</div>
-		</div></aside>
-	</div>
-
-		</div><!-- .inner-wrap -->
 	</div><!-- #main -->
 	
 <footer id="colophon" class="clearfix">
@@ -236,6 +179,25 @@ a {font-weight: normal;}
 		</div>
 	</div>
 </footer>
+
+<script type="text/javascript">
+    document.getElementById("redirect-button").onclick = function () {
+        location.href = "studentform.html";
+    };
+</script>
+
+<script>
+    const days = ["Sunday", "Monday", "Tuesday" ,"Wednesday", "Thursday", "Friday", "Saturday"];
+    const monthNames = ["January", "February", "March", "April", "May", "June",
+      "July", "August", "September", "October", "November", "December"];
+
+   	const n =  new Date();
+    const y = n.getFullYear();
+    const monthName = n.getMonth();
+    const d = n.getDate();
+    const day = n.getDay();
+    document.getElementById("header-date").innerHTML = days[day] + ", " + monthNames[monthName] + " " + d + " " + y;
+</script>
 		<a href="#masthead" id="scroll-up" style="display: none;"><i class="fa fa-chevron-up"></i></a>
 	</div><!-- #page -->
 </body></html>

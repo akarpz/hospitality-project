@@ -6,13 +6,10 @@ supervisors who will fill out a separate form to approve hours performed,
 and internal users who will need to see all information in a simplistic form.
 
 ###Starting the Server:
-* In a BASH terminal, execute the following command: `apache2`
+* In a BASH terminal, execute the following command: `service apache2 start`
 
 ###Checking the Server:
-* To check if the server is running, just run the same command as above: `apache2`
+* To check if the server is running, just run the same command as above: `service apache2 start`
 
 ###Killing the Server:
-* To kill the server, execute the following command: `killall apache2`
-
-###Updating the running webpage with your changes:
-* The server doesn't need to be restarted to update the page with changes. Just save the file `Ctrl + S` and refresh the page `Ctrl + R`
+* To kill the server, execute the following command: `service apache2 graceful-stop`

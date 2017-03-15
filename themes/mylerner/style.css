@@ -1,0 +1,1473 @@
+/*
+ Theme Name:     myLerner Theme
+ Theme URI:      http://lerner.udel.edu
+ Description:    Colormag Child Theme
+ Author:         Adam Sexton
+ Template:       colormag
+ Version:        1.0.1
+*/
+ 
+@import url("../colormag/style.css");
+ 
+/* =Theme customization starts here */
+/* colors
+	
+	#00539f		primary mid blue
+	#003976		secondary dark blue
+	#bdbdbd		light grey
+	#747679		mid grey
+	#ef8200		bright orange
+	#bed600		bright lime
+	#5a8e22 	bright green
+	#00a0df		bright blue
+*/
+/* CSS FOR MENUS 3rd tier posts  */
+.white-logo {
+		background-color: #00539f;
+		padding: 10px 10px;
+}
+
+
+
+
+
+
+
+
+/* CSS FOR MENUS 3rd tier posts  */
+
+/* Undergrad Events */
+.menu-undergraduate-events-submenu-container {
+    margin-left: 10px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.menu-undergraduate-events-submenu-container ul {
+    list-style-type: none;
+}
+
+/* Academic Resources */
+.menu-undergraduate-academic-resources-submenu-container {
+    padding: 0px 0px;
+    text-decoration: none;
+}
+
+.menu-undergraduate-academic-resources-submenu-container ul {
+    list-style-type: none;
+}
+
+.menu-undergraduate-academic-resources-submenu-container li a {
+    margin-left: 10px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.menu-undergraduate-academic-resources-submenu-container li a:hover:not(.active) {
+    color: #003976;
+    text-decoration: none !important;
+}
+
+
+
+
+/* Advising: Undergraduate */
+.menu-mba-advising-submenu-container {
+    padding: 0px 0px;
+    text-decoration: none;
+}
+
+.menu-mba-advising-submenu-container ul {
+    list-style-type: none;
+}
+
+.menu-mba-advising-submenu-container li a {
+    margin-left: 10px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.menu-mba-advising-submenu-container li a:hover:not(.active) {
+    color: #003976;
+    text-decoration: none !important;
+}
+
+
+
+/* Advising: ms ma phd */
+.menu-m-s-m-a-ph-d-advising-submenu-container {
+    padding: 0px 0px;
+    text-decoration: none;
+}
+
+.menu-m-s-m-a-ph-d-advising-submenu-container ul {
+    list-style-type: none;
+}
+
+.menu-m-s-m-a-ph-d-advising-submenu-container li a {
+    margin-left: 10px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.menu-m-s-m-a-ph-d-advising-submenu-container li a:hover:not(.active) {
+    color: #003976;
+    text-decoration: none !important;
+}
+
+
+/* Advising: Undergraduate */
+.menu-undergraduate-advising-submenu-container {
+    padding: 0px 0px;
+    text-decoration: none;
+}
+
+.menu-undergraduate-advising-submenu-container ul {
+    list-style-type: none;
+}
+
+.menu-undergraduate-advising-submenu-container li a {
+    margin-left: 10px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.menu-undergraduate-advising-submenu-container li a:hover:not(.active) {
+    color: #003976;
+    text-decoration: none !important;
+}
+
+
+
+/* Career Services: Graduate */
+.menu-career-services-graduate-submenu-container {
+    padding: 0px 0px;
+    text-decoration: none;
+}
+
+.menu-career-services-graduate-submenu-container ul {
+    list-style-type: none;
+}
+
+.menu-career-services-graduate-submenu-container li a {
+    margin-left: 10px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.menu-career-services-graduate-submenu-container li a:hover:not(.active) {
+    color: #003976;
+    text-decoration: none !important;
+}
+
+
+/* Career Services: Graduate */
+.menu-career-services-undergraduate-submenu-container {
+    padding: 0px 0px;
+    text-decoration: none;
+}
+
+.menu-career-services-undergraduate-submenu-container ul {
+    list-style-type: none;
+}
+
+.menu-career-services-undergraduate-submenu-container li a {
+    margin-left: 10px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.menu-career-services-undergraduate-submenu-container li a:hover:not(.active) {
+    color: #003976;
+    text-decoration: none !important;
+}
+
+/* TeckDeck */
+.menu-techdeck-submenu-container {
+    padding: 0px 0px;
+    text-decoration: none;
+}
+
+.menu-techdeck-submenu-container ul {
+    list-style-type: none;
+}
+
+.menu-techdeck-submenu-container li a {
+    margin-left: 10px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.menu-techdeck-submenu-container li a:hover:not(.active) {
+    color: #003976;
+    text-decoration: none !important;
+}
+
+
+
+/* Career Services */
+.menu-career-services-submenu-container {
+    padding: 0px 0px;
+    text-decoration: none;
+}
+
+.menu-career-services-submenu-container ul {
+    list-style-type: none;
+}
+
+.menu-career-services-submenu-container li a {
+    margin-left: 10px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.menu-career-services-submenu-container li a:hover:not(.active) {
+    color: #003976;
+    text-decoration: none !important;
+}
+
+
+
+
+
+
+/* Research & Grants */
+.menu-research-and-grants-submenu-container {
+    padding: 0px 0px;
+    text-decoration: none;
+}
+
+.menu-research-and-grants-submenu-container ul {
+    list-style-type: none;
+}
+
+.menu-research-and-grants-submenu-container li a {
+    margin-left: 10px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.menu-research-and-grants-submenu-container li a:hover:not(.active) {
+    color: #003976;
+    text-decoration: none !important;
+}
+
+
+
+
+
+/* Communications */
+.menu-communications-submenu-container {
+    padding: 0px 0px;
+    text-decoration: none;
+}
+
+.menu-communications-submenu-container ul {
+    list-style-type: none;
+}
+
+.menu-communications-submenu-container li a {
+    margin-left: 10px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.menu-communications-submenu-container li a:hover:not(.active) {
+    color: #003976;
+    text-decoration: none !important;
+}
+
+
+
+
+/* Events Team */
+.menu-events-team-submenu-container {
+    padding: 0px 0px;
+    text-decoration: none;
+}
+
+.menu-events-team-submenu-container ul {
+    list-style-type: none;
+}
+
+.menu-events-team-submenu-container li a {
+    margin-left: 10px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.menu-events-team-submenu-container li a:hover:not(.active) {
+    color: #003976;
+    text-decoration: none !important;
+}
+
+
+
+
+/* CSS FOR CUSTOM MENUS ON CATEGORY PAGES  */
+
+.menu-undergraduate-page-menu-container{
+    margin-left: 40px;
+}
+.menu-undergraduate-page-menu-container .sub-menu{ 
+    margin-left: 40px;
+}
+
+/* CSS FOR FACEBOOK FEED */
+	
+	
+.fts-jal-fb-header {
+    display: none !important;
+}
+
+.fts-powered-by-text {
+    display: none !important;
+}
+
+.fts-jal-fb-see-more {
+    display: none !important;
+}
+
+
+
+.page-header ul,ol{
+	padding-left: 40px;
+	
+}
+.main-navigation li {
+    list-style: none;
+    }
+
+ul,ol {
+	list-style: square;
+}
+
+
+/* format the text for the localist feed */
+.lwd {
+	line-height: 1.4 !important;
+    margin-bottom: 0px !important;
+    font-family: 'Open Sans', serif !important;
+    font-size: 12px !important;
+    color: #333333 !important;
+    }
+
+/* this hides the links to next and previous posts at the bottom of each post */
+.default-wp-page { display: none; }
+
+/* breadcrumb styling, SEOyoast */
+p#breadcrumbs {
+	font-size: 12px !important;
+	color:#747679;
+}
+
+/* remove the padding on blog posts */
+#content .post .article-content {
+    padding: 0px;
+}
+
+/* remove the outline around blog posts */
+.single #content .post, #content .post {
+    box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0);
+}
+
+
+
+
+
+/*
+
+The following CSS elements have been edited for the myLerner theme
+h1-h4
+navigation
+dropdown
+
+
+*/
+
+a {
+    color: #00a0df;
+    text-decoration: none;
+}
+a:visited {
+    color: #00a0df;
+    text-decoration: none;
+}
+
+h1 { font-size: 38px; font-weight: bold; line-height: 1.2; color: #003976;}
+h2 { font-size: 28px; font-weight: bold; line-height: 1.2; color: #003976;}
+h3 { font-size: 24px; font-weight: bold; line-height: 1.2; color: #003976;}
+h4 { font-size: 18px; font-weight: bold; line-height: 1.2; color: #003976;}
+h5 { font-size: 16px; font-weight: bold; line-height: 1.2; color: #003976;}
+h6 { font-size: 14px; font-weight: bold; line-height: 1.2; color: #003976;}
+
+
+/* =TEXT ELEMENTS
+----------------------------------------------- */
+p {
+	line-height: 1.6;
+	margin-bottom: 15px;
+	font-family: 'Open Sans', serif;
+	font-size: 100% !important;
+}
+strong {
+	font-weight: bold;
+}
+cite, em, i {
+	font-style: italic;
+}
+pre {
+	background-color: #fff;
+	margin-bottom: 20px;
+	overflow: auto;
+	padding: 20px;
+	border: 1px solid #EAEAEA;
+}
+pre, code, kbd, var, samp, tt {
+	font-family:"Courier 10 Pitch",Courier,monospace;
+	font-size: 14px;
+	line-height: 1.4;
+	white-space: pre-wrap;
+}
+abbr, acronym, dfn {
+	border-bottom: 1px dotted #777777;
+	cursor: help;
+}
+address {
+	display: block;
+	font-style: italic;
+	margin: 0 0 15px;
+}
+ins {
+	background: #F8F8F8;
+}
+table {
+	margin: 0 0 1.5em;
+	width: 100%;
+}
+
+.entry-content li {
+    line-height: 1.5;
+}
+
+
+/* Ente/* =NAVIGATION
+----------------------------------------------- */
+nav li > ul,
+nav li > ol {
+	margin: 0;
+	list-style: none;
+}
+#site-navigation {
+   box-shadow: 0 0 2px rgba(0, 0, 0, 0.1) inset;
+   position: relative;
+   background-color: #00539f;
+   border-top: 0px solid #bed600 !important;
+}
+#site-navigation .inner-wrap { 
+   position: relative;
+}
+.home-icon {
+   float: left;
+}
+.home-icon .fa {
+   color: #ffffff;
+   font-size: 27px;
+}
+.home-icon.front_page_on {
+   background-color: #00539f;
+}
+.main-navigation .home-icon a {
+   padding: 7px 10px 6px;
+}
+.main-small-navigation .home-icon a {
+   padding: 7px 10px;
+}
+.main-navigation {
+	width: 100%;
+	text-align: center;
+}
+.main-navigation li {
+	float: left;
+	position: relative;
+	font-family: 'Open Sans', serif;
+	font-weight: 300;
+}
+.main-navigation a {
+   color: #ffffff;
+	display: block;
+	float: none;
+	font-size: 14px;
+   font-weight: 600;
+	padding: 10px 12px;
+   text-transform: uppercase;
+}
+.main-navigation li.default-menu,
+li.default-menu {
+	display: none;
+}
+.main-navigation a:hover,
+.main-navigation ul li.current-menu-item a,
+.main-navigation ul li.current_page_ancestor a,
+.main-navigation ul li.current-menu-ancestor a,
+.main-navigation ul li.current_page_item a,
+.main-navigation ul li:hover > a {
+}
+.main-navigation a:hover,
+.main-navigation ul li.current-menu-item a,
+.main-navigation ul li.current-menu-item a:after,
+.main-navigation ul li.current_page_ancestor a,
+.main-navigation ul li.current-menu-ancestor a,
+.main-navigation ul li.current_page_item a,
+.main-navigation ul li:hover > a,
+.main-navigation li.menu-item-has-children:hover > a:after {
+	color: #bed600;
+}
+.main-navigation a:hover,
+.main-navigation ul li.current-menu-item > a,
+.main-navigation ul li.current_page_ancestor > a,
+.main-navigation ul li.current-menu-ancestor > a,
+.main-navigation ul li.current_page_item > a,
+.main-navigation ul li:hover > a {
+   background-color: #003976;
+}
+.main-navigation li.menu-item-has-children > a:after,
+.main-navigation li li.menu-item-has-children > a:after,
+.main-navigation li.page_item_has_children > a:after,
+.main-navigation li li.page_item_has_children > a:after {
+   font-family: FontAwesome;
+   font-style: normal;
+   font-weight: normal;
+   text-decoration: inherit;
+   color: #ffffff;
+   font-size: 14px;
+   padding-left: 6px;
+}
+.main-navigation li.menu-item-has-children > a:after,
+.main-navigation li.page_item_has_children > a:after {
+   content: "\f107";
+   color: #ffffff;
+}
+.main-navigation li li.menu-item-has-children > a:after,
+.main-navigation li li.page_item_has_children > a:after {
+   content: "\f105";
+   position: absolute;
+   right: 8px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =DROP DOWN
+----------------------------------------------- */
+.main-navigation .sub-menu,
+.main-navigation .children {
+   background-color: #00539f;
+}
+.main-navigation ul li ul,
+.main-navigation ul li:hover ul ul,
+.main-navigation ul ul li:hover ul ul,
+.main-navigation ul ul ul li:hover ul ul,
+.main-navigation ul ul ul ul li:hover ul ul {
+	display:none;
+	z-index: 100;
+}
+.main-navigation ul li:hover ul,
+.main-navigation ul ul li:hover ul,
+.main-navigation ul ul ul li:hover ul,
+.main-navigation ul ul ul ul li:hover ul,
+.main-navigation ul ul ul ul ul li:hover ul {
+	display:block;
+}
+.main-navigation ul li ul {
+	position: absolute;
+	width: 200px;
+	top: 42px;
+}
+.main-navigation ul li ul li {
+	float: none;
+}
+.main-navigation ul li ul li a {
+   border-top: none;
+}
+.main-navigation ul li ul li a,
+.main-navigation ul li.current-menu-item ul li a,
+.main-navigation ul li ul li.current-menu-item a,
+.main-navigation ul li.current_page_ancestor ul li a,
+.main-navigation ul li.current-menu-ancestor ul li a,
+.main-navigation ul li.current_page_item ul li a {
+	float: none;
+	font-size: 14px;
+	height: 100%;
+	padding: 10px 15px;
+	color: #fff;
+  	background-color: #00539f;
+	width: 170px;
+   text-align: left;
+   text-transform: none;
+}
+.main-navigation ul li ul li a:hover,
+.main-navigation ul li ul li:hover > a,
+.main-navigation ul li.current-menu-item ul li a:hover {
+   color: #bed600;
+   background-color: #003976;
+}
+.main-navigation ul li ul li ul {
+	left: 200px;
+	top: 0;
+}
+.main-navigation select {
+	display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =RESPONSIVE MENU
+----------------------------------------------- */
+.menu-toggle, .top-menu-toggle {
+	##display: none;
+	cursor: pointer;
+}
+.site-header .menu-toggle {
+	color: #ffffff;
+	margin: 0;
+	text-align: center;
+	font-family: 'Open Sans', serif;
+   padding-bottom: 0;
+}
+.site-header .menu-toggle:hover {
+   background-color: #289dcc;
+}
+.site-header .menu-toggle:before {
+	content: "\f0c9";
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: inherit;
+	font-size: 23px;
+	color: #ffffff;
+   padding: 8px 12px;
+   display: block;
+}
+.main-small-navigation {
+	float: none;
+}
+.main-small-navigation .menu-primary-container,
+.main-small-navigation .nav-menu {
+   padding-top: 43px;
+}
+.main-small-navigation ul {
+  margin: 0;
+  list-style: none;
+}
+.main-small-navigation a {
+  display: block;
+  font-size: 14px;
+  color: #333333;
+  padding: 10px 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.main-small-navigation .random-post a {
+   padding: 7px 12px;
+   border-bottom: none;
+}
+.main-small-navigation li {
+  background-color: #FFFFFF;
+}
+.main-small-navigation li a:hover {
+  background-color: #289dcc;
+  color: #FFFFFF;
+}
+.main-small-navigation ul ul a {
+  padding-left: 45px;
+  text-transform: none;
+}
+.main-small-navigation ul ul ul a {
+  padding-left: 90px;
+}
+.main-small-navigation .current_page_item > a,
+.main-small-navigation .current-menu-item > a {
+  background: #289dcc;
+  color: #FFFFFF;
+}
+
+
+
+
+/* =WIDGETS
+----------------------------------------------- */
+
+#secondary .widget-title {
+   border-bottom: 4px solid #00539f;
+   font-size: 18px;
+   margin-bottom: 15px;
+   padding-bottom: 0;
+}
+#secondary .widget-title span {
+   background-color: #00539f;
+   color: #fff;
+   padding: 6px 12px;
+   display: inline-block;
+}
+div.slide-content{
+	padding: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* =POST CONTENT
+----------------------------------------------- */
+/* remove the post author, date and edit link */
+div.below-entry-meta{ display: none; }
+/* remove the links to post categories */
+div.above-entry-meta{ display: none; }
+
+
+
+
+#content .post .article-content .entry-title {
+   padding: 0 0 20px 0;
+   font-size: 38px;
+   color: #003976;
+   /*
+   	#00539f		primary mid blue
+	#003976		secondary dark blue
+	#bdbdbd		light grey
+	#747679		mid grey
+	#ef8200		bright orange
+	#bed600		bright lime
+
+	#00a0df		bright blue
+*/
+}
+
+
+
+
+
+
+
+
+
+/* Slider widget meta CSS */
+.widget_featured_slider .single-slide {
+   position: relative;
+}
+.widget_featured_slider img {
+   margin-bottom: 0;
+}
+.widget_featured_slider .slide-content {
+   position: absolute;
+   bottom: 0;
+   background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)) !important;
+   background: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)) !important;
+   background: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)) !important;
+   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)) !important;
+   padding-bottom: 5px;
+   padding-left: 5%;
+   position: absolute;
+   width: 95%;
+}
+
+.widget_highlighted_posts .article-content {
+   position: absolute;
+   bottom: 0;
+   background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)) !important;
+   background: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)) !important;
+   background: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)) !important;
+   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)) !important;
+   padding-bottom: 10px;
+   padding-left: 5%;
+   position: absolute;
+   width: 95%;
+}
+
+
+.widget_featured_slider .slide-content .above-entry-meta .cat-links a {
+   background-color: #000000;
+   border-radius: 3px;
+   color: #ffffff;
+   font-size: 12px;
+   padding: 3px 10px ;
+}
+.widget_featured_slider .slide-content .entry-title {
+   padding: 10px 0 0;
+   font-size: 22px;
+}
+.widget_featured_slider .slide-content .entry-title a {
+   color: #ffffff;
+   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+.widget_featured_slider .slide-content .entry-title a:hover {
+   color: #289dcc;
+}
+
+
+
+
+/* LOCALIST EVENT WIDGET CSS */
+
+#lw {
+    font-family: 'Open Sans' !important;
+}
+#lw a {
+    color: #00539f;
+    text-decoration: none;
+}
+
+
+/*
+ Theme Name:     myLerner Theme
+ Theme URI:      http://lerner.udel.edu
+ Description:    Colormag Child Theme
+ Author:         Adam Sexton
+ Template:       colormag
+ Version:        1.0.1
+*/
+ 
+@import url("../colormag/style.css");
+ 
+/* =Theme customization starts here */
+/* colors
+	
+	#00539f		primary mid blue
+	#003976		secondary dark blue
+	#bdbdbd		light grey
+	#747679		mid grey
+	#ef8200		bright orange
+	#bed600		bright lime
+	#5a8e22 	bright green
+	#00a0df		bright blue
+*/
+
+/* CSS FOR CUSTOM MENUS ON CATEGORY PAGES  */
+
+.menu-undergraduate-page-menu-container{
+    margin-left: 40px;
+}
+.menu-undergraduate-page-menu-container .sub-menu{ 
+    margin-left: 40px;
+}
+
+/* CSS FOR FACEBOOK FEED */
+	
+	
+.fts-jal-fb-header {
+    display: none !important;
+}
+
+.fts-powered-by-text {
+    display: none !important;
+}
+
+.fts-jal-fb-see-more {
+    display: none !important;
+}
+
+
+
+.page-header ul,ol{
+	padding-left: 40px;
+	
+}
+.main-navigation li {
+    list-style: none;
+    }
+
+ul,ol {
+	list-style: square;
+}
+
+/* this hides the links to next and previous posts at the bottom of each post */
+.default-wp-page { display: none; }
+
+/* breadcrumb styling, SEOyoast */
+p#breadcrumbs {
+	font-size: 12px !important;
+	color:#747679;
+}
+
+/* remove the padding on blog posts */
+#content .post .article-content {
+    padding: 0px;
+}
+
+/* remove the outline around blog posts */
+.single #content .post, #content .post {
+    box-shadow: 0 0px 0px 0 rgba(0, 0, 0, 0);
+}
+
+
+
+
+
+/*
+
+The following CSS elements have been edited for the myLerner theme
+h1-h4
+navigation
+dropdown
+
+
+*/
+
+a {
+    color: #00a0df;
+    text-decoration: none;
+}
+a:visited {
+    color: #00a0df;
+    text-decoration: none;
+}
+
+h1 { font-size: 38px; font-weight: bold; line-height: 1.2; color: #003976;}
+h2 { font-size: 28px; font-weight: bold; line-height: 1.2; color: #003976;}
+h3 { font-size: 24px; font-weight: bold; line-height: 1.2; color: #003976;}
+h4 { font-size: 18px; font-weight: bold; line-height: 1.2; color: #003976;}
+h5 { font-size: 16px; font-weight: bold; line-height: 1.2; color: #003976;}
+h6 { font-size: 14px; font-weight: bold; line-height: 1.2; color: #003976;}
+
+
+/* =TEXT ELEMENTS
+----------------------------------------------- */
+p {
+	line-height: 1.6;
+	margin-bottom: 15px;
+	font-family: 'Open Sans', serif;
+	font-size: 100% !important;
+}
+strong {
+	font-weight: bold;
+}
+cite, em, i {
+	font-style: italic;
+}
+pre {
+	background-color: #fff;
+	margin-bottom: 20px;
+	overflow: auto;
+	padding: 20px;
+	border: 1px solid #EAEAEA;
+}
+pre, code, kbd, var, samp, tt {
+	font-family:"Courier 10 Pitch",Courier,monospace;
+	font-size: 14px;
+	line-height: 1.4;
+	white-space: pre-wrap;
+}
+abbr, acronym, dfn {
+	border-bottom: 1px dotted #777777;
+	cursor: help;
+}
+address {
+	display: block;
+	font-style: italic;
+	margin: 0 0 15px;
+}
+ins {
+	background: #F8F8F8;
+}
+table {
+	margin: 0 0 1.5em;
+	width: 100%;
+}
+
+
+
+
+/* Ente/* =NAVIGATION
+----------------------------------------------- */
+nav li > ul,
+nav li > ol {
+	margin: 0;
+	list-style: none;
+}
+#site-navigation {
+   box-shadow: 0 0 2px rgba(0, 0, 0, 0.1) inset;
+   position: relative;
+   background-color: #00539f;
+   border-top: 0px solid #bed600 !important;
+}
+#site-navigation .inner-wrap { 
+   position: relative;
+}
+.home-icon {
+   float: left;
+}
+.home-icon .fa {
+   color: #ffffff;
+   font-size: 27px;
+}
+.home-icon.front_page_on {
+   background-color: #00539f;
+}
+.main-navigation .home-icon a {
+   padding: 7px 10px 6px;
+}
+.main-small-navigation .home-icon a {
+   padding: 7px 10px;
+}
+.main-navigation {
+	width: 100%;
+	text-align: center;
+}
+.main-navigation li {
+	float: left;
+	position: relative;
+	font-family: 'Open Sans', serif;
+	font-weight: 300;
+}
+.main-navigation a {
+   color: #ffffff;
+	display: block;
+	float: none;
+	font-size: 14px;
+   font-weight: 600;
+	padding: 10px 12px;
+   text-transform: uppercase;
+}
+.main-navigation li.default-menu,
+li.default-menu {
+	display: none;
+}
+.main-navigation a:hover,
+.main-navigation ul li.current-menu-item a,
+.main-navigation ul li.current_page_ancestor a,
+.main-navigation ul li.current-menu-ancestor a,
+.main-navigation ul li.current_page_item a,
+.main-navigation ul li:hover > a {
+}
+.main-navigation a:hover,
+.main-navigation ul li.current-menu-item a,
+.main-navigation ul li.current-menu-item a:after,
+.main-navigation ul li.current_page_ancestor a,
+.main-navigation ul li.current-menu-ancestor a,
+.main-navigation ul li.current_page_item a,
+.main-navigation ul li:hover > a,
+.main-navigation li.menu-item-has-children:hover > a:after {
+	color: #bed600;
+}
+.main-navigation a:hover,
+.main-navigation ul li.current-menu-item > a,
+.main-navigation ul li.current_page_ancestor > a,
+.main-navigation ul li.current-menu-ancestor > a,
+.main-navigation ul li.current_page_item > a,
+.main-navigation ul li:hover > a {
+   background-color: #003976;
+}
+.main-navigation li.menu-item-has-children > a:after,
+.main-navigation li li.menu-item-has-children > a:after,
+.main-navigation li.page_item_has_children > a:after,
+.main-navigation li li.page_item_has_children > a:after {
+   font-family: FontAwesome;
+   font-style: normal;
+   font-weight: normal;
+   text-decoration: inherit;
+   color: #ffffff;
+   font-size: 14px;
+   padding-left: 6px;
+}
+.main-navigation li.menu-item-has-children > a:after,
+.main-navigation li.page_item_has_children > a:after {
+   content: "\f107";
+   color: #ffffff;
+}
+.main-navigation li li.menu-item-has-children > a:after,
+.main-navigation li li.page_item_has_children > a:after {
+   content: "\f105";
+   position: absolute;
+   right: 8px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =DROP DOWN
+----------------------------------------------- */
+.main-navigation .sub-menu,
+.main-navigation .children {
+   background-color: #00539f;
+}
+.main-navigation ul li ul,
+.main-navigation ul li:hover ul ul,
+.main-navigation ul ul li:hover ul ul,
+.main-navigation ul ul ul li:hover ul ul,
+.main-navigation ul ul ul ul li:hover ul ul {
+	display:none;
+	z-index: 100;
+}
+.main-navigation ul li:hover ul,
+.main-navigation ul ul li:hover ul,
+.main-navigation ul ul ul li:hover ul,
+.main-navigation ul ul ul ul li:hover ul,
+.main-navigation ul ul ul ul ul li:hover ul {
+	display:block;
+}
+.main-navigation ul li ul {
+	position: absolute;
+	width: 200px;
+	top: 42px;
+}
+.main-navigation ul li ul li {
+	float: none;
+}
+.main-navigation ul li ul li a {
+   border-top: none;
+}
+.main-navigation ul li ul li a,
+.main-navigation ul li.current-menu-item ul li a,
+.main-navigation ul li ul li.current-menu-item a,
+.main-navigation ul li.current_page_ancestor ul li a,
+.main-navigation ul li.current-menu-ancestor ul li a,
+.main-navigation ul li.current_page_item ul li a {
+	float: none;
+	font-size: 14px;
+	height: 100%;
+	padding: 10px 15px;
+	color: #fff;
+  	background-color: #00539f;
+	width: 170px;
+   text-align: left;
+   text-transform: none;
+}
+.main-navigation ul li ul li a:hover,
+.main-navigation ul li ul li:hover > a,
+.main-navigation ul li.current-menu-item ul li a:hover {
+   color: #bed600;
+   background-color: #003976;
+}
+.main-navigation ul li ul li ul {
+	left: 200px;
+	top: 0;
+}
+.main-navigation select {
+	display: none;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* =RESPONSIVE MENU
+----------------------------------------------- */
+.menu-toggle, .top-menu-toggle {
+	##display: none;
+	cursor: pointer;
+}
+.site-header .menu-toggle {
+	color: #ffffff;
+	margin: 0;
+	text-align: center;
+	font-family: 'Open Sans', serif;
+   padding-bottom: 0;
+}
+.site-header .menu-toggle:hover {
+   background-color: #289dcc;
+}
+.site-header .menu-toggle:before {
+	content: "\f0c9";
+	font-family: FontAwesome;
+	font-style: normal;
+	font-weight: normal;
+	text-decoration: inherit;
+	font-size: 23px;
+	color: #ffffff;
+   padding: 8px 12px;
+   display: block;
+}
+.main-small-navigation {
+	float: none;
+}
+.main-small-navigation .menu-primary-container,
+.main-small-navigation .nav-menu {
+   padding-top: 43px;
+}
+.main-small-navigation ul {
+  margin: 0;
+  list-style: none;
+}
+.main-small-navigation a {
+  display: block;
+  font-size: 14px;
+  color: #333333;
+  padding: 10px 20px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.main-small-navigation .random-post a {
+   padding: 7px 12px;
+   border-bottom: none;
+}
+.main-small-navigation li {
+  background-color: #FFFFFF;
+}
+.main-small-navigation li a:hover {
+  background-color: #289dcc;
+  color: #FFFFFF;
+}
+.main-small-navigation ul ul a {
+  padding-left: 45px;
+  text-transform: none;
+}
+.main-small-navigation ul ul ul a {
+  padding-left: 90px;
+}
+.main-small-navigation .current_page_item > a,
+.main-small-navigation .current-menu-item > a {
+  background: #289dcc;
+  color: #FFFFFF;
+}
+
+
+
+
+/* =WIDGETS
+----------------------------------------------- */
+
+#secondary .widget-title {
+   border-bottom: 4px solid #00539f;
+   font-size: 18px;
+   margin-bottom: 15px;
+   padding-bottom: 0;
+}
+#secondary .widget-title span {
+   background-color: #00539f;
+   color: #fff;
+   padding: 6px 12px;
+   display: inline-block;
+}
+div.slide-content{
+	padding: 10px;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+/* =POST CONTENT
+----------------------------------------------- */
+/* remove the post author, date and edit link */
+div.below-entry-meta{ display: none; }
+/* remove the links to post categories */
+div.above-entry-meta{ display: none; }
+
+
+
+
+#content .post .article-content .entry-title {
+   padding: 0 0 20px 0;
+   font-size: 38px;
+   color: #003976;
+   /*
+   	#00539f		primary mid blue
+	#003976		secondary dark blue
+	#bdbdbd		light grey
+	#747679		mid grey
+	#ef8200		bright orange
+	#bed600		bright lime
+
+	#00a0df		bright blue
+*/
+}
+
+
+
+
+
+
+
+
+
+/* Slider widget meta CSS */
+.widget_featured_slider .single-slide {
+   position: relative;
+}
+.widget_featured_slider img {
+   margin-bottom: 0;
+}
+.widget_featured_slider .slide-content {
+   position: absolute;
+   bottom: 0;
+   background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)) !important;
+   background: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)) !important;
+   background: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)) !important;
+   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)) !important;
+   padding-bottom: 5px;
+   padding-left: 5%;
+   position: absolute;
+   width: 95%;
+}
+
+.widget_highlighted_posts .article-content {
+   position: absolute;
+   bottom: 0;
+   background: -webkit-linear-gradient(top, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)) !important;
+   background: -o-linear-gradient(bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)) !important;
+   background: -moz-linear-gradient(bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)) !important;
+   background: linear-gradient(to bottom, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.8)) !important;
+   padding-bottom: 10px;
+   padding-left: 5%;
+   position: absolute;
+   width: 95%;
+}
+
+
+.widget_featured_slider .slide-content .above-entry-meta .cat-links a {
+   background-color: #000000;
+   border-radius: 3px;
+   color: #ffffff;
+   font-size: 12px;
+   padding: 3px 10px ;
+}
+.widget_featured_slider .slide-content .entry-title {
+   padding: 10px 0 0;
+   font-size: 22px;
+}
+.widget_featured_slider .slide-content .entry-title a {
+   color: #ffffff;
+   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.2);
+}
+.widget_featured_slider .slide-content .entry-title a:hover {
+   color: #289dcc;
+}
+
+
+
+
+
+
+
+
+
+/* CSS FOR EMAIL SIGNATURES */
+
+#email-sig {
+	font-family: arial, sans-serif;
+	font-size: 14px;
+	line-height: normal;
+}
+
+
+
+
+
+th, td {
+    border: 0px solid #EAEAEA;
+    padding: 6px 10px;
+}
+
+
+
+
+/* ARCONIX SHORTCODE CSS */
+
+.arconix-toggle-title i.fa {
+    margin-right: 10px;
+    color: #bed600;
+}
+
+.arconix-toggle-content {
+    margin-left: 15px;
+    padding: 15px 20px;
+}
+
+.arconix-toggle-title {
+	font-size: 24px; 
+	font-weight: bold; 
+	line-height: 1.2; 
+	color: #00539f;
+
+}
+
+/* == STAFF LIST LAYOUT 720px+ ======================================== */
+@media (min-width: 768px) {
+    .abcfslLstCol-5 {width: 125px !important; }
+
+h2.staff-list-name{
+	margin-bottom: -15px;
+	color: #00539f;
+}
+
+div.staff-list-title {
+	line-height: 1.6;
+	font-weight:400;
+}
+
+div.staff-list-phone {
+	line-height: 1.6;
+	font-size: 13px;
+}
+
+div.staff-list-email {
+	line-height: 1.6;	
+	font-size: 13px;
+}
+
+div.staff-list-address {
+	line-height: 1.6;	
+	font-size: 13px;
+}
+

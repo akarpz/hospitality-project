@@ -83,9 +83,10 @@
 // PARAMETERS
 // Set these to match your server environment and needs
 // =====================================================
-//$TEST_SERVER="https://mis183.mis.udel.edu/cas/";
-$TEST_SERVER="https://cas.nss.udel.edu/cas/";
+$TEST_SERVER="https://mis183.mis.udel.edu/cas/";
+//$TEST_SERVER="https://cas.nss.udel.edu/cas/";
 $PROD_SERVER="https://cas.nss.udel.edu/cas/";
+$TEST_SERVER=$PROD_SERVER;
 
 if (!isset($THIS_SERVER))
   $THIS_SERVER = $_SERVER["SERVER_NAME"];

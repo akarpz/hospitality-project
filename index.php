@@ -6,21 +6,21 @@
 // then click the URL that is emitted to the Output tab of the console
 include 'cas_setup.php';
 
-
-
-echo PHP_EOL;
-
 echo 'Hello world from Hospitality!';
 
-echo PHP_EOL;
+echo "<br>";
+echo "<br>";
 
 print_r($_SESSION);
 
-echo PHP_EOL;
+
+echo "<br>";
+echo "<br>";
 
 print_r($_SESSION['cas_data']);
 
-echo PHP_EOL;
+echo "<br>";
+echo "<br>";
 
 $usertype = $_SESSION['cas_data']['PERSONTYPE'];
 

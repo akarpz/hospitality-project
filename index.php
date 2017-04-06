@@ -36,9 +36,13 @@ function isstudent($usertype) {
 
 if(isstudent($usertype)){
     echo 'true';
+    header("Location: http://serviceforms.lerner.udel.edu/index.html");
+    exit();
 }else {
     echo 'false';
 }
+
+
 
 ?>
 

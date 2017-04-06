@@ -8,7 +8,7 @@ include 'cas_setup.php';
 
 echo 'Hello world from Cloud9!';
 
-
+print_r($_SESSION);
 
 ?>
 

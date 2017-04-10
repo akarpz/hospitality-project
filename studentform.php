@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <html lang="en-US"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -81,13 +84,16 @@
    	   	
    	<div class="entry-content clearfix">
         <form action="/form_submission.php" method="post">
-   	        
-   	        Today's date: <input type="text" name="todaydate" id="form-date" readonly><br>
-   	        First name: <input type="text" name="fname"><br>
-            Last name: <input type="text" name="lname"><br>
-            Student email: <input type="email" name="email"><br>
-            Student ID: <input type ="text" name="id"><br>
-            Major: HRIM or HSIM: <input type="text" name="major"><br>
+            
+            Today's date: <input type="text" name="todaydate" id="form-date" readonly><br>
+            First name: <input type="text" name="fname" value="<?php echo $_SESSION['cas_data']['FIRSTNAME']; ?>" readonly><br>
+            Last name: <input type="text" name="lname" value="<?php echo $_SESSION['cas_data']['LASTNAME']; ?>" readonly><br>
+            UDNetID: <input title="UD Email Prefix" type ="text" name="id"value="<?php echo $_SESSION['cas_data']['UDELNETID']; ?>" readonly><br>
+            Student email: <input type="email" name="email"value="<?php echo strtolower($_SESSION['cas_data']['EMAIL']); ?>" readonly><br>
+            Major: <select name="major"> 
+            <option value="HRIM">HRIM</option> 
+            <option value="HSIM">HSIM</option>
+            </select><br><br>
             Organization: <input type="text" name="organization"><br>
             Agency Website: <input type="text" name="website"><br>
             Location/address of community site:
@@ -95,9 +101,9 @@
             Non-profit agency that benefited from your service:
             <input type="text" name="agency"><br>
             Date(s) of Work: <br>
-            Started: <input type="date" name="workdates-start"><br>
+            Started: <input type="date" name="workdates-start">
             Ended: <input type="date" name="workdates-end"><br>
-            Number of Hours Worked: <input type="text" name="numberhours"><br>
+            Number of Hours Worked: <input type="number" name="hoursworked" min="1" max="99999"><br>
             Describe your specific activities: <input type="text" name="activities"><br>
             Describe the value in what you did for the agency/site: 
             <input type="text" name="valuesite"><br>

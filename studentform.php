@@ -81,6 +81,10 @@
    	   	
    	<div class="entry-content clearfix">
         <form action="/form_submission.php" method="post">
+            
+            <?php
+            print_r($_SESSION["cas_data"]);
+            ?>
    	        
    	        Today's date: <input type="text" name="todaydate" id="form-date" readonly><br>
    	        First name: <input type="text" name="fname"><br>

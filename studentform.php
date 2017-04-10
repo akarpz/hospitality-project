@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <html lang="en-US"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -83,12 +86,15 @@
         <form action="/form_submission.php" method="post">
             
             <?php
-            print_r($_SESSION["cas_data"]);
+            print_r($_SESSION);
+		print_r(isset($_SESSION));
+		echo "<br>";
+		print_r(session_status());
             ?>
    	        
    	        Today's date: <input type="text" name="todaydate" id="form-date" readonly><br>
-   	        First name: <input type="text" name="fname"><br>
-            Last name: <input type="text" name="lname"><br>
+   	        First name: <input type="text" name="fname" placeholder="hey"><br>
+            Last name: <input type="text" name="lname" value="<?php echo $_SESSION['cas_data']['LASTNAME']; ?>" readonly><br>
             Student email: <input type="email" name="email"><br>
             Student ID: <input type ="text" name="id"><br>
             Major: HRIM or HSIM: <input type="text" name="major"><br>

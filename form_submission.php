@@ -8,9 +8,8 @@ echo $_POST["email"];
 echo $_POST["major"];
 echo $_POST["organization"];
 echo $_POST["website"];
-echo $_POST["location"]
+echo $_POST["location"];
 echo $_POST["agency"];
 echo $_POST["workdates-start"];
 echo $_POST["workdates-end"];
-e
 ?>

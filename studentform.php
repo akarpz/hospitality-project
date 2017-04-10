@@ -86,11 +86,11 @@ session_start();
         <form action="/form_submission.php" method="post">
             
             Today's date: <input type="text" name="todaydate" id="form-date" readonly><br>
-   	        First name: <input type="text" name="fname" value="<?php echo $_SESSION['cas_data']['FIRSTNAME']; ?>" readonly><br>
+   	    First name: <input type="text" name="fname" value="<?php echo $_SESSION['cas_data']['FIRSTNAME']; ?>" readonly><br>
             Last name: <input type="text" name="lname" value="<?php echo $_SESSION['cas_data']['LASTNAME']; ?>" readonly><br>
             UDNetID: <input title="UD Email Prefix" type ="text" name="id"value="<?php echo $_SESSION['cas_data']['UDELNETID']; ?>" readonly><br>
-            Student email: <input type="email" name="email"value="<?php echo $_SESSION['cas_data']['EMAIL']; ?>" readonly><br>
-            Major: HRIM or HSIM: <select name="major"> 
+            Student email: <input type="email" name="email"value="<?php echo strtolower($_SESSION['cas_data']['EMAIL']); ?>" readonly><br>
+            Major: <select name="major"> 
             <option value="HRIM">HRIM</option> 
             <option value="HSIM">HSIM</option>
             </select><br><br>
@@ -103,7 +103,7 @@ session_start();
             Date(s) of Work: <br>
             Started: <input type="date" name="workdates-start">
             Ended: <input type="date" name="workdates-end"><br>
-            Number of Hours Worked: <input type="text" name="numberhours"><br>
+            Number of Hours Worked: <input type="number" name="hoursworked" min="1" max="99999"><br>
             Describe your specific activities: <input type="text" name="activities"><br>
             Describe the value in what you did for the agency/site: 
             <input type="text" name="valuesite"><br>

@@ -62,9 +62,7 @@ session_start();
 					                  <div class="home-icon">
                      <a href="http://my.lerner.udel.edu/" title="myLerner"><i class="fa fa-home"></i></a>
                   </div>
-					                  <div class="home-icon">
-                     <a href="status.php" title="View your hours to date"><i class="fa fa-user" aria-hidden="true"></i></a>
-                </div>
+                
 			</nav>
 
 		</div><!-- #header-text-nav-container -->
@@ -82,58 +80,13 @@ session_start();
    <div class="article-content clearfix">
       
       <header class="entry-header">
-   		<h1 class="entry-title">Community Service Form</h1>
+   		<h1 class="entry-title">Community Service Status</h1>
    	</header>
    	   	
    	<div class="entry-content clearfix">
-        <form action="/form_submission.php" method="post">
+        Some Stuff
             
-            Today's date: <input type="text" name="todaydate" id="form-date" readonly><br>
-            First name: <input type="text" name="fname" value="<?php echo $_SESSION['cas_data']['FIRSTNAME']; ?>" readonly><br>
-            Last name: <input type="text" name="lname" value="<?php echo $_SESSION['cas_data']['LASTNAME']; ?>" readonly><br>
-            UDNetID: <input title="UD Email Prefix" type ="text" name="id"value="<?php echo $_SESSION['cas_data']['UDELNETID']; ?>" readonly><br>
-            Student email: <input type="email" name="email"value="<?php echo strtolower($_SESSION['cas_data']['EMAIL']); ?>" readonly><br>
-            Major: <select name="major"> 
-            <option value="HRIM">HRIM</option> 
-            <option value="HSIM">HSIM</option>
-            </select><br><br>
-            Organization: <input type="text" name="organization"><br>
-            Agency Website: <input type="text" name="website"><br>
-            Location/address of community site:
-            <input type="text" name="location"><br>
-            Non-profit agency that benefited from your service:
-            <input type="text" name="agency"><br>
-            Date(s) of Work: <br>
-            Started: <input type="date" name="workdates-start">
-            Ended: <input type="date" name="workdates-end"><br>
-            Number of Hours Worked: <input type="number" name="hoursworked" min="1" max="99999"><br>
-            Describe your specific activities: <input type="text" name="activities"><br>
-            Describe the value in what you did for the agency/site: 
-            <input type="text" name="valuesite"><br>
-            Describe the value in what this experience did for YOU (your comments 
-            about the experience): <input type="text" name="valueyou"><br>
-            <b>Contact information for supervisor at community site:</b><br><br><br>
-            Supervisor Name: <input type="text" name="supname"><br>
-            Supervisor Title: <input type="text" name="suptitle"><br>
-            Supervisor E-Mail: <input type="text" name="supemail"><br>
-            Supervisor Phone: <input type="text" name="supphone"><br>
-            <b>Is the Supervisor a student?<b>
-                <select>
-                    <option value="yes">YES</option>
-                    <option value="no">No</option>
-                </select><br><br>
-            <b>Is the Supervisor related to you?<b>
-                <select>
-                    <option value="yes">YES</option>
-                    <option value="no">NO</option>
-                </select><br><br>
-            <b>If yes to the above question(s), please resubmit form with a supervisor
-            who is not a student or relative.<b><br><br>
             
-            <!-- Signature of Student: <input type="text" name="supsig"><br> -->
-            
-          <input type="submit" value="Submit">
-        </form>
 
    </div>
 
@@ -175,7 +128,6 @@ session_start();
     const monthName = n.getMonth();
     const d = n.getDate();
     const day = n.getDay();
-    document.getElementById("form-date").value = m + "/" + d + "/" + y;
     document.getElementById("header-date").innerHTML = days[day] + ", " + monthNames[monthName] + " " + d + ", " + y;
 </script>
 		<a href="#masthead" id="scroll-up" style="display: none;"><i class="fa fa-chevron-up"></i></a>

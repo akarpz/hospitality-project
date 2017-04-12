@@ -11,9 +11,19 @@ echo 'Hello world from Hospitality!';
 
 echo "<br>";
 echo "<br>";
+?>
+
+<pre>
+  
+<?php
 
 print_r($_SESSION);
 
+?>
+
+</pre>
+
+<?php
 
 echo "<br>";
 echo "<br>";
@@ -22,15 +32,6 @@ print_r($_SESSION['cas_data']);
 
 echo "<br>";
 echo "<br>";
-
-print_r(session_status());
-print_r(is_session_started());
-print_r(isset($_SESSION));
-print_r($_SESSION["cas_data"]["FIRSTNAME"]);
-
-echo "starting session";
-
-print_r($_SESSION['cas_data']);
 
 $usertype = $_SESSION['cas_data']['PERSONTYPE'];
 
@@ -42,6 +43,12 @@ function isstudent($usertype) {
   else {
     return false;
   }
+}
+
+function isapprovedfaculty() {
+
+  //check cas_data against approved internal user table in db
+    //if match, redirect to internal user view, otherwise redirect to student view
 }
 
 if(isstudent($usertype)){

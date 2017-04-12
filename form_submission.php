@@ -1,5 +1,12 @@
+<html>
+    <pre>
+        <?php
+            print_r($_POST);
+        ?>
+    </pre>
+</html>
+
 <?php
-print_r($_POST);
 
 echo PHP_EOL;
 
@@ -28,6 +35,34 @@ if ($conn->connect_error) {
 } 
 echo "Connected successfully";
 
+//check for student
+//if student exists, create new record. else do nothing
 
+//check for supervisor
+//if supervisor exists, create new record. else do nothing
 
+//create hash for supervisor link
+function secure($password, $salt, $iter) {
+       $temp = hash("sha256","0".$password.$salt);
+       for($i=0;$i<$iter-1;$i++){
+           $temp = strtoupper(hash("sha256",$temp.$password.$salt));
+       }
+       return $temp;
+}
+
+$submission_insert = "INSERT INTO submission VALUES ('$_POST["fname"]', 'Doe', 'john@example.com')";
+
+if ($conn->query($submission_insert) === TRUE) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $submission_insert . "<br>" . $conn->error;
+}
+
+//create submission record
+
+//create record in student_submission table
+
+$conn->close();
+
+//redirect to page with hash, or email
 ?>

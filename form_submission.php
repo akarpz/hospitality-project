@@ -1,5 +1,7 @@
 <?php
-print_r($_POST . PHP_EOL);
+print_r($_POST);
+
+echo PHP_EOL;
 
 echo $_POST["todaydate"];
 echo $_POST["fname"];
@@ -25,4 +27,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
 echo "Connected successfully";
+
+
+
 ?>

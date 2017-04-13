@@ -50,7 +50,7 @@ function secure($password, $salt, $iter) {
        return $temp;
 }
 
-$submission_insert = "INSERT INTO submission VALUES ('shit', 'Doe', 'john@example.com')";
+$submission_insert = "INSERT INTO submission VALUES ('Jane', 'Doe', 'john@example.com')";
 
 if ($conn->query($submission_insert) === TRUE) {
     echo "New record created successfully";

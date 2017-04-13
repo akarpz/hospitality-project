@@ -45,6 +45,8 @@ $mysqli->close();
 
 print_r($submission_match);
 
+echo "Executed successfully";
+
 //next, echo this data to the fields below
 
 ?>

@@ -1,6 +1,8 @@
 <?php 
 session_start();
-include 'cas_setup.php';
+if(!isset($_SESSION['cas_data'])){
+    header("Location: http://serviceforms.lerner.udel.edu/index.php");
+}
 ?>
 <html lang="en-US"><head>
 <meta charset="UTF-8">

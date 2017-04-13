@@ -7,6 +7,10 @@
 </html>
 
 <?php
+session_start();
+if(!isset($_SESSION['cas_data'])){
+    header("Location: http://serviceforms.lerner.udel.edu/index.php");
+}
 
 echo PHP_EOL;
 

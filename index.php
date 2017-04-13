@@ -25,11 +25,6 @@ print_r($_SESSION);
 echo "<br>";
 echo "<br>";
 
-print_r($_SESSION['cas_data']);
-
-echo "<br>";
-echo "<br>";
-
 $usertype = $_SESSION['cas_data']['PERSONTYPE'];
 
 function isstudent($usertype) {

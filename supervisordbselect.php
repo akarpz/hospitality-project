@@ -1,9 +1,6 @@
 <?php
-$browser_url = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
 print_r($_GET);
-
-print_r($browser_url); //debug statement, remove later
 
 $servername = "localhost";
 $username = "root";
@@ -17,38 +14,38 @@ $conn = new mysqli($servername, $username, $password, $db_name);
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 } 
-echo "Connected successfully";
+echo "Connected successfully" . PHP_EOL;
 
 //prepare insert
 if (!($stmt = $conn->prepare("SELECT * FROM Submission WHERE Supervisor_Form_Link=?"))) {
      echo "Prepare failed: (" . $conn->errno . ") " . $conn->error;
 }
 
-echo "prepared successfully";
+echo "prepared successfully" . PHP_EOL;
 
 // bind variable to parameter
 if (!$stmt->bind_param("s", $browser_url)) {
     echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
 }
 
-echo "binded successfully";
+echo "binded successfully" . PHP_EOL;
 
 //execute
 if (!$stmt->execute()) {
     echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
 }
 
-echo "executed successfully";
+echo "executed successfully" . PHP_EOL;
 
 /* bind result variables */
 $stmt->bind_result($submission_match);
 
-echo "bind result successful";
+echo "bind result successful" . PHP_EOL;
 
 /* fetch value */
 $stmt->fetch();
 
-echo "fetch successful";
+echo "fetch successful" . PHP_EOL;
 
 /* close statement */
 $stmt->close();
@@ -58,7 +55,7 @@ $mysqli->close();
 
 print_r($submission_match);
 
-echo "Executed successfully";
+echo "Executed successfully" . PHP_EOL;
 
 //next, echo this data to the fields below
 

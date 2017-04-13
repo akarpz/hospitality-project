@@ -1,5 +1,35 @@
+<html>
+	<pre>
+		
+
 <?php 
 session_start();
+
+$browser_url = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+print_r($browser_url);
+
+$servername = "localhost";
+$username = "root";
+$password = "=76_kill_COMMON_market_8=";
+
+$conn = new mysqli($servername, $username, $password);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+echo "Connected successfully";
+
+$submission_insert = "SELECT * FROM submission WHERE supervisor_link=";
+
+if ($conn->query($submission_insert) === TRUE) {
+    echo "New record created successfully";
+} else {
+    echo "Error: " . $submission_insert . "<br>" . $conn->error;
+}
+
+
 ?>
 <html lang="en-US"><head>
 <meta charset="UTF-8">
@@ -132,4 +162,6 @@ session_start();
 </script>
 		<a href="#masthead" id="scroll-up" style="display: none;"><i class="fa fa-chevron-up"></i></a>
 	</div><!-- #page -->
+		</pre>
+
 </body></html>

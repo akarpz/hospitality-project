@@ -2,9 +2,6 @@
     <body>
 <?php
 session_start();
-// A simple web site in Cloud9 that runs through Apache
-// Press the 'Run' button on the top to start the web server,
-// then click the URL that is emitted to the Output tab of the console
 include 'cas_setup.php';
 
 echo 'Hello world from Hospitality!';
@@ -54,7 +51,7 @@ function isapprovedfaculty() {
 if(isstudent($usertype)){
     echo 'true';
 	echo $_SESSION['cas_data']['LASTNAME'];
-    //header("Location: http://serviceforms.lerner.udel.edu/index.html");
+    //header("Location: http://serviceforms.lerner.udel.edu/disclaimer.php");
     exit();
 }else {
     echo 'false';

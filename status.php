@@ -1,9 +1,9 @@
 <html>
-	<pre>
-		
+<pre>
 
 <?php 
 session_start();
+include 'cas_setup.php';
 
 $browser_url = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
@@ -12,6 +12,7 @@ print_r($browser_url);
 $servername = "localhost";
 $username = "root";
 $password = "=76_kill_COMMON_market_8=";
+$submission_match ="";
 
 $conn = new mysqli($servername, $username, $password);
 
@@ -21,13 +22,36 @@ if ($conn->connect_error) {
 } 
 echo "Connected successfully";
 
-$submission_insert = "SELECT * FROM submission WHERE supervisor_link=";
-
-if ($conn->query($submission_insert) === TRUE) {
-    echo "New record created successfully";
-} else {
-    echo "Error: " . $submission_insert . "<br>" . $conn->error;
+//prepare insert
+if (!($stmt = $mysqli->prepare("SELECT FROM submission WHERE supervisor_link = :browser_url"))) {
+     echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
 }
+
+// bind variable to parameter
+$id = 1;
+if (!$stmt->bind_param(":browser_url", $browser_url)) {
+    echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+}
+
+//execute
+if (!$stmt->execute()) {
+    echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+}
+
+/* bind result variables */
+$stmt->bind_result($submission_match);
+
+/* fetch value */
+$stmt->fetch();
+
+printf("%s The matching submission:  %s\n", $city, $submission_match);
+
+/* close statement */
+$stmt->close();
+
+/* close connection */
+$mysqli->close();
+
 
 
 ?>

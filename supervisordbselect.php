@@ -1,6 +1,8 @@
 <?php
 $browser_url = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
 
+print_r($_GET);
+
 print_r($browser_url); //debug statement, remove later
 
 $servername = "localhost";

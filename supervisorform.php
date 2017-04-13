@@ -1,5 +1,5 @@
 <?php
-include 'supervisordbselect';
+include 'supervisordbselect.php';
 ?>
 
 <html lang="en-US"><head>
@@ -87,7 +87,7 @@ include 'supervisordbselect';
         <form action="/form_submission.php" method="post">
    	        
    	        Today's Date: <input type="text" name="todaydate" id="form-date" readonly><br>
-   	        Student First Name: <input type="text" name="fname"><br>
+   	        Student First Name: <input type="text" name="fname" value="<?php echo $servername; ?>" readonly><br>
             Student Last Name: <input type="text" name="lname"><br>
             Student E-Mail: <input type="email" name="email"><br>
             Student ID: <input type ="text" name="id"><br>

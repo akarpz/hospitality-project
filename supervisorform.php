@@ -1,3 +1,54 @@
+<?php
+$browser_url = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
+
+print_r($browser_url); //debug statement, remove later
+
+$servername = "localhost";
+$username = "root";
+$password = "=76_kill_COMMON_market_8=";
+$submission_match ="";
+
+$conn = new mysqli($servername, $username, $password);
+
+// Check connection
+if ($conn->connect_error) {
+    die("Connection failed: " . $conn->connect_error);
+} 
+echo "Connected successfully";
+
+//prepare insert
+if (!($stmt = $mysqli->prepare("SELECT FROM submission WHERE supervisor_link = :browser_url"))) {
+     echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
+}
+
+// bind variable to parameter
+if (!$stmt->bind_param(":browser_url", $browser_url)) {
+    echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+}
+
+//execute
+if (!$stmt->execute()) {
+    echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+}
+
+/* bind result variables */
+$stmt->bind_result($submission_match);
+
+/* fetch value */
+$stmt->fetch();
+
+/* close statement */
+$stmt->close();
+
+/* close connection */
+$mysqli->close();
+
+print_r($submission_match);
+
+//next, echo this data to the fields below
+
+?>
+
 <html lang="en-US"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">

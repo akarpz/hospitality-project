@@ -121,12 +121,12 @@ if(!isset($_SESSION['cas_data'])){
             Supervisor E-Mail: <input type="text" name="supemail"><br>
             Supervisor Phone: <input type="text" name="supphone"><br>
             <b>Is the Supervisor a student?<b>
-                <select>
+                <select name = "supstudent?">
                     <option value="yes">YES</option>
                     <option value="no">No</option>
                 </select><br><br>
             <b>Is the Supervisor related to you?<b>
-                <select>
+                <select name = "suprelative?">
                     <option value="yes">YES</option>
                     <option value="no">NO</option>
                 </select><br><br>

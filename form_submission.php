@@ -37,11 +37,22 @@ echo "complete everything";
 function check_student() {
     echo "checking student" . PHP_EOL;
     global $conn;
-    if ($result = $conn->query('SELECT * FROM Student WHERE UDID = "'.$_POST["id"].'"')) {
+    $result = $conn->query('SELECT * FROM Student WHERE UDID = ?');
+    $result->bind_param('s', $_POST["id"]);
+    $result->execute();
+    $result->bind_result($student_record);
+    $result->fetch();
+    if(!empty($result)){
         echo "student exists" . PHP_EOL;
         check_supervisor();
         $result->close();
-    }else{
+    }
+    // if ($result = $conn->query('SELECT * FROM Student WHERE UDID = "'.$_POST["id"].'"')) {
+    //     echo "student exists" . PHP_EOL;
+    //     check_supervisor();
+    //     $result->close();
+    // }
+    else{
     echo "creating new student" . PHP_EOL;    
     $newstudent = $conn->prepare('INSERT INTO Student Values (?, ?, ?, ?, ?)');
     $newstudent->bind_param("sssss", $_POST["id"], $_POST["fname"], $_POST["lname"], $_POST["major"], $_POST["email"]);
@@ -54,12 +65,22 @@ function check_student() {
 function check_supervisor() {
     echo "checking supervisor" . PHP_EOL;
     global $conn;
-    //check for supervisor
-    if ($result = $conn->query('SELECT * FROM Supervisor WHERE Supervisor_Email = "'.$_POST["supemail"].'"')) {
-        //then supervisor exists
+    $result = $conn->query('SELECT * FROM Supervisor WHERE Supervisor_Email = ?');
+    $result->bind_param('s', $_POST["supemail"]);
+    $result->execute();
+    $result->bind_result($supervisor_record);
+    $result->fetch();
+    if(!empty($result)){
+        echo "supervisor exists" . PHP_EOL;
         create_submission($result["Supervisor_ID"]);
         $result->close();
-    }else{
+    }
+    // if ($result = $conn->query('SELECT * FROM Supervisor WHERE Supervisor_Email = "'.$_POST["supemail"].'"')) {
+    //     //then supervisor exists
+    //     create_submission($result["Supervisor_ID"]);
+    //     $result->close();
+    // }
+    else{
         //create new supervisor record with prepared statement
         $newsupervisor = $conn->prepare('INSERT INTO Supervisor Values(?,?,?,?,?,?,?)');
         $newsupervisor->bind_param("sssssii", $_POST["supfname"], $_POST["suplname"], $_POST["suptitle"], $_POST["supemail"], $_POST["supphone"], $_POST["supstudent?"], $_POST["suprelative?"]);

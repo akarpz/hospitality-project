@@ -48,7 +48,7 @@ function check_student() {
     }
     else{
     echo "creating new student" . PHP_EOL;    
-    $newstudent = $conn->prepare("INSERT INTO Student (UDID, First_Name, Last_Name, Major, Student_Email) Values (?, ?, ?, ?, ?)");
+    $newstudent = $conn->prepare("INSERT INTO Student (UDID, First_Name, Last_Name, Major, Student_Email) VALUES (?, ?, ?, ?, ?)");
 	echo gettype($_POST["id"]);
 	echo gettype($_POST["fname"]);
 	echo gettype($_POST["lname"]);

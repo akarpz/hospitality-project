@@ -53,6 +53,7 @@ function check_student() {
 	echo "Type of variable #2" . gettype($newstudent) . PHP_EOL;
 	$newstudent->bind_param("sssss", $_POST["id"], $_POST["fname"], $_POST["lname"], $_POST["major"], $_POST["email"]);
     $newstudent->execute();
+    $newstudent->close();
     echo "finished checking student" . PHP_EOL;
     check_supervisor();
     }
@@ -66,11 +67,11 @@ function check_supervisor() {
     $result->execute();
     $result->bind_result($supervisor_id);
     $result->fetch();
+    $result->close();
     print_r($result);
     if($result->num_rows > 0) {
         echo "supervisor exists" . PHP_EOL;
         create_submission($supervisor_id);
-        $result->close();
     }
     else{
         //create new supervisor record with prepared statement
@@ -78,6 +79,7 @@ function check_supervisor() {
         $newsupervisor->bind_param("sssssii", $_POST["supfname"], $_POST["suplname"], $_POST["suptitle"], $_POST["supemail"], $_POST["supphone"], $_POST["supstudent?"], $_POST["suprelative?"]);
         $newsupervisor->execute();
         $newsupervisorid = $conn->insert_id;
+        $newsupervisor->close();
         echo "finished checking supervisor" . PHP_EOL;
         create_submission($newsupervisorid);
     }
@@ -97,6 +99,7 @@ function create_submission($supervisor_id) {
     
     $newsubmission->execute();
     $submission_id = $conn->insert_id;
+    $newsubmission->close();
     echo "finished checking submission" . PHP_EOL;
     create_student_submission($submission_id);
 }
@@ -104,9 +107,10 @@ function create_submission($supervisor_id) {
 function create_student_submission($submission_id) {
     echo "checking student submission" . PHP_EOL;
     global $conn;
-    $statement = $conn->prepare('INSERT INTO Student_Submissions VALUES (?, ?)');
-    $statement->bind_param("ss", $_POST["id"], $submission_id);
-    $statement->execute();
+    $new_student_submission_record = $conn->prepare('INSERT INTO Student_Submissions VALUES (?, ?)');
+    $new_student_submission_record->bind_param("ss", $_POST["id"], $submission_id);
+    $new_student_submission_record->execute();
+    $new_student_submission_record->close();
     echo "finished checking student submission" . PHP_EOL;
 }
 

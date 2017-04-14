@@ -35,10 +35,11 @@ echo "complete everything";
 function check_student() {
     echo "checking student" . PHP_EOL;
     if ($result = $conn->query('SELECT * FROM Student WHERE UDID = "'.$_POST["id"].'"')) {
-        //then student exists
+         echo "student exists" . PHP_EOL;
         check_supervisor();
         $result->close();
-    }else{ //create new student record with prepared statement
+    }else{
+    echo "creating new student" . PHP_EOL;    
     $newstudent = $conn->prepare('INSERT INTO Student Values (?, ?, ?, ?, ?)');
     $newstudent->bind_param("sssss", $_POST["id"], $_POST["fname"], $_POST["lname"], $_POST["major"], $_POST["email"]);
     $newstudent->execute();

@@ -37,7 +37,7 @@ echo "complete everything";
 function check_student() {
     echo "checking student" . PHP_EOL;
     global $conn;
-    $result = $conn->query('SELECT * FROM Student WHERE UDID = ?');
+    $result = $conn->prepare('SELECT * FROM Student WHERE UDID = ?');
     $result->bind_param('s', $_POST["id"]);
     $result->execute();
     $result->bind_result($student_record);
@@ -65,7 +65,7 @@ function check_student() {
 function check_supervisor() {
     echo "checking supervisor" . PHP_EOL;
     global $conn;
-    $result = $conn->query('SELECT * FROM Supervisor WHERE Supervisor_Email = ?');
+    $result = $conn->prepare('SELECT * FROM Supervisor WHERE Supervisor_Email = ?');
     $result->bind_param('s', $_POST["supemail"]);
     $result->execute();
     $result->bind_result($supervisor_record);

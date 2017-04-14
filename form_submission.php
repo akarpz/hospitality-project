@@ -36,6 +36,7 @@ function check_student() {
     echo "checking student" . PHP_EOL;
     global $conn;
     $result = $conn->prepare('SELECT UDID FROM Student WHERE UDID = ?');
+    echo "Type of variable #1" . gettype($result) . PHP_EOL;
     $result->bind_param('s', $_POST["id"]);
     $result->execute();
     $result->bind_result($udid);
@@ -49,6 +50,7 @@ function check_student() {
     else{
     echo "creating new student" . PHP_EOL;    
     $newstudent = $conn->prepare("INSERT INTO Student (UDID, First_Name, Last_Name, Major, Student_Email) VALUES (?, ?, ?, ?, ?)");
+	echo "Type of variable #2" . gettype($newstudent) . PHP_EOL;
 	echo gettype($_POST["id"]);
 	echo gettype($_POST["fname"]);
 	echo gettype($_POST["lname"]);

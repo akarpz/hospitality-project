@@ -42,20 +42,15 @@ function check_student() {
     $result->bind_result($udid);
     $result->fetch();
     print_r($result);
+    $result->close();
     if($result->num_rows > 0) {
         echo "student exists" . PHP_EOL;
         check_supervisor();
-        $result->close();
     }
     else{
     echo "creating new student" . PHP_EOL;    
     $newstudent = $conn->prepare("INSERT INTO Student (UDID, First_Name, Last_Name, Major, Student_Email) VALUES (?, ?, ?, ?, ?)");
 	echo "Type of variable #2" . gettype($newstudent) . PHP_EOL;
-	echo gettype($_POST["id"]);
-	echo gettype($_POST["fname"]);
-	echo gettype($_POST["lname"]);
-	echo gettype($_POST["major"]);
-	echo gettype($_POST["email"]);
 	$newstudent->bind_param("sssss", $_POST["id"], $_POST["fname"], $_POST["lname"], $_POST["major"], $_POST["email"]);
     $newstudent->execute();
     echo "finished checking student" . PHP_EOL;

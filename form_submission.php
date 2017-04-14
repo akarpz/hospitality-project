@@ -19,6 +19,7 @@ $username = "root";
 $password = "=76_kill_COMMON_market_8=";
 $db_name = "hospitality-serviceform-db";
 $hash;
+global $conn;
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $db_name);

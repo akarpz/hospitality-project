@@ -3,8 +3,6 @@
         <?php
             print_r($_POST);
         ?>
-    </pre>
-</html>
 
 <?php
 session_start();
@@ -37,25 +35,26 @@ echo "complete everything";
 function check_student() {
     echo "checking student" . PHP_EOL;
     global $conn;
-    $result = $conn->prepare('SELECT * FROM Student WHERE UDID = ?');
+    $result = $conn->prepare('SELECT UDID FROM Student WHERE UDID = ?');
     $result->bind_param('s', $_POST["id"]);
     $result->execute();
-    $result->bind_result($student_record);
+    $result->bind_result($udid);
     $result->fetch();
-    if(!empty($result)){
+    print_r($result);
+    if($result->num_rows > 0) {
         echo "student exists" . PHP_EOL;
         check_supervisor();
         $result->close();
     }
-    // if ($result = $conn->query('SELECT * FROM Student WHERE UDID = "'.$_POST["id"].'"')) {
-    //     echo "student exists" . PHP_EOL;
-    //     check_supervisor();
-    //     $result->close();
-    // }
     else{
     echo "creating new student" . PHP_EOL;    
     $newstudent = $conn->prepare('INSERT INTO Student Values (?, ?, ?, ?, ?)');
-    $newstudent->bind_param("sssss", $_POST["id"], $_POST["fname"], $_POST["lname"], $_POST["major"], $_POST["email"]);
+	echo gettype($_POST["id"]);
+	echo gettype($_POST["fname"]);
+	echo gettype($_POST["lname"]);
+	echo gettype($_POST["major"]);
+	echo gettype($_POST["email"];
+   $newstudent->bind_param("sssss", $_POST["id"], $_POST["fname"], $_POST["lname"], $_POST["major"], $_POST["email"]);
     $newstudent->execute();
     echo "finished checking student" . PHP_EOL;
     check_supervisor();
@@ -65,21 +64,17 @@ function check_student() {
 function check_supervisor() {
     echo "checking supervisor" . PHP_EOL;
     global $conn;
-    $result = $conn->prepare('SELECT * FROM Supervisor WHERE Supervisor_Email = ?');
+    $result = $conn->prepare('SELECT Supervisor_ID FROM Supervisor WHERE Supervisor_Email = ?');
     $result->bind_param('s', $_POST["supemail"]);
     $result->execute();
-    $result->bind_result($supervisor_record);
+    $result->bind_result($supervisor_id);
     $result->fetch();
-    if(!empty($result)){
+    print_r($result);
+    if($result->num_rows > 0) {
         echo "supervisor exists" . PHP_EOL;
-        create_submission($result["Supervisor_ID"]);
+        create_submission($supervisor_id);
         $result->close();
     }
-    // if ($result = $conn->query('SELECT * FROM Supervisor WHERE Supervisor_Email = "'.$_POST["supemail"].'"')) {
-    //     //then supervisor exists
-    //     create_submission($result["Supervisor_ID"]);
-    //     $result->close();
-    // }
     else{
         //create new supervisor record with prepared statement
         $newsupervisor = $conn->prepare('INSERT INTO Supervisor Values(?,?,?,?,?,?,?)');
@@ -134,3 +129,5 @@ $conn->close();
 print_r("http://serviceforms.lerner.udel.edu/supervisorform.php?ref=" . $hash);
 //redirect to page with hash, or email
 ?>
+</pre>
+</html>

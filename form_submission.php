@@ -14,12 +14,12 @@ if(!isset($_SESSION['cas_data'])){
 
 echo PHP_EOL;
 
-$servername = "localhost";
-$username = "root";
-$password = "=76_kill_COMMON_market_8=";
-$db_name = "hospitality-serviceform-db";
-$hash;
-global $conn;
+global $servername = "localhost";
+global $username = "root";
+global $password = "=76_kill_COMMON_market_8=";
+global $db_name = "hospitality-serviceform-db";
+global $hash;
+
 
 // Create connection
 $conn = new mysqli($servername, $username, $password, $db_name);
@@ -36,6 +36,7 @@ check_student();
 echo "complete everything";
 function check_student() {
     echo "checking student" . PHP_EOL;
+    $conn = new mysqli($servername, $username, $password, $db_name);
     if ($result = $conn->query('SELECT * FROM Student WHERE UDID = "'.$_POST["id"].'"')) {
         echo "student exists" . PHP_EOL;
         check_supervisor();
@@ -45,6 +46,7 @@ function check_student() {
     $newstudent = $conn->prepare('INSERT INTO Student Values (?, ?, ?, ?, ?)');
     $newstudent->bind_param("sssss", $_POST["id"], $_POST["fname"], $_POST["lname"], $_POST["major"], $_POST["email"]);
     $newstudent->execute();
+    $conn->close();
     echo "finished checking student" . PHP_EOL;
     check_supervisor();
     }
@@ -52,6 +54,7 @@ function check_student() {
 
 function check_supervisor() {
     echo "checking supervisor" . PHP_EOL;
+    $conn = new mysqli($servername, $username, $password, $db_name);
     //check for supervisor
     if ($result = $conn->query('SELECT * FROM Supervisor WHERE Supervisor_Email = "'.$_POST["supemail"].'"')) {
         //then supervisor exists
@@ -63,6 +66,7 @@ function check_supervisor() {
         $newsupervisor->bind_param("sssssii", $_POST["supfname"], $_POST["suplname"], $_POST["suptitle"], $_POST["supemail"], $_POST["supphone"], $_POST["supstudent?"], $_POST["suprelative?"]);
         $newsupervisor->execute();
         $newsupervisorid = $conn->insert_id;
+        $conn->close();
         echo "finished checking supervisor" . PHP_EOL;
         create_submission($newsupervisorid);
     }
@@ -70,6 +74,7 @@ function check_supervisor() {
 
 function create_submission($supervisor_id) { 
     echo "checking submission" . PHP_EOL;
+    $conn = new mysqli($servername, $username, $password, $db_name);
     $hashinput = $_POST["todaydate"] . $_POST["workdates-start"] . $_POST["workdates-end"];
     $hash = secure($hashinput, $supervisor_id, 100);
     //create the rest of submission
@@ -81,15 +86,18 @@ function create_submission($supervisor_id) {
     
     $newsubmission->execute();
     $submission_id = $conn->insert_id;
+    $conn->close();
     echo "finished checking submission" . PHP_EOL;
     create_student_submission($submission_id);
 }
 
 function create_student_submission($submission_id) {
     echo "checking student submission" . PHP_EOL;
+    $conn = new mysqli($servername, $username, $password, $db_name);
     $statement = $conn->prepare('INSERT INTO Student_Submissions VALUES (?, ?)');
     $statement->bind_param("ss", $_POST["id"], $submission_id);
     $statement->execute();
+    $conn->close();
     echo "finished checking student submission" . PHP_EOL;
 }
 
@@ -104,7 +112,6 @@ function secure($password, $salt, $iter) {
        return $temp;
 }
 echo "closing connection" . PHP_EOL;
-$conn->close();
 
 print_r("http://serviceforms.lerner.udel.edu/supervisorform.php?ref=" . $hash);
 //redirect to page with hash, or email

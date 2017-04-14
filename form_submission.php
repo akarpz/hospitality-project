@@ -48,13 +48,13 @@ function check_student() {
     }
     else{
     echo "creating new student" . PHP_EOL;    
-    $newstudent = $conn->prepare('INSERT INTO Student Values (?, ?, ?, ?, ?)');
+    $newstudent = $conn->prepare("INSERT INTO Student (UDID, First_Name, Last_Name, Major, Student_Email) Values (?, ?, ?, ?, ?)");
 	echo gettype($_POST["id"]);
 	echo gettype($_POST["fname"]);
 	echo gettype($_POST["lname"]);
 	echo gettype($_POST["major"]);
-	echo gettype($_POST["email"];
-   $newstudent->bind_param("sssss", $_POST["id"], $_POST["fname"], $_POST["lname"], $_POST["major"], $_POST["email"]);
+	echo gettype($_POST["email"]);
+	$newstudent->bind_param("sssss", $_POST["id"], $_POST["fname"], $_POST["lname"], $_POST["major"], $_POST["email"]);
     $newstudent->execute();
     echo "finished checking student" . PHP_EOL;
     check_supervisor();
@@ -77,7 +77,7 @@ function check_supervisor() {
     }
     else{
         //create new supervisor record with prepared statement
-        $newsupervisor = $conn->prepare('INSERT INTO Supervisor Values(?,?,?,?,?,?,?)');
+        $newsupervisor = $conn->prepare('INSERT INTO Supervisor Values (?,?,?,?,?,?,?)');
         $newsupervisor->bind_param("sssssii", $_POST["supfname"], $_POST["suplname"], $_POST["suptitle"], $_POST["supemail"], $_POST["supphone"], $_POST["supstudent?"], $_POST["suprelative?"]);
         $newsupervisor->execute();
         $newsupervisorid = $conn->insert_id;

@@ -17,10 +17,11 @@ echo PHP_EOL;
 $servername = "localhost";
 $username = "root";
 $password = "=76_kill_COMMON_market_8=";
+$db_name = "hospitality-serviceform-db";
 $hash;
 
 // Create connection
-$conn = new mysqli($servername, $username, $password);
+$conn = new mysqli($servername, $username, $password, $db_name);
 
 // Check connection
 if ($conn->connect_error) {
@@ -35,7 +36,7 @@ echo "complete everything";
 function check_student() {
     echo "checking student" . PHP_EOL;
     if ($result = $conn->query('SELECT * FROM Student WHERE UDID = "'.$_POST["id"].'"')) {
-         echo "student exists" . PHP_EOL;
+        echo "student exists" . PHP_EOL;
         check_supervisor();
         $result->close();
     }else{

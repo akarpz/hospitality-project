@@ -35,12 +35,20 @@ echo "complete everything";
 function check_student() {
     echo "checking student" . PHP_EOL;
     global $conn;
-    $result = $conn->prepare('SELECT UDID FROM Student WHERE UDID = ?');
+    if(!$result = $conn->prepare('SELECT UDID FROM Student WHERE UDID = ?')) {
+        echo "Check for Student Prepare failed: (" . $conn->errno . ") " . $conn->error;
+    }
     echo "Type of variable #1" . gettype($result) . PHP_EOL;
-    $result->bind_param('s', $_POST["id"]);
-    $result->execute();
+    if(!$result->bind_param('s', $_POST["id"])) {
+        echo "Check for Student Bind failed: (" . $conn->errno . ") " . $conn->error;
+    }
+    if(!$result->execute()) {
+        echo "Check for student Execute failed: (" . $conn->errno . ") " . $conn->error;
+    }
     $result->bind_result($udid);
-    $result->fetch();
+    if(!$result->fetch()) {
+        echo "Check for student Fetch failed: (" . $conn->errno . ") " . $conn->error;
+    }
     print_r($result);
     $result->close();
     if($result->num_rows > 0) {
@@ -64,7 +72,9 @@ function check_student() {
 function check_supervisor() {
     echo "checking supervisor" . PHP_EOL;
     global $conn;
-    $result = $conn->prepare('SELECT Supervisor_ID FROM Supervisor WHERE Supervisor_Email = ?');
+    if(!$result = $conn->prepare('SELECT Supervisor_ID FROM Supervisor WHERE Supervisor_Email = ?')) {
+        echo "Check for supervisor Prepare failed: (" . $conn->errno . ") " . $conn->error;
+    }
     $result->bind_param('s', $_POST["supemail"]);
     $result->execute();
     $result->bind_result($supervisor_id);

@@ -50,12 +50,14 @@ function check_student() {
         echo "Check for student Fetch failed: (" . $conn->errno . ") " . $conn->error;
     }
     print_r($result);
-    $result->close();
+    //$result->close();
     if($result->num_rows > 0) {
         echo "student exists" . PHP_EOL;
+	$result->close();
         check_supervisor();
     }
     else{
+	$result->close();
     echo "creating new student" . PHP_EOL;
     if(!$newstudent = $conn->prepare("INSERT INTO Student (UDID, First_Name, Last_Name, Major, Student_Email) VALUES (?, ?, ?, ?, ?)")) {
         echo "Student Insert Prepare failed: (" . $conn->errno . ") " . $conn->error;
@@ -114,7 +116,7 @@ function create_submission($supervisor_id) {
     }
     $newsubmission->bind_param("isssssisssssis", $supervisor_id, $_POST["website"], $_POST["location"], $_POST["agency"], $_POST["workdates-start"], 
     $_POST["workdates-end"], $_POST["hoursworked"], $_POST["activities"], $_POST["valuesite"], $_POST["valueyou"],
-    $_POST["todaydate"], $_POST["hash"]);
+    $_POST["todaydate"], $hash);
     
     $newsubmission->execute();
     $submission_id = $conn->insert_id;

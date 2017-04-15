@@ -85,7 +85,7 @@ function check_supervisor() {
     echo "Number of rows in supervisor check: " . $result->num_rows . PHP_EOL;
     if($supervisor_id != "") {
         echo "supervisor exists" . PHP_EOL;
-	$result->close();
+	    $result->close();
         create_submission($supervisor_id);
 	
     }
@@ -101,6 +101,7 @@ function check_supervisor() {
         $newsupervisorid = $conn->insert_id;
         $newsupervisor->close();
         echo "finished checking supervisor" . PHP_EOL;
+        echo "NEW SUPERVISORID : " . $newsupervisorid . PHP_EOL;
         create_submission($newsupervisorid);
     }
 }

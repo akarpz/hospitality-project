@@ -80,7 +80,7 @@ function check_supervisor() {
     	$result->close();
         //create new supervisor record with prepared statement
         if(!$newsupervisor = $conn->prepare('INSERT INTO Supervisor (First_Name, Last_Name, Supervisor_Title, Supervisor_Email,
-            Supervisor_Phone, Supervisor_Student?, Supervisor_Related?) Values (?,?,?,?,?,?,?)')) {
+            Supervisor_Phone, Supervisor_Student'?', Supervisor_Related'?') Values (?,?,?,?,?,?,?)')) {
                 echo "Supervisor Insert Prepare failed: (" . $conn->errno . ") " . $conn->error;
         }
     	echo "Newsupervisor object type: " . gettype($newsupervisor);

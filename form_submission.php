@@ -49,8 +49,7 @@ function check_student() {
     if(!$result->fetch()) {
         echo "Check for student Fetch failed: (" . $conn->errno . ") " . $conn->error;
     }
-    print_r($result);
-    //$result->close();
+    echo "number of rows in student check: " . $result->num_rows . PHP_EOL;
     if($result->num_rows > 0) {
         echo "student exists" . PHP_EOL;
 	$result->close();
@@ -81,7 +80,7 @@ function check_supervisor() {
     $result->execute();
     $result->bind_result($supervisor_id);
     $result->fetch();
-    print_r($result->num_rows);
+    echo "Number of rows in supervisor check: " . $result->num_rows . PHP_EOL;
     if($result->num_rows > 0) {
         echo "supervisor exists" . PHP_EOL;
 	$result->close();

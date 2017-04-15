@@ -94,7 +94,7 @@ function check_supervisor() {
 
 function create_submission($supervisor_id) { 
     echo "checking submission" . PHP_EOL;
-    global $conn;
+    global $conn, $hash;
     $hashinput = $_POST["todaydate"] . $_POST["workdates-start"] . $_POST["workdates-end"];
     $hash = secure($hashinput, $supervisor_id, 100);
     //create the rest of submission

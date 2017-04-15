@@ -48,8 +48,10 @@ function check_student() {
         check_supervisor();
     }
     else{
-    echo "creating new student" . PHP_EOL;    
-    $newstudent = $conn->prepare("INSERT INTO Student (UDID, First_Name, Last_Name, Major, Student_Email) VALUES (?, ?, ?, ?, ?)");
+    echo "creating new student" . PHP_EOL;
+    if(!$newstudent = $conn->prepare("INSERT INTO Student (UDID, First_Name, Last_Name, Major, Student_Email) VALUES (?, ?, ?, ?, ?)")) {
+        echo "Student Insert Prepare failed: (" . $conn->errno . ") " . $conn->error;
+    }
 	echo "Type of variable #2" . gettype($newstudent) . PHP_EOL;
 	$newstudent->bind_param("sssss", $_POST["id"], $_POST["fname"], $_POST["lname"], $_POST["major"], $_POST["email"]);
     $newstudent->execute();
@@ -75,7 +77,10 @@ function check_supervisor() {
     }
     else{
         //create new supervisor record with prepared statement
-        $newsupervisor = $conn->prepare('INSERT INTO Supervisor Values (?,?,?,?,?,?,?)');
+        if(!$newsupervisor = $conn->prepare('INSERT INTO Supervisor (First_Name, Last_Name, Supervisor_Title, Supervisor_Email,
+        Supervisor_Phone, Supervisor_Student?, Supervisor_Related?) Values (?,?,?,?,?,?,?)')) {
+            echo "Supervisor Insert Prepare failed: (" . $conn->errno . ") " . $conn->error;
+        }
         $newsupervisor->bind_param("sssssii", $_POST["supfname"], $_POST["suplname"], $_POST["suptitle"], $_POST["supemail"], $_POST["supphone"], $_POST["supstudent?"], $_POST["suprelative?"]);
         $newsupervisor->execute();
         $newsupervisorid = $conn->insert_id;

@@ -115,12 +115,12 @@ include 'supervisordbselect.php';
             Supervisor E-mail: <input type="text" name="supemail"><br>
             Supervisor Phone: <input type="text" name="supphone"><br>
             <b>Are you a student at UD?<b>
-                <select>
+                <select name = "supstudent?">
                     <option value="yes">YES</option>
                     <option value="no">NO</option>
                 </select><br><br>
             <b>Are you related to the student who sent you this form?<b>
-                <select>
+                <select name = "suprelative?">
                     <option value="yes">YES</option>
                     <option value="no">NO</option>
                 </select><br><br>

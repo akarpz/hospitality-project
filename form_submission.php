@@ -44,7 +44,7 @@ function check_student() {
     }
     if(!$result->execute()) {
         echo "Check for student Execute failed: (" . $conn->errno . ") " . $conn->error;
-    // }
+    }
     // $result->bind_result($udid);
     // while($result->fetch()) {
     //     echo "UDID match: " . $udid . PHP_EOL;

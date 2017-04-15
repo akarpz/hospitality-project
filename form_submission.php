@@ -69,18 +69,21 @@ function check_supervisor() {
     $result->execute();
     $result->bind_result($supervisor_id);
     $result->fetch();
-    $result->close();
-    print_r($result);
+    print_r($result->num_rows);
     if($result->num_rows > 0) {
         echo "supervisor exists" . PHP_EOL;
+	$result->close();
         create_submission($supervisor_id);
+	
     }
     else{
+    	$result->close();
         //create new supervisor record with prepared statement
         if(!$newsupervisor = $conn->prepare('INSERT INTO Supervisor (First_Name, Last_Name, Supervisor_Title, Supervisor_Email,
-        Supervisor_Phone, Supervisor_Student?, Supervisor_Related?) Values (?,?,?,?,?,?,?)')) {
-            echo "Supervisor Insert Prepare failed: (" . $conn->errno . ") " . $conn->error;
+            Supervisor_Phone, Supervisor_Student?, Supervisor_Related?) Values (?,?,?,?,?,?,?)')) {
+                echo "Supervisor Insert Prepare failed: (" . $conn->errno . ") " . $conn->error;
         }
+    	echo "Newsupervisor object type: " . gettype($newsupervisor);
         $newsupervisor->bind_param("sssssii", $_POST["supfname"], $_POST["suplname"], $_POST["suptitle"], $_POST["supemail"], $_POST["supphone"], $_POST["supstudent?"], $_POST["suprelative?"]);
         $newsupervisor->execute();
         $newsupervisorid = $conn->insert_id;

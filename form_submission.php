@@ -49,7 +49,7 @@ function check_student() {
     while($result->fetch()) {
         echo "UDID match: " . $udid . PHP_EOL;
     }
-    echo "UDID"
+    echo "UDID" . $udid . PHP_EOL;
     echo "number of rows in student check: " . $result->num_rows . PHP_EOL;
     if($udid == $_POST["id"]) {
         echo "student exists" . PHP_EOL;

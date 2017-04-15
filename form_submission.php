@@ -116,22 +116,32 @@ function create_submission($supervisor_id) {
     if(!$newsubmission = $conn->prepare('INSERT INTO Submission VALUES (0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NULL, ?)')) {
         echo "Submission Insert Prepare failed: (" . $conn->errno . ") " . $conn->error;
     }
-    $newsubmission->bind_param("isssssissssss", $supervisor_id, $_POST["website"], $_POST["location"], $_POST["agency"], $_POST["workdates-start"], 
-    $_POST["workdates-end"], $_POST["hoursworked"], $_POST["activities"], $_POST["valuesite"], $_POST["valueyou"], $_POST["todaydate"], $_POST["organization"], $hash);
+    if!($newsubmission->bind_param("isssssissssss", $supervisor_id, $_POST["website"], $_POST["location"], $_POST["agency"], $_POST["workdates-start"], 
+    $_POST["workdates-end"], $_POST["hoursworked"], $_POST["activities"], $_POST["valuesite"], $_POST["valueyou"], $_POST["todaydate"], $_POST["organization"], $hash)) {
+        echo "Submission Insert Bind failed: (" . $conn->errno . ") " . $conn->error;
+    }
     
-    $newsubmission->execute();
+    if(!$newsubmission->execute()) {
+        echo "Submission Insert Execute failed: (" . $conn->errno . ") " . $conn->error;
+    }
     $submission_id = $conn->insert_id;
     $newsubmission->close();
-    echo "finished checking submission" . PHP_EOL;
+    echo "finished checking submissionm, SUBMISSION ID : " . $submission_id . PHP_EOL;
     create_student_submission($submission_id);
 }
 
 function create_student_submission($submission_id) {
-    echo "checking student submission" . PHP_EOL;
+    echo "checking student submissionm, SUBMISSION ID: " . $submission_id . PHP_EOL;
     global $conn;
-    $new_student_submission_record = $conn->prepare('INSERT INTO Student_Submissions VALUES (?, ?)');
-    $new_student_submission_record->bind_param("ss", $_POST["id"], $submission_id);
-    $new_student_submission_record->execute();
+    if(!$new_student_submission_record = $conn->prepare('INSERT INTO Student_Submissions VALUES (?, ?)')) {
+        echo "Student_Submission Insert Prepare failed: (" . $conn->errno . ") " . $conn->error;
+    }
+    if(!$new_student_submission_record->bind_param("ss", $_POST["id"], $submission_id)) {
+        echo "Student_Submission Insert Bind failed: (" . $conn->errno . ") " . $conn->error;
+    }
+    if(!$new_student_submission_record->execute()) {
+        echo "Student_Submission Insert Execute failed: (" . $conn->errno . ") " . $conn->error;
+    }
     $new_student_submission_record->close();
     echo "finished checking student submission" . PHP_EOL;
 }

@@ -116,7 +116,8 @@ if(!isset($_SESSION['cas_data'])){
             Describe the value in what this experience did for YOU (your comments 
             about the experience): <input type="text" name="valueyou"><br>
             <b>Contact information for supervisor at community site:</b><br><br><br>
-            Supervisor Name: <input type="text" name="supname"><br>
+            Supervisor First Name: <input type="text" name="supfname"><br>
+            Supervisor Last Name: <input type="text" name="suplname"><br>
             Supervisor Title: <input type="text" name="suptitle"><br>
             Supervisor E-Mail: <input type="text" name="supemail"><br>
             Supervisor Phone: <input type="text" name="supphone"><br>

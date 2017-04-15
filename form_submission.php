@@ -45,13 +45,13 @@ function check_student() {
     if(!$result->execute()) {
         echo "Check for student Execute failed: (" . $conn->errno . ") " . $conn->error;
     }
-    // $result->bind_result($udid);
-    // while($result->fetch()) {
-    //     echo "UDID match: " . $udid . PHP_EOL;
-    // }
-    // echo "UDID"
-    // echo "number of rows in student check: " . $result->num_rows . PHP_EOL;
-    if($result->num_rows > 0) {
+    $result->bind_result($udid);
+    while($result->fetch()) {
+        echo "UDID match: " . $udid . PHP_EOL;
+    }
+    echo "UDID"
+    echo "number of rows in student check: " . $result->num_rows . PHP_EOL;
+    if($udid == $_POST["id"]) {
         echo "student exists" . PHP_EOL;
 	    $result->close();
         check_supervisor();

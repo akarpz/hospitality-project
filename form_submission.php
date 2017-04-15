@@ -99,7 +99,7 @@ function create_submission($supervisor_id) {
     $hash = secure($hashinput, $supervisor_id, 100);
     //create the rest of submission
     
-    if(!$newsubmission = $conn->prepare('INSERT INTO Submission VALUES (0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?')) {
+    if(!$newsubmission = $conn->prepare('INSERT INTO Submission VALUES (0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')) {
         echo "Submission Insert Prepare failed: (" . $conn->errno . ") " . $conn->error;
     }
     $newsubmission->bind_param("isssssisssssis", $supervisor_id, $_POST["website"], $_POST["location"], $_POST["agency"], $_POST["workdates-start"], 

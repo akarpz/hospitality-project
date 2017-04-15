@@ -98,7 +98,7 @@ function create_submission($supervisor_id) {
     $hashinput = $_POST["todaydate"] . $_POST["workdates-start"] . $_POST["workdates-end"];
     $hash = secure($hashinput, $supervisor_id, 100);
     //create the rest of submission
-    
+    echo "Hash value: " . $hash . PHP_EOL;
     if(!$newsubmission = $conn->prepare('INSERT INTO Submission VALUES (0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')) {
         echo "Submission Insert Prepare failed: (" . $conn->errno . ") " . $conn->error;
     }

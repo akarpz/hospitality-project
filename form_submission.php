@@ -57,17 +57,17 @@ function check_student() {
         check_supervisor();
     }
     else{
-	$result->close();
-    echo "creating new student" . PHP_EOL;
-    if(!$newstudent = $conn->prepare("INSERT INTO Student (UDID, First_Name, Last_Name, Major, Student_Email) VALUES (?, ?, ?, ?, ?)")) {
-        echo "Student Insert Prepare failed: (" . $conn->errno . ") " . $conn->error;
-    }
-	echo "Type of variable #2" . gettype($newstudent) . PHP_EOL;
-	$newstudent->bind_param("sssss", $_POST["id"], $_POST["fname"], $_POST["lname"], $_POST["major"], $_POST["email"]);
-    $newstudent->execute();
-    $newstudent->close();
-    echo "finished checking student" . PHP_EOL;
-    check_supervisor();
+    	$result->close();
+        echo "creating new student" . PHP_EOL;
+        if(!$newstudent = $conn->prepare("INSERT INTO Student (UDID, First_Name, Last_Name, Major, Student_Email) VALUES (?, ?, ?, ?, ?)")) {
+            echo "Student Insert Prepare failed: (" . $conn->errno . ") " . $conn->error;
+        }
+    	echo "Type of variable #2" . gettype($newstudent) . PHP_EOL;
+    	$newstudent->bind_param("sssss", $_POST["id"], $_POST["fname"], $_POST["lname"], $_POST["major"], $_POST["email"]);
+        $newstudent->execute();
+        $newstudent->close();
+        echo "finished checking student" . PHP_EOL;
+        check_supervisor();
     }
 }
 
@@ -81,8 +81,9 @@ function check_supervisor() {
     $result->execute();
     $result->bind_result($supervisor_id);
     $result->fetch();
+    echo "supervisor id on match" . $supervisor_id . PHP_EOL;
     echo "Number of rows in supervisor check: " . $result->num_rows . PHP_EOL;
-    if($result->num_rows > 0) {
+    if($supervisor_id != "") {
         echo "supervisor exists" . PHP_EOL;
 	$result->close();
         create_submission($supervisor_id);

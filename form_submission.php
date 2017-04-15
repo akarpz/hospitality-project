@@ -113,12 +113,11 @@ function create_submission($supervisor_id) {
     $hash = secure($hashinput, $supervisor_id, 100);
     //create the rest of submission
     echo "Hash value: " . $hash . PHP_EOL;
-    if(!$newsubmission = $conn->prepare('INSERT INTO Submission VALUES (0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)')) {
+    if(!$newsubmission = $conn->prepare('INSERT INTO Submission VALUES (0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NULL, ?)')) {
         echo "Submission Insert Prepare failed: (" . $conn->errno . ") " . $conn->error;
     }
-    $newsubmission->bind_param("isssssisssssis", $supervisor_id, $_POST["website"], $_POST["location"], $_POST["agency"], $_POST["workdates-start"], 
-    $_POST["workdates-end"], $_POST["hoursworked"], $_POST["activities"], $_POST["valuesite"], $_POST["valueyou"],
-    $_POST["todaydate"], $hash);
+    $newsubmission->bind_param("isssssissssss", $supervisor_id, $_POST["website"], $_POST["location"], $_POST["agency"], $_POST["workdates-start"], 
+    $_POST["workdates-end"], $_POST["hoursworked"], $_POST["activities"], $_POST["valuesite"], $_POST["valueyou"], $_POST["todaydate"], $_POST["organization"], $hash);
     
     $newsubmission->execute();
     $submission_id = $conn->insert_id;

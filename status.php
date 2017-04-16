@@ -1,6 +1,3 @@
-<html>
-<pre>
-
 <?php 
 session_start();
 if(!isset($_SESSION['cas_data'])){
@@ -10,8 +7,9 @@ if(!isset($_SESSION['cas_data'])){
 $servername = "localhost";
 $username = "root";
 $password = "=76_kill_COMMON_market_8=";
+$dbname = "hospitality-serviceform-db";
 
-$conn = new mysqli($servername, $username, $password);
+$conn = new mysqli($servername, $username, $password, $dbname);
 
 // Check connection
 if ($conn->connect_error) {
@@ -36,14 +34,14 @@ $sub_id_lookup->bind_result($submission_id_match);
 $i=0;
 $submission_ids = [];
 while($sub_id_lookup->fetch()) {
-	echo "Submission_ID match #" . $i . " : " . $submission_id_match . PHP_EOL;
+	//echo "Submission_ID match #" . $i . " : " . $submission_id_match . PHP_EOL;
 	$submission_ids[i] = $submission_id_match;
 	$i++;
 }
 
 $sub_id_lookup->close();
 
-if(!($sub_lookup = $conn->prepare('SELECT Non-Profit_Benefactor, Hours_Worked, Submission_Date, Approved FROM Submission WHERE Submission_ID = ?'))) {
+if(!($sub_lookup = $conn->prepare("SELECT `Non-Profit_Benefactor`, Hours_Worked, Submission_Date, 'Approved?' FROM Submission WHERE Submission_ID = ?"))) {
 	echo "Submission Prepare failed: (" . $conn->errno . ") " . $conn->error;
 }
 

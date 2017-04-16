@@ -4,52 +4,69 @@
 <?php 
 session_start();
 if(!isset($_SESSION['cas_data'])){
-    header("Location: http://serviceforms.lerner.udel.edu/index.php");
+    //header("Location: http://serviceforms.lerner.udel.edu/index.php");
 }
-
-$browser_url = (isset($_SERVER['HTTPS']) ? "https" : "http") . "://$_SERVER[HTTP_HOST]$_SERVER[REQUEST_URI]";
-
-print_r($browser_url);
 
 $servername = "localhost";
 $username = "root";
 $password = "=76_kill_COMMON_market_8=";
-$submission_match ="";
 
 $conn = new mysqli($servername, $username, $password);
 
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
-} 
-echo "Connected successfully";
-
-//prepare insert
-if (!($stmt = $mysqli->prepare("SELECT FROM submission WHERE supervisor_link = :browser_url"))) {
-     echo "Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
 }
 
-// bind variable to parameter
-$id = 1;
-if (!$stmt->bind_param(":browser_url", $browser_url)) {
-    echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+if (!($sub_id_lookup = $mysqli->prepare("SELECT Submission_ID FROM Student_Submissions WHERE UDID = ?"))) {
+     echo "Student_Submissions Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
 }
 
-//execute
-if (!$stmt->execute()) {
-    echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+if (!$sub_id_lookup->bind_param("s", $_SESSION["cas_data"]["UDELNETID"])) {
+    echo "Student_Submissions Binding parameters failed: (" . $sub_id_lookup->errno . ") " . $sub_id_lookup->error;
 }
 
-/* bind result variables */
-$stmt->bind_result($submission_match);
+if (!$sub_id_lookup->execute()) {
+    echo "Student_Submissions Execute failed: (" . $sub_id_lookup->errno . ") " . $sub_id_lookup->error;
+}
 
-/* fetch value */
-$stmt->fetch();
+$sub_id_lookup->bind_result($submission_id_match);
 
-printf("%s The matching submission:  %s\n", $city, $submission_match);
 
-/* close statement */
-$stmt->close();
+$i=0;
+$submission_ids = [];
+while($sub_id_lookup->fetch()) {
+	echo "Submission_ID match #" . $i . " : " . $submission_id_match . PHP_EOL;
+	$submission_ids[i] = $submission_id_match;
+	$i++;
+}
+
+$sub_id_lookup->close();
+
+if(!($sub_lookup = $conn->prepare('SELECT Non-Profit_Benefactor, Hours_Worked, Submission_Date, Approved FROM Submission WHERE Submission_ID = ?'))) {
+	echo "Submission Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
+}
+
+$submission_results_list = [];
+for($i = 0; $i < $submission_ids.length; $i++) {
+	if(!$sub_lookup->bind_param("i", $submission_ids[$i])) {
+		echo "Submission Bind Param failed: (" . $mysqli->errno . ") " . $mysqli->error;
+	}
+	if(!$sub_lookup->execute()) {
+		echo "Submission Execute failed: (" . $mysqli->errno . ") " . $mysqli->error;
+	}
+	if(!$sub_lookup->bind_result($benefactor, $hours_worked, $sub_date, $approved)) {
+		echo "Submission Bind Result failed: (" . $mysqli->errno . ") " . $mysqli->error;
+	}
+	if(!$sub_lookup->fetch()) {
+		echo "Submission Fetch failed: (" . $mysqli->errno . ") " . $mysqli->error;
+	}
+	$submission_results_list[$i] = [
+		"benefactor" => $benefactor, 
+		"hours_worked" => $hours_worked,
+		"submission_date" => $sub_date,
+		"approved?" => $approved];
+}
 
 /* close connection */
 $mysqli->close();

@@ -18,16 +18,16 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-if (!($sub_id_lookup = $mysqli->prepare("SELECT Submission_ID FROM Student_Submissions WHERE UDID = ?"))) {
-     echo "Student_Submissions Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
+if (!($sub_id_lookup = $conn->prepare("SELECT Submission_ID FROM Student_Submissions WHERE UDID = ?"))) {
+     echo "Student_Submissions Prepare failed: (" . $conn->errno . ") " . $conn->error;
 }
 
 if (!$sub_id_lookup->bind_param("s", $_SESSION["cas_data"]["UDELNETID"])) {
-    echo "Student_Submissions Binding parameters failed: (" . $sub_id_lookup->errno . ") " . $sub_id_lookup->error;
+    echo "Student_Submissions Binding parameters failed: (" . $conn->errno . ") " . $conn->error;
 }
 
 if (!$sub_id_lookup->execute()) {
-    echo "Student_Submissions Execute failed: (" . $sub_id_lookup->errno . ") " . $sub_id_lookup->error;
+    echo "Student_Submissions Execute failed: (" . $conn->errno . ") " . $conn->error;
 }
 
 $sub_id_lookup->bind_result($submission_id_match);
@@ -44,22 +44,22 @@ while($sub_id_lookup->fetch()) {
 $sub_id_lookup->close();
 
 if(!($sub_lookup = $conn->prepare('SELECT Non-Profit_Benefactor, Hours_Worked, Submission_Date, Approved FROM Submission WHERE Submission_ID = ?'))) {
-	echo "Submission Prepare failed: (" . $mysqli->errno . ") " . $mysqli->error;
+	echo "Submission Prepare failed: (" . $conn->errno . ") " . $conn->error;
 }
 
 $submission_results_list = [];
 for($i = 0; $i < $submission_ids.length; $i++) {
 	if(!$sub_lookup->bind_param("i", $submission_ids[$i])) {
-		echo "Submission Bind Param failed: (" . $mysqli->errno . ") " . $mysqli->error;
+		echo "Submission Bind Param failed: (" . $conn->errno . ") " . $conn->error;
 	}
 	if(!$sub_lookup->execute()) {
-		echo "Submission Execute failed: (" . $mysqli->errno . ") " . $mysqli->error;
+		echo "Submission Execute failed: (" . $conn->errno . ") " . $conn->error;
 	}
 	if(!$sub_lookup->bind_result($benefactor, $hours_worked, $sub_date, $approved)) {
-		echo "Submission Bind Result failed: (" . $mysqli->errno . ") " . $mysqli->error;
+		echo "Submission Bind Result failed: (" . $conn->errno . ") " . $conn->error;
 	}
 	if(!$sub_lookup->fetch()) {
-		echo "Submission Fetch failed: (" . $mysqli->errno . ") " . $mysqli->error;
+		echo "Submission Fetch failed: (" . $conn->errno . ") " . $conn->error;
 	}
 	$submission_results_list[$i] = [
 		"benefactor" => $benefactor, 
@@ -69,7 +69,7 @@ for($i = 0; $i < $submission_ids.length; $i++) {
 }
 
 /* close connection */
-$mysqli->close();
+$conn->close();
 
 
 

@@ -34,7 +34,7 @@ $sub_id_lookup->bind_result($submission_id_match);
 $i=0;
 $submission_ids = [];
 while($sub_id_lookup->fetch()) {
-	//echo "Submission_ID match #" . $i . " : " . $submission_id_match . PHP_EOL;
+	echo PHP_EOL . "Submission_ID match #" . $i . " : " . $submission_id_match . PHP_EOL;
 	$submission_ids[i] = $submission_id_match;
 	$i++;
 }
@@ -65,6 +65,8 @@ for($i = 0; $i < $submission_ids.length; $i++) {
 		"submission_date" => $sub_date,
 		"approved?" => $approved];
 }
+echo PHP_EOL;
+print_r($submission_results_list);
 
 /* close connection */
 $conn->close();

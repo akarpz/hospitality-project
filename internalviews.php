@@ -98,55 +98,37 @@
             <br>
             <br>
             <h1>Reports</h1>
-          <br>
+          
             <br>
-            Examples of community service may include activity involvement with 
-            the following types of non-profit agencies: 
-        </div>
-        <div>
-            <ul>
-                <li>animal shelters</li>
-                <li>community dining rooms</li>
-                <li>crisis centers</li> 
-                <li>disaster assistance organizations</li>
-                <li>disease related organizations</li>
-                <li>food banks</li>
-                <li>group homes</li>
-                <li>homeless shelters</li>
-                <li>medical support and assistance groups(hospital)</li>
-                <li>municipal community organizations</li>
-                <li>religious aid groups</li>
-                <li>senior centers and youth groups.</li>
-            </ul>
-        </div>
-        <div>
-            Each community service activity requires a Documentation of 
-            Community Service form.
-            <br>
-            <br>
-            Acceptable non-profit agency supervisor signatures from community 
-            service events (including Sorority and Fraternity events) should not 
-            be students or relatives.
-            <br>
-            <br>
-            Certain community service events have a limit on the number of 
-            community service hours that will be accepted:
-            <br>
-        </div>
-        <div>
-            <ul>
-                <li>UDance-maximum 10 hours of community service per year</li>
-                <li>Food drives-maximum 4 hours[20 cans] per event 
-                {5 cans = 1 hour}</li>
-            </ul>
-        </div>
-        <div>
-            When you sign up to volunteer for an event, the organization is 
-            counting on your participation. Therefore, if you sign up to 
-            volunteer for an event and do not participate, five hours of 
-            community service will be deducted from your total hours.
-        </div>
-        <br>
+            <table>
+                <tr>
+                    <th>Report Name</th>
+                    <th>Report Description</th>
+                    <th>Run Report/Download</th>
+                </tr>
+                <tr>
+                    <td>All Data</td>
+                    <td>This will download the entire database as a .csv.</td>
+                    <td><button type="button">Download</button></td>
+                </tr>
+                <tr>
+                    <td>Recent Median</td>
+                    <td>What was the median number of hours volunteered by students in the program this year?</td>
+                    <td><button type="button">Download</button></td>
+                </tr>
+                <tr>
+                    <td>Different Organizations</td>
+                    <td>How many unique organizations did students work with this year?</td>
+                    <td><button type="button">Download</button></td>
+                </tr>
+                <tr>
+                    <td>Most Used</td>
+                    <td>What organization has been worked with by the most students this year?</td>
+                    <td><button type="button">Download</button></td>
+                </tr>
+                
+            </table>
+            
         <div>
             <button id="redirect-button">Community Service Form</button>
         </div>

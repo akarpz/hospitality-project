@@ -116,6 +116,7 @@ function create_submission($supervisor_id) {
     if(!$newsubmission = $conn->prepare('INSERT INTO Submission VALUES (0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NULL, ?)')) {
         echo "Submission Insert Prepare failed: (" . $conn->errno . ") " . $conn->error;
     }
+    convert_date($_POST["workdates-start"]);
     if(!$newsubmission->bind_param("isssssissssss", $supervisor_id, $_POST["website"], $_POST["location"], $_POST["agency"], $_POST["workdates-start"], 
     $_POST["workdates-end"], $_POST["hoursworked"], $_POST["activities"], $_POST["valuesite"], $_POST["valueyou"], $_POST["todaydate"], $_POST["organization"], $hash)) {
         echo "Submission Insert Bind failed: (" . $conn->errno . ") " . $conn->error;
@@ -157,10 +158,16 @@ function secure($password, $salt, $iter) {
     echo "done hashing" . PHP_EOL;
     return $temp;
 }
+
+function convert_date($html_date) {
+    $date = '02/07/2009 00:07:00';
+    $date = preg_replace('#(\d{2})/(\d{2})/(\d{4})#', '$3-$2-$1', $date);
+    echo $date;
+}
 echo "closing connection" . PHP_EOL;
 $conn->close();
 print_r("http://serviceforms.lerner.udel.edu/supervisorform.php?ref=" . $hash);
-//redirect to page with hash, or email
+//TODO: redirect to page with hash, or email
 ?>
 </pre>
 </html>

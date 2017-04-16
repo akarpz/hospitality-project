@@ -1,7 +1,7 @@
 <?php 
 session_start();
 if(!isset($_SESSION['cas_data'])){
-    header("Location: http://serviceforms.lerner.udel.edu/index.php");
+    //header("Location: http://serviceforms.lerner.udel.edu/index.php");
 }
 ?>
 <html lang="en-US"><head>
@@ -123,16 +123,16 @@ if(!isset($_SESSION['cas_data'])){
             Supervisor Phone: <input type="text" name="supphone" required><br>
             <b>Is the Supervisor a student?<b>
                 <select name = "supstudent?">
-                    <option value="yes">YES</option>
                     <option value="no">NO</option>
+                    <option value="yes">YES</option>
                 </select><br><br>
             <b>Is the Supervisor related to you?<b>
                 <select name = "suprelative?">
-                    <option value="yes">YES</option>
                     <option value="no">NO</option>
+                    <option value="yes">YES</option>
                 </select><br><br>
             <b>If yes to the above question(s), please resubmit form with a supervisor
-            who is not a student or relative.<b><br><br>
+            who is not a student or relative.</b><br><br>
             
           <input type="submit" value="Submit">
         </form>

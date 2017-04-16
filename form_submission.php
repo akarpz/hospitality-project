@@ -10,6 +10,10 @@ if(!isset($_SESSION['cas_data'])){
     header("Location: http://serviceforms.lerner.udel.edu/index.php");
 }
 
+if($_POST["supstudent?"] == "yes" || $_POST["suprelative?"] == "yes"){
+    die("Your submission has been discarded as your supervisor does not meet the eligible criteria");
+}
+
 echo PHP_EOL;
 
 $servername = "localhost";

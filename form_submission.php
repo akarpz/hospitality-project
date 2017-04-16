@@ -25,13 +25,12 @@ $conn = new mysqli($servername, $username, $password, $db_name);
 // Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
-} 
-echo "Connected successfully";
+}
 
 //check for student
 //if student exists, create new record. else do nothing
 check_student();
-echo "complete everything";
+echo "Complete everything, Inserts successful" . PHP_EOL;
 function check_student() {
     echo "checking student" . PHP_EOL;
     global $conn;
@@ -52,17 +51,16 @@ function check_student() {
     echo "UDID" . $udid . PHP_EOL;
     echo "number of rows in student check: " . $result->num_rows . PHP_EOL;
     if($udid == $_POST["id"]) {
-        echo "student exists" . PHP_EOL;
+        echo "Student exists" . PHP_EOL;
 	    $result->close();
         check_supervisor();
     }
     else{
     	$result->close();
-        echo "creating new student" . PHP_EOL;
+        echo "Creating new student" . PHP_EOL;
         if(!$newstudent = $conn->prepare("INSERT INTO Student (UDID, First_Name, Last_Name, Major, Student_Email) VALUES (?, ?, ?, ?, ?)")) {
             echo "Student Insert Prepare failed: (" . $conn->errno . ") " . $conn->error;
         }
-    	echo "Type of variable #2" . gettype($newstudent) . PHP_EOL;
     	$newstudent->bind_param("sssss", $_POST["id"], $_POST["fname"], $_POST["lname"], $_POST["major"], $_POST["email"]);
         $newstudent->execute();
         $newstudent->close();
@@ -95,7 +93,6 @@ function check_supervisor() {
         if(!$newsupervisor = $conn->prepare('INSERT INTO Supervisor Values (0, ?, ?, ?, ?, ?, ?, ?)')) {
                 echo "Supervisor Insert Prepare failed: (" . $conn->errno . ") " . $conn->error;
         }
-    	echo "Newsupervisor object type: " . gettype($newsupervisor);
         $newsupervisor->bind_param("sssssii", $_POST["supfname"], $_POST["suplname"], $_POST["suptitle"], $_POST["supemail"], $_POST["supphone"], $_POST["supstudent?"], $_POST["suprelative?"]);
         $newsupervisor->execute();
         $newsupervisorid = $conn->insert_id;
@@ -131,7 +128,7 @@ function create_submission($supervisor_id) {
 }
 
 function create_student_submission($submission_id) {
-    echo "checking student submissionm, SUBMISSION ID: " . $submission_id . PHP_EOL;
+    echo "checking student submission, SUBMISSION ID: " . $submission_id . PHP_EOL;
     global $conn;
     if(!$new_student_submission_record = $conn->prepare('INSERT INTO Student_Submissions VALUES (?, ?)')) {
         echo "Student_Submission Insert Prepare failed: (" . $conn->errno . ") " . $conn->error;
@@ -149,15 +146,13 @@ function create_student_submission($submission_id) {
 //create hash for supervisor link
 function secure($password, $salt, $iter) {
     global $hash;
-    echo "hashing" . PHP_EOL;
     $temp = hash("sha256","0".$password.$salt);
     for($i=0;$i<$iter-1;$i++) {
        $temp = strtoupper(hash("sha256",$temp.$password.$salt));
     }
-    echo "done hashing" . PHP_EOL;
     return $temp;
 }
-echo "closing connection" . PHP_EOL;
+echo "Closing connection" . PHP_EOL;
 $conn->close();
 print_r("http://serviceforms.lerner.udel.edu/supervisorform.php?ref=" . $hash);
 //TODO: redirect to page with hash, or email

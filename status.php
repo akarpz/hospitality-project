@@ -45,8 +45,9 @@ if(!($sub_lookup = $conn->prepare("SELECT `Non-Profit_Benefactor`, Hours_Worked,
 	echo "Submission Prepare failed: (" . $conn->errno . ") " . $conn->error;
 }
 
+echo "NUMBER OF RESULTS: " . count($submission_ids) . PHP_EOL;
 $submission_results_list = [];
-for($i = 0; $i < count($submission_ids); $i++) {
+for($i = 0; $i < 3; $i++) {
 	if(!$sub_lookup->bind_param("i", $submission_ids[$i])) {
 		echo "Submission Bind Param failed: (" . $conn->errno . ") " . $conn->error;
 	}

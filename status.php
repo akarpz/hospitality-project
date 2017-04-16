@@ -156,8 +156,11 @@ $conn->close();
    	   	
    	<div class="entry-content clearfix">
         Some Stuff
-            
-            
+        <pre>
+        <?php
+        print_r($submission_results_list);
+        ?>
+        </pre>  
 
    </div>
 

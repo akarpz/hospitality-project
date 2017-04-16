@@ -124,7 +124,7 @@ if(!isset($_SESSION['cas_data'])){
             <b>Is the Supervisor a student?<b>
                 <select name = "supstudent?">
                     <option value="yes">YES</option>
-                    <option value="no">No</option>
+                    <option value="no">NO</option>
                 </select><br><br>
             <b>Is the Supervisor related to you?<b>
                 <select name = "suprelative?">

@@ -1,10 +1,9 @@
-/*<?php*/
+<?php
 /*session_start();*/
 /*if(!isset($_SESSION['cas_data'])){*/
     /*header("Location: http://serviceforms.lerner.udel.edu/index.php");*/
 /*}*/
-
-/*?>*/
+?>
 <html lang="en-US"><head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">

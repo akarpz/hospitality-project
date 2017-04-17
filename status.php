@@ -35,7 +35,7 @@ $i=0;
 $submission_ids = [];
 while($sub_id_lookup->fetch()) {
 	echo PHP_EOL . "Submission_ID match #" . $i . " : " . $submission_id_match . PHP_EOL;
-	$submission_ids[i] = $submission_id_match;
+	$submission_ids[$i] = $submission_id_match;
 	$i++;
 }
 

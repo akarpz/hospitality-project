@@ -96,11 +96,11 @@ if(!isset($_SESSION['cas_data'])){
             Last name: <input type="text" name="lname" value="<?php echo $_SESSION['cas_data']['LASTNAME']; ?>" readonly><br>
             UDNetID: <input title="UD Email Prefix" type ="text" name="id"value="<?php echo $_SESSION['cas_data']['UDELNETID']; ?>" readonly><br>
             Student email: <input type="email" name="email"value="<?php echo strtolower($_SESSION['cas_data']['EMAIL']); ?>" readonly><br>
+            Student phone: <input type="tel" name="studtel"><br>
             Major: <select name="major"> 
             <option value="HRIM">HRIM</option> 
             <option value="HSIM">HSIM</option>
             </select><br><br>
-            Organization: <input type="text" name="organization" required><br>
             Agency Website: <input type="text" name="website" required><br>
             Location/address of community site:
             <input type="text" name="location" required><br>
@@ -120,7 +120,7 @@ if(!isset($_SESSION['cas_data'])){
             Supervisor Last Name: <input type="text" name="suplname" required><br>
             Supervisor Title: <input type="text" name="suptitle" required><br>
             Supervisor E-Mail: <input type="text" name="supemail" required><br>
-            Supervisor Phone: <input type="text" name="supphone" required><br>
+            Supervisor Phone: <input type="tel" name="supphone" required><br>
             <b>Is the Supervisor a student?<b>
                 <select name = "supstudent?">
                     <option value="no">NO</option>

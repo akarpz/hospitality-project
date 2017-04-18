@@ -1,5 +1,5 @@
 <?php
-include 'supervisordbselect.php';
+/*include 'supervisordbselect.php'*/;
 ?>
 
 <html lang="en-US"><head>
@@ -80,52 +80,50 @@ include 'supervisordbselect.php';
    <div class="article-content clearfix">
       
       <header class="entry-header">
-   		<h1 class="entry-title">Community Service Form</h1>
+   		<h1 class="entry-title">Community Service Verification</h1>
+   		<b>You are seeing this page because a University of Delaware student
+   		completed community service for you, and in order to have those hours approved, you must certify
+   		the authenticity of their serivce. Please review the prefilled fields below that display
+   		student responses. If the fields honestly reflect the the student's service, please fill out 
+   		the two  fields at the bottom and click submit.</b>
+   		<br><br>
+   		
    	</header>
    	   	
    	<div class="entry-content clearfix">
         <form action="/form_submission.php" method="post">
+            
    	        
-   	        Today's Date: <input type="text" name="todaydate" id="form-date" readonly><br>
+   	        
    	        Student First Name: <input type="text" name="fname" value="<?php echo $servername; ?>" readonly><br>
-            Student Last Name: <input type="text" name="lname"><br>
-            Student E-Mail: <input type="email" name="email"><br>
-            Student ID: <input type ="text" name="id"><br>
-            Student major: HRIM or HSIM: <input type="text" name="major"><br>
-            Organization: <input type="text" name="organization"><br>
-            Agency Website: <input type="text" name="website"><br>
+            Student Last Name: <input type="text" name="lname" value="<?php echo $servername; ?>" readonly><br>
+            Student E-Mail: <input type="email" name="email" value="<?php echo $servername; ?>" readonly><br>
             Location/address of community site:
-            <input type="text" name="location"><br>
+            <input type="text" name="location" value="<?php echo $servername; ?>" readonly><br>
             Non-profit agency that benefited from student service:
-            <input type="text" name="agency"><br>
+            <input type="text" name="agency" value="<?php echo $servername; ?>" readonly><br>
             Date(s) of work: <br>
-            Started: <input type="date" name="workdates-start"><br>
-            Ended: <input type="date" name="workdates-end"><br>
-            Number of hours worked: <input type="text" name="numberhours"><br>
-            Student description of his/her specific activities: <input type="text" name="activities"><br>
-            Student description of the value that he/she provided to your agency/site: 
-            <input type="text" name="valuesite"><br>
-            Student description of what this experience did for him/her: <input type="text" name="valueyou"><br>
+            Started: <input type="date" name="workdates-start" value="<?php echo $servername; ?>" readonly><br>
+            Ended: <input type="date" name="workdates-end" value="<?php echo $servername; ?>" readonly><br>
+            Number of hours worked: <input type="text" name="numberhours" value="<?php echo $servername; ?>" readonly><br>
+            Student description of his/her specific activities: <input type="text" name="activities" value="<?php echo $servername; ?>" readonly><br>
             <b>Please fill out the few fields below if the student's responses 
             are descriptive of the services he/she provided. 
             Otherwise you may contact the student to explain
             what about their submission you disagree with:</b><br><br>
             Supervisor Name: <input type="text" name="supname"><br>
-            Supervisor Title: <input type="text" name="suptitle"><br>
-            Supervisor E-mail: <input type="text" name="supemail"><br>
-            Supervisor Phone: <input type="text" name="supphone"><br>
-            <b>Are you a student at UD?<b>
+            <b>Are you a student at UD?</b>
                 <select name = "supstudent?">
                     <option value="yes">YES</option>
                     <option value="no">NO</option>
                 </select><br><br>
-            <b>Are you related to the student who sent you this form?<b>
+            <b>Are you related to the student who sent you this form?</b>
                 <select name = "suprelative?">
                     <option value="yes">YES</option>
                     <option value="no">NO</option>
                 </select><br><br>
-            <b>If  you answer yes to the above question(s), understand that the student will not be awareded
-            community service hours<b><br><br>
+            <b>If  you answer yes to either of the above questions, understand that the student will not be awarded
+            community service hours</b><br><br>
             
             <!-- Signature of Student: <input type="text" name="supsig"><br> -->
             <b>If all of the above information reflects your recolection of the services rendered

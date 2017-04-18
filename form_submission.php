@@ -62,10 +62,10 @@ function check_student() {
     else{
     	$result->close();
         echo "Creating new student" . PHP_EOL;
-        if(!$newstudent = $conn->prepare("INSERT INTO Student (UDID, First_Name, Last_Name, Major, Student_Email) VALUES (?, ?, ?, ?, ?)")) {
+        if(!$newstudent = $conn->prepare("INSERT INTO Student (UDID, First_Name, Last_Name, Major, Student_Email) VALUES (?, ?, ?, ?, ?, ?)")) {
             echo "Student Insert Prepare failed: (" . $conn->errno . ") " . $conn->error;
         }
-    	$newstudent->bind_param("sssss", $_POST["id"], $_POST["fname"], $_POST["lname"], $_POST["major"], $_POST["email"]);
+    	$newstudent->bind_param("ssssss", $_POST["id"], $_POST["fname"], $_POST["lname"], $_POST["major"], $_POST["email"], $_POST["studtel"]);
         $newstudent->execute();
         $newstudent->close();
         echo "finished checking student" . PHP_EOL;
@@ -114,11 +114,11 @@ function create_submission($supervisor_id) {
     $hash = secure($hashinput, $supervisor_id, 100);
     //create the rest of submission
     echo "Hash value: " . $hash . PHP_EOL;
-    if(!$newsubmission = $conn->prepare('INSERT INTO Submission VALUES (0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NULL, ?)')) {
+    if(!$newsubmission = $conn->prepare('INSERT INTO Submission VALUES (0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NULL, ?)')) {
         echo "Submission Insert Prepare failed: (" . $conn->errno . ") " . $conn->error;
     }
     if(!$newsubmission->bind_param("isssssissssss", $supervisor_id, $_POST["website"], $_POST["location"], $_POST["agency"], $_POST["workdates-start"], 
-    $_POST["workdates-end"], $_POST["hoursworked"], $_POST["activities"], $_POST["valuesite"], $_POST["valueyou"], $_POST["todaydate"], $_POST["organization"], $hash)) {
+    $_POST["workdates-end"], $_POST["hoursworked"], $_POST["activities"], $_POST["valuesite"], $_POST["valueyou"], $_POST["todaydate"], $hash)) {
         echo "Submission Insert Bind failed: (" . $conn->errno . ") " . $conn->error;
     }
     

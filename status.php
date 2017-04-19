@@ -41,7 +41,7 @@ while($sub_id_lookup->fetch()) {
 
 $sub_id_lookup->close();
 
-if(!($sub_lookup = $conn->prepare("SELECT `Non-Profit_Benefactor`, Hours_Worked, Submission_Date, 'Approved?' FROM Submission WHERE Submission_ID = ?"))) {
+if(!($sub_lookup = $conn->prepare("SELECT Non_Profit_Benefactor, Hours_Worked, Submission_Date, 'Approved?' FROM Submission WHERE Submission_ID = ?"))) {
 	echo "Submission Prepare failed: (" . $conn->errno . ") " . $conn->error;
 }
 
@@ -174,6 +174,7 @@ $conn->close();
     		console.log(results.length);
     		for(let index of results) {
     			console.log(index);
+			console.log(index["approved?"]);
     		}
 		</script>
 

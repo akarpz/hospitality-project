@@ -14,7 +14,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-if (!($submission_lookup = $conn->prepare("Select sub.Agency_Address, `sub.Non-Profit_Benefactor`, sub.Start_Date_Work, sub.End_Date_Work, sub.Hours_Worked, 
+if (!($submission_lookup = $conn->prepare("Select sub.Agency_Address, sub.Non_Profit_Benefactor, sub.Start_Date_Work, sub.End_Date_Work, sub.Hours_Worked, 
                                             sub.Activity_Description, stu.First_Name, stu.Last_Name, stu.Student_Email FROM Submission sub JOIN Student_Submissions ss 
                                             ON sub.Submission_ID=ss.Submission_ID and sub.Supervisor_Form_Link=? JOIN Student stu ON stu.UDID=ss.UDID;"))) {
      echo "Prepare failed: (" . $conn->errno . ") " . $conn->error;

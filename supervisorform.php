@@ -95,8 +95,6 @@
    	<div class="entry-content clearfix">
         <form action="/form_submission.php" method="post">
             
-   	        
-   	        
    	        Student First Name: <input type="text" name="fname" value="<?php echo $servername; ?>" readonly><br>
             Student Last Name: <input type="text" name="lname" value="<?php echo $servername; ?>" readonly><br>
             Student E-Mail: <input type="email" name="email" value="<?php echo $servername; ?>" readonly><br>
@@ -109,11 +107,11 @@
             Ended: <input type="date" name="workdates-end" value="<?php echo $servername; ?>" readonly><br>
             Number of hours worked: <input type="text" name="numberhours" value="<?php echo $servername; ?>" readonly><br>
             Student description of his/her specific activities: <input type="text" name="activities" value="<?php echo $servername; ?>" readonly><br>
+            Your Name: <input type="text" name="supname" value = "<?php echo $var; ?>" readonly><br>
             <b>Please fill out the few fields below if the student's responses 
             are descriptive of the services he/she provided. 
             Otherwise you may contact the student to explain
             what about their submission you disagree with:</b><br><br>
-            Supervisor Name: <input type="text" name="supname"><br>
             <b>Are you a student at UD?</b>
                 <select name = "supstudent?">
                     <option value="yes">YES</option>
@@ -124,12 +122,12 @@
                     <option value="yes">YES</option>
                     <option value="no">NO</option>
                 </select><br><br>
-            <b>If  you answer yes to either of the above questions, understand that the student will not be awarded
-            community service hours</b><br><br>
+            <b>If you answer yes to either of the above questions, understand that the student will not be awarded
+            community service hours.</b><br><br>
             
             <!-- Signature of Student: <input type="text" name="supsig"><br> -->
             <b>If all of the above information reflects your recolection of the services rendered
-            by the student volunteer, please press submit to confirm their community service hours</b>
+            by the student volunteer, please press submit to confirm their community service hours.</b>
             <br><br>
             
             
@@ -176,7 +174,7 @@
     const monthName = n.getMonth();
     const d = n.getDate();
     const day = n.getDay();
-    document.getElementById("header-date").innerHTML = days[day] + ", " + monthNames[monthName] + " " + d + " " + y;
+    document.getElementById("header-date").innerHTML = days[day] + ", " + monthNames[monthName] + " " + d + ", " + y;
 </script>
 		<a href="#masthead" id="scroll-up" style="display: none;"><i class="fa fa-chevron-up"></i></a>
 	</div><!-- #page -->

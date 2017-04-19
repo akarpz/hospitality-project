@@ -105,11 +105,11 @@ if(!isset($_SESSION['cas_data'])){
             <option value="HRIM">HRIM</option> 
             <option value="HSIM">HSIM</option>
             </select><br><br>
+            Non-profit agency that benefited from your service:
+            <input type="text" name="agency" required><br>
             Agency Website: <input type="text" name="website" required><br>
             Location/address of community site:
             <input type="text" name="location" required><br>
-            Non-profit agency that benefited from your service:
-            <input type="text" name="agency" required><br>
             Date(s) of Work: <br>
             Started: <input type="date" name="workdates-start" required>
             Ended: <input type="date" name="workdates-end" required><br>

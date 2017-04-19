@@ -17,21 +17,25 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-if (!($submission_lookup = $conn->prepare("SELECT * FROM Submission WHERE Supervisor_Form_Link=?"))) {
+if (!($submission_lookup = $conn->prepare("SELECT Agency_Address, Non-Profit_Benefactor, Start_Date_Work, End_Date_Work, Hours_Worked, Activity_Description FROM Submission WHERE Supervisor_Form_Link=?"))) {
      echo "Prepare failed: (" . $conn->errno . ") " . $conn->error;
 }
 
 if (!$submission_lookup->bind_param("s", $ref)) {
-    echo "Binding parameters failed: (" . $stmt->errno . ") " . $stmt->error;
+    echo "Binding parameters failed: (" . $conn->errno . ") " . $conn->error;
 }
 
 if (!$submission_lookup->execute()) {
-    echo "Execute failed: (" . $stmt->errno . ") " . $stmt->error;
+    echo "Execute failed: (" . $conn->errno . ") " . $conn->error;
 }
 
-$submission_lookup->bind_result($sub_id, $sup_id, $website, $address);
+if(!$submission_lookup->bind_result($address, $agency, $startdate, $enddate, $hours, $description)) {
+    echo "Bind Result failed: (" . $conn->errno . ") " . $conn->error;
+}
 
-$submission_lookup->fetch();
+if(!$submission_lookup->fetch()) {
+    echo "Fetch failed: (" . $conn->errno . ") " . $conn->error;
+}
 
 $submission_lookup->close();
 

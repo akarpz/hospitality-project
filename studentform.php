@@ -96,7 +96,7 @@ if(!isset($_SESSION['cas_data'])){
             Last name: <input type="text" name="lname" value="<?php echo $_SESSION['cas_data']['LASTNAME']; ?>" readonly><br>
             UDNetID: <input title="UD Email Prefix" type ="text" name="id"value="<?php echo $_SESSION['cas_data']['UDELNETID']; ?>" readonly><br>
             Student email: <input type="email" name="email"value="<?php echo strtolower($_SESSION['cas_data']['EMAIL']); ?>" readonly><br>
-            Student phone: <input type="tel" pattern='[\+]\d{2}[\(]\d{2}[\)]\d{4}[\-]\d{4}' name="studtel"><br>
+            Student phone: <input type="number" min="0" max="99999999999999" name="studtel"><br>
             Major: <select name="major"> 
             <option value="HRIM">HRIM</option> 
             <option value="HSIM">HSIM</option>

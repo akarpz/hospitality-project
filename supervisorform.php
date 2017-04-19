@@ -176,7 +176,6 @@
     const monthName = n.getMonth();
     const d = n.getDate();
     const day = n.getDay();
-    document.getElementById("form-date").value = m + "/" + d + "/" + y;
     document.getElementById("header-date").innerHTML = days[day] + ", " + monthNames[monthName] + " " + d + " " + y;
 </script>
 		<a href="#masthead" id="scroll-up" style="display: none;"><i class="fa fa-chevron-up"></i></a>

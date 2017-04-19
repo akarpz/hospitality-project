@@ -66,9 +66,9 @@
                      <a href="http://my.lerner.udel.edu/" title="myLerner"><i class="fa fa-home"></i></a>
                   </div>
 					                  <div class="home-icon">
-                     <a href="status.php" title="View your hours to date"><i class="fa fa-user"></i></a>
+                     <a href="/studentform.php" title="Submit service hours"><i class="fa fa-book"></i></a>
                   </div>
-                   <div class="home-icon">
+					                  <div class="home-icon">
                      <a href="status.php" title="View your hours to date"><i class="fa fa-user" aria-hidden="true"></i></a>
                 </div>
 			</nav>

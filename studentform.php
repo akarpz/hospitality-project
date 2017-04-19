@@ -125,17 +125,19 @@ if(!isset($_SESSION['cas_data'])){
             Supervisor E-Mail: <input type="text" name="supemail" required><br>
             Supervisor Phone: <input type="number" min="0" max="99999999999999" name="supphone" required><br>
             <b>Is the Supervisor a student?<b>
-                <select name = "supstudent?">
+                <select name = "supstudent?" onchange="toggle(this)">
                     <option value="no">NO</option>
                     <option value="yes">YES</option>
                 </select><br><br>
             <b>Is the Supervisor related to you?<b>
-                <select name = "suprelative?">
+                <select name = "suprelative?" onchange="toggle(this)">
                     <option value="no">NO</option>
                     <option value="yes">YES</option>
                 </select><br><br>
-            <b>If yes to the above question(s), please resubmit form with a supervisor
-            who is not a student or relative.</b><br><br>
+                <div id="rejection_div">
+                    <b>If yes to the above question(s), please resubmit form with a supervisor
+                        who is not a student or relative.</b><br><br>
+                </div>
             
           <input type="submit" value="Submit">
         </form>
@@ -153,7 +155,18 @@ if(!isset($_SESSION['cas_data'])){
 
 	</div><!-- #primary -->
 	</div><!-- #main -->
-	
+<script>
+function toggle(el){
+    var value = el.options[el.selectedIndex].value,
+        div = document.getElementById('rejection_div');
+
+    if (value === 'no') {
+        div.style.display = 'none';
+    } else if (value === 'yes') {
+        div.style.display = 'block';
+    }
+}
+</script>
 <footer id="colophon" class="clearfix">
 	<div class="footer-socket-wrapper clearfix">
 		<div class="inner-wrap">

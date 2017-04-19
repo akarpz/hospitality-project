@@ -41,7 +41,7 @@ $submission_lookup->close();
 
 //match submission id to student id, then lookup student info to print
 
-$mysqli->close();
+$conn->close();
 
 print_r($submission_match);
 

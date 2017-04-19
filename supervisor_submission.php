@@ -17,7 +17,7 @@ $db_name = "hospitality-serviceform-db";
 
 $conn = new mysqli($servername, $username, $password, $db_name);
 
-if(!$submission_approval = $conn->prepare("UPDATE Submission SET Approved'?' = true WHERE Submission_ID = ?")) {
+if(!$submission_approval = $conn->prepare("UPDATE Submission SET Approved = true WHERE Submission_ID = ?")) {
     echo "Submission Approval Prepare failed: (" . $conn->errno . ") " . $conn->error;
 }
 if(!$submission_approval->bind_param("i", $_POST["sub_id"])) {

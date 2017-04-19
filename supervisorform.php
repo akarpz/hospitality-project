@@ -63,6 +63,8 @@
 					                  <div class="home-icon">
                      <a href="http://my.lerner.udel.edu/" title="myLerner"><i class="fa fa-home"></i></a>
                   </div>
+               
+                
 			</nav>
 
 		</div><!-- #header-text-nav-container -->

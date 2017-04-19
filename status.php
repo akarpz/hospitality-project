@@ -136,6 +136,12 @@ $conn->close();
 					                  <div class="home-icon">
                      <a href="http://my.lerner.udel.edu/" title="myLerner"><i class="fa fa-home"></i></a>
                   </div>
+                 <div class="home-icon">
+                     <a href="http://my.lerner.udel.edu/" title="myLerner"><i class="fa fa-book"></i></a>
+                  </div>
+                   <div class="home-icon">
+                     <a href="http://my.lerner.udel.edu/" title="myLerner"><i class="fa fa-user"></i></a>
+                  </div>
                 
 			</nav>
 

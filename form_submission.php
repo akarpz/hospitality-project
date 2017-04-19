@@ -117,7 +117,7 @@ function create_submission($supervisor_id) {
     if(!$newsubmission = $conn->prepare('INSERT INTO Submission VALUES (0, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NULL, ?)')) {
         echo "Submission Insert Prepare failed: (" . $conn->errno . ") " . $conn->error;
     }
-    if(!$newsubmission->bind_param("isssssissssss", $supervisor_id, $_POST["website"], $_POST["location"], $_POST["agency"], $_POST["workdates-start"], 
+    if(!$newsubmission->bind_param("isssssisssss", $supervisor_id, $_POST["website"], $_POST["location"], $_POST["agency"], $_POST["workdates-start"], 
     $_POST["workdates-end"], $_POST["hoursworked"], $_POST["activities"], $_POST["valuesite"], $_POST["valueyou"], $_POST["todaydate"], $hash)) {
         echo "Submission Insert Bind failed: (" . $conn->errno . ") " . $conn->error;
     }

@@ -1,44 +1,8 @@
 <?php
-
-$servername = "localhost";
-$username = "root";
-$password = "=76_kill_COMMON_market_8=";
-$db_name = "hospitality-serviceform-db";
-
-$conn = new mysqli($servername, $username, $password, $db_name);
-
-$ref = $_GET["ref"];
-
-// Check connection
-if ($conn->connect_error) {
-    die("Connection failed: " . $conn->connect_error);
+session_start();
+if(!isset($_SESSION['cas_data'])){
+    //header("Location: http://serviceforms.lerner.udel.edu/index.php");
 }
-
-if (!($submission_lookup = $conn->prepare("Select sub.Submission_ID, sub.Agency_Address, sub.Non_Profit_Benefactor, sub.Start_Date_Work, sub.End_Date_Work, sub.Hours_Worked, 
-                                            sub.Activity_Description, stu.First_Name, stu.Last_Name, stu.Student_Email FROM Submission sub JOIN Student_Submissions ss 
-                                            ON sub.Submission_ID=ss.Submission_ID and sub.Supervisor_Form_Link=? JOIN Student stu ON stu.UDID=ss.UDID;"))) {
-     echo "Prepare failed: (" . $conn->errno . ") " . $conn->error;
-}
-
-if (!$submission_lookup->bind_param("s", $ref)) {
-    echo "Binding parameters failed: (" . $conn->errno . ") " . $conn->error;
-}
-
-if (!$submission_lookup->execute()) {
-    echo "Execute failed: (" . $conn->errno . ") " . $conn->error;
-}
-
-if(!$submission_lookup->bind_result($sub_id, $address, $agency, $startdate, $enddate, $hours, $description, $fname, $lname, $email)) {
-    echo "Bind Result failed: (" . $conn->errno . ") " . $conn->error;
-}
-
-if(!$submission_lookup->fetch()) {
-    echo "Fetch failed: (" . $conn->errno . ") " . $conn->error;
-}
-
-$submission_lookup->close();
-
-$conn->close();
 
 ?>
 
@@ -103,6 +67,14 @@ $conn->close();
 					                  <div class="home-icon">
                      <a href="http://my.lerner.udel.edu/" title="myLerner"><i class="fa fa-home"></i></a>
                   </div>
+                <div class="inner-wrap clearfix">
+					                  <div class="home-icon">
+                     <a href="http://my.lerner.udel.edu/" title="Submit service hours"><i class="fa fa-book"></i></a>
+                  </div>
+                <div class="inner-wrap clearfix">
+					                  <div class="home-icon">
+                     <a href="http://my.lerner.udel.edu/" title="View your service hours to date"><i class="fa fa-user"></i></a>
+                  </div>
                
                 
 			</nav>
@@ -122,59 +94,20 @@ $conn->close();
    <div class="article-content clearfix">
       
       <header class="entry-header">
-   		<h1 class="entry-title">Community Service Verification</h1>
-   		<b>You are seeing this page because a University of Delaware student
-   		completed community service for you, and in order to have those hours approved, you must certify
-   		the authenticity of their serivce. Please review the prefilled fields below that display
-   		student responses. If the fields honestly reflect the the student's service, please fill out 
-   		the three  fields at the bottom and click submit.</b>
+   		<h1 class="entry-title">Supervisor Verification Link</h1>
+   		<b>It is your responsibility to send the url below to the agency supervisor that you worked with
+   		while on site for community service. The only way that your supervisor will be able to 
+   		validate your hours, and therefore the only way that your hours will count, is if you copy this link
+   		and send it to your supervisor. They MUST fill out the form that this url links to in order for your
+   		hours to count towards the required 100 hours. Check your status page to see your community service hours to date.</b>
    		<br><br>
+   		<a href="<?php echo $_SESSION["hashlink"];?>">
+   		<?php echo $_SESSION["hashlink"]; ?>
+   		</a>
    		
    	</header>
    	   	
-   	<div class="entry-content clearfix">
-        <form action="/supervisor_submission.php" method="post">
-        
-            <input type="hidden" name="sub_id" value="<?php echo $sub_id; ?>"> 
-   	        Student Name: <input type="text" name="studname" value="<?php echo $fname . " " . $lname; ?>" readonly><br>
-            Student E-Mail: <input type="email" name="email" value="<?php echo $email; ?>" readonly><br>
-            Location/address of community site:
-            <input type="text" name="location" value="<?php echo $address; ?>" readonly><br>
-            Non-profit agency that benefited from student service:
-            <input type="text" name="agency" value="<?php echo $agency; ?>" readonly><br>
-            Date(s) of work: <br>
-            Started: <input type="date" name="workdates-start" value="<?php echo $startdate; ?>" readonly><br>
-            Ended: <input type="date" name="workdates-end" value="<?php echo $enddate; ?>" readonly><br>
-            Number of hours worked: <input type="text" name="numberhours" value="<?php echo $hours; ?>" readonly><br>
-            Student description of his/her specific activities: <input type="text" name="activities" value="<?php echo $description; ?>" readonly><br>
-            <b>Please fill out the few fields below if the student's responses 
-            are descriptive of the services he/she provided. 
-            Otherwise you may contact the student to explain
-            what about their submission you disagree with:</b><br><br>
-            Your Name: <input type="text" name="supname"><br>
-            <b>Are you a student at UD?</b>
-                <select name = "supstudent?">
-                    <option value="yes">YES</option>
-                    <option value="no">NO</option>
-                </select><br><br>
-            <b>Are you related to the student who sent you this form?</b>
-                <select name = "suprelative?">
-                    <option value="yes">YES</option>
-                    <option value="no">NO</option>
-                </select><br><br>
-            <b>If you answer yes to either of the above questions, understand that the student will not be awarded
-            community service hours.</b><br><br>
-            
-            <!-- Signature of Student: <input type="text" name="supsig"><br> -->
-            <b>If all of the above information reflects your recolection of the services rendered
-            by the student volunteer, please press submit to confirm their community service hours.</b>
-            <br><br>
-            
-            
-          <input type="submit" value="Submit">
-        </form>
-
-   </div>
+   	
 
 	</article>
 			

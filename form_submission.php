@@ -158,8 +158,10 @@ function secure($password, $salt, $iter) {
 }
 echo "Closing connection" . PHP_EOL;
 $conn->close();
-print_r("http://serviceforms.lerner.udel.edu/supervisorform.php?ref=" . $hash);
-//TODO: redirect to page with hash, or email
+$_SESSION["hashlink"] = "http://serviceforms.lerner.udel.edu/supervisorform.php?ref=" . $hash;
+
+header("Location: http://serviceforms.lerner.udel.edu/linkpage.php");
+
 ?>
 </pre>
 </html>

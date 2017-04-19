@@ -46,7 +46,7 @@ function isapprovedfaculty() {
 if(isstudent($usertype)){
     echo 'true';
 	echo $_SESSION['cas_data']['LASTNAME'];
-    //header("Location: http://serviceforms.lerner.udel.edu/disclaimer.php");
+    header("Location: http://serviceforms.lerner.udel.edu/disclaimer.php");
     exit();
 }else {
     echo 'false';

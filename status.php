@@ -168,7 +168,14 @@ $conn->close();
         <?php
         print_r($submission_results_list);
         ?>
-        </pre>  
+        </pre>
+        <script type="text/javascript">
+    		var results = <?php echo json_encode($submission_results_list); ?>;
+    		console.log(results.length);
+    		for(let index of results) {
+    			console.log(index);
+    		}
+		</script>
 
    </div>
 

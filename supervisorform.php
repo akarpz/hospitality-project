@@ -1,12 +1,9 @@
 <?php
 
-print_r($_GET);
-
 $servername = "localhost";
 $username = "root";
 $password = "=76_kill_COMMON_market_8=";
 $db_name = "hospitality-serviceform-db";
-$submission_match ="";
 
 $conn = new mysqli($servername, $username, $password, $db_name);
 
@@ -17,7 +14,9 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-if (!($submission_lookup = $conn->prepare("SELECT Agency_Address, `Non-Profit_Benefactor`, Start_Date_Work, End_Date_Work, Hours_Worked, Activity_Description FROM Submission WHERE Supervisor_Form_Link=?"))) {
+if (!($submission_lookup = $conn->prepare("Select sub.Agency_Address, `sub.Non-Profit_Benefactor`, sub.Start_Date_Work, sub.End_Date_Work, sub.Hours_Worked, 
+                                            sub.Activity_Description, stu.First_Name, stu.Last_Name, stu.Student_Email FROM Submission sub JOIN Student_Submissions ss 
+                                            ON sub.Submission_ID=ss.Submission_ID and sub.Supervisor_Form_Link=? JOIN Student stu ON stu.UDID=ss.UDID;"))) {
      echo "Prepare failed: (" . $conn->errno . ") " . $conn->error;
 }
 
@@ -29,7 +28,7 @@ if (!$submission_lookup->execute()) {
     echo "Execute failed: (" . $conn->errno . ") " . $conn->error;
 }
 
-if(!$submission_lookup->bind_result($address, $agency, $startdate, $enddate, $hours, $description)) {
+if(!$submission_lookup->bind_result($address, $agency, $startdate, $enddate, $hours, $description, $fname, $lname, $email)) {
     echo "Bind Result failed: (" . $conn->errno . ") " . $conn->error;
 }
 
@@ -39,11 +38,7 @@ if(!$submission_lookup->fetch()) {
 
 $submission_lookup->close();
 
-//match submission id to student id, then lookup student info to print
-
 $conn->close();
-
-print_r($submission_match);
 
 ?>
 
@@ -132,31 +127,30 @@ print_r($submission_match);
    		completed community service for you, and in order to have those hours approved, you must certify
    		the authenticity of their serivce. Please review the prefilled fields below that display
    		student responses. If the fields honestly reflect the the student's service, please fill out 
-   		the two  fields at the bottom and click submit.</b>
+   		the three  fields at the bottom and click submit.</b>
    		<br><br>
    		
    	</header>
    	   	
    	<div class="entry-content clearfix">
         <form action="/form_submission.php" method="post">
-            
-   	        Student First Name: <input type="text" name="fname" value="<?php echo $servername; ?>" readonly><br>
-            Student Last Name: <input type="text" name="lname" value="<?php echo $servername; ?>" readonly><br>
-            Student E-Mail: <input type="email" name="email" value="<?php echo $servername; ?>" readonly><br>
+           
+   	        Student Name: <input type="text" name="studname" value="<?php echo $fname . " " . $lname; ?>" readonly><br>
+            Student E-Mail: <input type="email" name="email" value="<?php echo $email; ?>" readonly><br>
             Location/address of community site:
-            <input type="text" name="location" value="<?php echo $servername; ?>" readonly><br>
+            <input type="text" name="location" value="<?php echo $address; ?>" readonly><br>
             Non-profit agency that benefited from student service:
-            <input type="text" name="agency" value="<?php echo $servername; ?>" readonly><br>
+            <input type="text" name="agency" value="<?php echo $agency; ?>" readonly><br>
             Date(s) of work: <br>
-            Started: <input type="date" name="workdates-start" value="<?php echo $servername; ?>" readonly><br>
-            Ended: <input type="date" name="workdates-end" value="<?php echo $servername; ?>" readonly><br>
-            Number of hours worked: <input type="text" name="numberhours" value="<?php echo $servername; ?>" readonly><br>
-            Student description of his/her specific activities: <input type="text" name="activities" value="<?php echo $servername; ?>" readonly><br>
-            Your Name: <input type="text" name="supname" value = "<?php echo $var; ?>" readonly><br>
+            Started: <input type="date" name="workdates-start" value="<?php echo $startdate; ?>" readonly><br>
+            Ended: <input type="date" name="workdates-end" value="<?php echo $enddate; ?>" readonly><br>
+            Number of hours worked: <input type="text" name="numberhours" value="<?php echo $hours; ?>" readonly><br>
+            Student description of his/her specific activities: <input type="text" name="activities" value="<?php echo $description; ?>" readonly><br>
             <b>Please fill out the few fields below if the student's responses 
             are descriptive of the services he/she provided. 
             Otherwise you may contact the student to explain
             what about their submission you disagree with:</b><br><br>
+            Your Name: <input type="text" name="supname"><br>
             <b>Are you a student at UD?</b>
                 <select name = "supstudent?">
                     <option value="yes">YES</option>

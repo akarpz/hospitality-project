@@ -136,13 +136,12 @@ $conn->close();
 					                  <div class="home-icon">
                      <a href="http://my.lerner.udel.edu/" title="myLerner"><i class="fa fa-home"></i></a>
                   </div>
-                 <div class="home-icon">
-                     <a href="http://my.lerner.udel.edu/" title="myLerner"><i class="fa fa-book"></i></a>
+					                  <div class="home-icon">
+                     <a href="/studentform.php" title="Submit service hours"><i class="fa fa-book"></i></a>
                   </div>
-                   <div class="home-icon">
-                     <a href="http://my.lerner.udel.edu/" title="myLerner"><i class="fa fa-user"></i></a>
-                  </div>
-                
+					                  <div class="home-icon">
+                     <a href="/status.php" title="View your hours to date"><i class="fa fa-user" aria-hidden="true"></i></a>
+                </div>
 			</nav>
 
 		</div><!-- #header-text-nav-container -->
@@ -183,11 +182,6 @@ $conn->close();
 	</article>
 			
 		</div><!-- #content -->
-
-		<ul class="default-wp-page clearfix">
-			<li class="previous"><a href="http://my.lerner.udel.edu/undergraduate-students/undergraduate-advising" rel="prev"><span class="meta-nav">←</span> Advising</a></li>
-			<li class="next"><a href="http://my.lerner.udel.edu/undergraduate-students/undergraduate-advising/senior-check-out" rel="next">Senior Check-out <span class="meta-nav">→</span></a></li>
-		</ul>
 
 	</div><!-- #primary -->
 	</div><!-- #main -->

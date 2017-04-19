@@ -68,6 +68,9 @@
 					                  <div class="home-icon">
                      <a href="status.php" title="View your hours to date"><i class="fa fa-user"></i></a>
                   </div>
+                   <div class="home-icon">
+                     <a href="status.php" title="View your hours to date"><i class="fa fa-user" aria-hidden="true"></i></a>
+                </div>
 			</nav>
 
 		</div><!-- #header-text-nav-container -->

@@ -65,9 +65,8 @@ if(!isset($_SESSION['cas_data'])){
 					                  <div class="home-icon">
                      <a href="http://my.lerner.udel.edu/" title="myLerner"><i class="fa fa-home"></i></a>
                   </div>
-                  	<div class="inner-wrap clearfix">
 					                  <div class="home-icon">
-                     <a href="http://my.lerner.udel.edu/" title="Submit service hours"><i class="fa fa-book"></i></a>
+                     <a href="/studentform.php" title="Submit service hours"><i class="fa fa-book"></i></a>
                   </div>
 					                  <div class="home-icon">
                      <a href="status.php" title="View your hours to date"><i class="fa fa-user" aria-hidden="true"></i></a>
@@ -124,7 +123,7 @@ if(!isset($_SESSION['cas_data'])){
             Supervisor Last Name: <input type="text" name="suplname" required><br>
             Supervisor Title: <input type="text" name="suptitle" required><br>
             Supervisor E-Mail: <input type="text" name="supemail" required><br>
-            Supervisor Phone: <input type="tel" name="supphone" required><br>
+            Supervisor Phone: <input type="number" min="0" max="99999999999999" name="supphone" required><br>
             <b>Is the Supervisor a student?<b>
                 <select name = "supstudent?">
                     <option value="no">NO</option>

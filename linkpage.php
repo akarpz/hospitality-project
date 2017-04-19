@@ -67,16 +67,12 @@ if(!isset($_SESSION['cas_data'])){
 					                  <div class="home-icon">
                      <a href="http://my.lerner.udel.edu/" title="myLerner"><i class="fa fa-home"></i></a>
                   </div>
-                <div class="inner-wrap clearfix">
 					                  <div class="home-icon">
-                     <a href="http://my.lerner.udel.edu/" title="Submit service hours"><i class="fa fa-book"></i></a>
+                     <a href="/studentform.php" title="Submit service hours"><i class="fa fa-book"></i></a>
                   </div>
-                <div class="inner-wrap clearfix">
 					                  <div class="home-icon">
-                     <a href="http://my.lerner.udel.edu/" title="View your service hours to date"><i class="fa fa-user"></i></a>
-                  </div>
-               
-                
+                     <a href="status.php" title="View your hours to date"><i class="fa fa-user" aria-hidden="true"></i></a>
+                </div>
 			</nav>
 
 		</div><!-- #header-text-nav-container -->

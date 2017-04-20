@@ -109,22 +109,22 @@
                 <tr>
                     <td>All Data</td>
                     <td>This will download the entire database as a .csv.</td>
-                    <td><button type="button">Download</button></td>
+                    <td><button id="download all" type="button" onclick="location.href = 'reports.php?ref=all';">Download</button></td>
                 </tr>
                 <tr>
-                    <td>Recent Median</td>
-                    <td>What was the median number of hours volunteered by students in the program this year?</td>
-                    <td><button type="button">Download</button></td>
+                    <td>All Data Last Year</td>
+                    <td>This will download the entire database actions from last year?</td>
+                    <td><button id="download last year" type="button" onclick="location.href = 'reports.php';">Download</button></td>
                 </tr>
                 <tr>
-                    <td>Different Organizations</td>
-                    <td>How many unique organizations did students work with this year?</td>
-                    <td><button type="button">Download</button></td>
+                    <td>Students</td>
+                    <td>Download all student information(not just last year)</td>
+                    <td><button id="download students" type="button" onclick="location.href = 'reports.php';">Download</button></td>
                 </tr>
                 <tr>
-                    <td>Most Used</td>
-                    <td>What organization has been worked with by the most students this year?</td>
-                    <td><button type="button">Download</button></td>
+                    <td>Supervisors</td>
+                    <td>Download all supervisor information(not just last year)</td>
+                    <td><button id="download most" type="button" onclick="location.href = 'reports.php';">Download</button></td>
                 </tr>
                 
             </table>

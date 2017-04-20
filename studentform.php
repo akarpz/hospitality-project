@@ -134,12 +134,12 @@ if(!isset($_SESSION['cas_data'])){
                     <option value="no">NO</option>
                     <option value="yes">YES</option>
                 </select><br><br>
-                <div id="rejection_div">
+                <div id="rejection_div" style="display:none">
                     <b>If yes to the above question(s), please resubmit form with a supervisor
                         who is not a student or relative.</b><br><br>
                 </div>
             
-          <input type="submit" value="Submit">
+          <input type="submit" value="Submit" id="studentformsubmit">
         </form>
 
    </div>
@@ -162,8 +162,10 @@ function toggle(el){
 
     if (value === 'no') {
         div.style.display = 'none';
+        document.getElementById('studentformsubmit').disabled = '';
     } else if (value === 'yes') {
         div.style.display = 'block';
+        document.getElementById('studentformsubmit').disabled = 'disabled';
     }
 }
 </script>

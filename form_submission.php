@@ -10,11 +10,9 @@ if(!isset($_SESSION['cas_data'])){
     header("Location: http://serviceforms.lerner.udel.edu/index.php");
 }
 
-if($_POST["supstudent?"] == "yes" || $_POST["suprelative?"] == "yes"){
+if($_POST["supstudent?"] == "yes" || $_POST["suprelative?"] == "yes") {
     die("Your submission has been discarded as your supervisor does not meet the eligible criteria");
 }
-
-echo PHP_EOL;
 
 $servername = "localhost";
 $username = "root";
@@ -156,8 +154,9 @@ function secure($password, $salt, $iter) {
     }
     return $temp;
 }
-echo "Closing connection" . PHP_EOL;
+
 $conn->close();
+
 $_SESSION["hashlink"] = "http://serviceforms.lerner.udel.edu/supervisorform.php?ref=" . $hash;
 
 header("Location: http://serviceforms.lerner.udel.edu/linkpage.php");

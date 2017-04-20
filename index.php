@@ -1,34 +1,12 @@
 <html>
-    <body>
+<pre>
 <?php
 session_start();
 include 'cas_setup.php';
 
-echo 'Hello world from Hospitality!';
-
-echo "<br>";
-echo "<br>";
-?>
-
-<pre>
-  
-<?php
-
 print_r($_SESSION);
 
-?>
-
-</pre>
-
-<?php
-
-echo "<br>";
-echo "<br>";
-
-$usertype = $_SESSION['cas_data']['PERSONTYPE'];
-
-function isstudent($usertype) {
-  //$usertype = ucwords($usertype);
+function isstudent($_SESSION['cas_data']['PERSONTYPE'];) {
   if (strpos($usertype, 'STUDENT') !== false) {
     return true;
   }
@@ -37,24 +15,47 @@ function isstudent($usertype) {
   }
 }
 
-function isapprovedfaculty() {
+function isapprovedfaculty($udid) {
+  $servername = "localhost";
+  $username = "root";
+  $password = "=76_kill_COMMON_market_8=";
+  $db_name = "hospitality-serviceform-db";
+  $sql = "SELECT UDID FROM approved_internal_users WHERE UDID=" . ;
+  
+  $conn = new mysqli($servername, $username, $password, $db_name);
 
-  //check cas_data against approved internal user table in db
-    //if match, redirect to internal user view, otherwise redirect to student view
+
+  if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+  }
+  
+  if(!$result = $conn->query($sql)) {
+    echo "Internal User Query failed: (" . $conn->errno . ") " . $conn->error;
+  }
+  
+  if ($result->num_rows > 0) {
+      while($row = $result->fetch_assoc()) {
+          if($udid == $row["UDID"]) {
+            return true;
+          }
+      }
+  } else {
+      return false;
+  }
 }
 
-if(isstudent($usertype)){
-    echo 'true';
-	echo $_SESSION['cas_data']['LASTNAME'];
-    header("Location: http://serviceforms.lerner.udel.edu/disclaimer.php");
-    exit();
-}else {
-    echo 'false';
+if(isapprovedfaculty($_SESSION['cas_data']['UDELNETID'])) {
+  header("Location: /internalviews.php");
+  exit();
 }
-
-
+else if(isstudent($usertype)){
+  header("Location: http://serviceforms.lerner.udel.edu/disclaimer.php");
+  exit();
+}else{
+  echo 'false';
+  exit();
+}
 
 ?>
-
-</body>
+</pre>
 </html>

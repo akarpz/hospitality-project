@@ -100,6 +100,7 @@ if(!isset($_SESSION['cas_data'])){
    		<a href="<?php echo $_SESSION["hashlink"];?>">
    		<?php echo $_SESSION["hashlink"]; ?>
    		</a>
+   		<br><br><br>
    		
    	</header>
    	   	

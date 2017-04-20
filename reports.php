@@ -14,7 +14,6 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-$submission_lookup->close();
 $cutoff = "06-01";
 $now = new DateTime();
 $now = $now->format('m-d');

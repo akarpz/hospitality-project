@@ -61,11 +61,13 @@ switch($ref) {
     break;
     
     case "last":
-        $sql_statement = "SELECT * FROM Submission sub
-                            JOIN Student stu 
-                            JOIN Supervisor sup
-                            JOIN Student_Submissions ss
-                            WHERE sub.Submission_Date between '$yeartwo' and '$yearone'";
+        $sql_statement = "SELECT * FROM Submission 
+                            JOIN Student JOIN Supervisor 
+                            JOIN Student_Submissions 
+                            between 
+                            DATE_FORMAT('2017-04-20', '%Y-%m-%d') 
+                            and 
+                            DATE_FORMAT('2017-04-18', '%Y-%m-%d');";
                         
     break;  
 }

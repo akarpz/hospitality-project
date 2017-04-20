@@ -17,6 +17,7 @@ if ($conn->connect_error) {
 $cutoff = "06-01";
 $now = new DateTime();
 $now = $now->format('m-d');
+$now = "08-01";
 echo $now;
 echo "something in between";
 echo $cutoff;

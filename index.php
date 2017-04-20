@@ -6,7 +6,7 @@ include 'cas_setup.php';
 
 print_r($_SESSION);
 
-function isstudent($_SESSION['cas_data']['PERSONTYPE'];) {
+function isstudent($_SESSION['cas_data']['PERSONTYPE']) {
   if (strpos($usertype, 'STUDENT') !== false) {
     return true;
   }

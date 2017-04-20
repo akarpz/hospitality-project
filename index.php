@@ -6,7 +6,7 @@ include 'cas_setup.php';
 
 print_r($_SESSION);
 
-function isstudent($_SESSION['cas_data']['PERSONTYPE']) {
+function isstudent($usertype) {
   if (strpos($usertype, 'STUDENT') !== false) {
     return true;
   }
@@ -20,7 +20,7 @@ function isapprovedfaculty($udid) {
   $username = "root";
   $password = "=76_kill_COMMON_market_8=";
   $db_name = "hospitality-serviceform-db";
-  $sql = "SELECT UDID FROM approved_internal_users WHERE UDID=" . ;
+  $sql = "SELECT UDID FROM approved_internal_users WHERE UDID='" . $udid. "'";
   
   $conn = new mysqli($servername, $username, $password, $db_name);
 
@@ -48,7 +48,7 @@ if(isapprovedfaculty($_SESSION['cas_data']['UDELNETID'])) {
   header("Location: /internalviews.php");
   exit();
 }
-else if(isstudent($usertype)){
+else if(isstudent($_SESSION['cas_data']['PERSONTYPE'])){
   header("Location: http://serviceforms.lerner.udel.edu/disclaimer.php");
   exit();
 }else{

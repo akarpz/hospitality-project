@@ -70,7 +70,9 @@ switch($ref) {
     break;  
 }
 
-$result = $conn->query($sql);
+if(!$result = $conn->query($sql)) {
+    echo "query failed: (" . $conn->errno . ") " . $conn->error;
+}
 
 if ($result->num_rows > 0) {
     // output data of each row

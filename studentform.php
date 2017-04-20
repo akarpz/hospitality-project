@@ -1,7 +1,7 @@
 <?php 
 session_start();
 if(!isset($_SESSION['cas_data'])){
-    //header("Location: http://serviceforms.lerner.udel.edu/index.php");
+    header("Location: http://serviceforms.lerner.udel.edu/index.php");
 }
 ?>
 <html lang="en-US"><head>
@@ -99,7 +99,7 @@ if(!isset($_SESSION['cas_data'])){
             Last name: <input type="text" name="lname" value="<?php echo $_SESSION['cas_data']['LASTNAME']; ?>" readonly><br>
             UDNetID: <input title="UD Email Prefix" type ="text" name="id"value="<?php echo $_SESSION['cas_data']['UDELNETID']; ?>" readonly><br>
             Student email: <input type="email" name="email"value="<?php echo strtolower($_SESSION['cas_data']['EMAIL']); ?>" readonly><br>
-            Student phone: <input type="number" min="0" max="99999999999999" name="studtel"><br>
+            Student phone: <input type="text" maxlength="14" name="studtel" id="studtel"><br>
             Major: <select name="major"> 
             <option value="HRIM">HRIM</option> 
             <option value="HSIM">HSIM</option>
@@ -110,8 +110,8 @@ if(!isset($_SESSION['cas_data'])){
             Location/address of community site:
             <input type="text" name="location" required><br>
             Date(s) of Work: <br>
-            Started: <input type="date" name="workdates-start" required>
-            Ended: <input type="date" name="workdates-end" required><br>
+            Started: <input type="text" name="workdates-start" id="workdates-start" required>
+            Ended: <input type="text" name="workdates-end" id="workdates-end" required><br>
             Number of Hours Worked: <input type="number" name="hoursworked" min="1" max="99999" required><br>
             Describe your specific activities: <input type="text" name="activities" required><br>
             Describe the value in what you did for the agency/site: 
@@ -123,7 +123,7 @@ if(!isset($_SESSION['cas_data'])){
             Supervisor Last Name: <input type="text" name="suplname" required><br>
             Supervisor Title: <input type="text" name="suptitle" required><br>
             Supervisor E-Mail: <input type="text" name="supemail" required><br>
-            Supervisor Phone: <input type="number" min="0" max="99999999999999" name="supphone" required><br>
+            Supervisor Phone: <input type="text" name="supphone" maxlength="14" id="supphone" required><br>
             <b>Is the Supervisor a student?<b>
                 <select name = "supstudent?" onchange="toggle(this)">
                     <option value="no">NO</option>
@@ -135,8 +135,8 @@ if(!isset($_SESSION['cas_data'])){
                     <option value="yes">YES</option>
                 </select><br><br>
                 <div id="rejection_div" style="display:none">
-                    <b>If yes to the above question(s), please resubmit form with a supervisor
-                        who is not a student or relative.</b><br><br>
+                    <b>You've selected "Yes" to one of the above questions. Please submit form with a supervisor
+                        who is not a student or relative. The submit button is not be clickable.</b><br><br>
                 </div>
             
           <input type="submit" value="Submit" id="studentformsubmit">
@@ -155,20 +155,7 @@ if(!isset($_SESSION['cas_data'])){
 
 	</div><!-- #primary -->
 	</div><!-- #main -->
-<script>
-function toggle(el){
-    var value = el.options[el.selectedIndex].value,
-        div = document.getElementById('rejection_div');
 
-    if (value === 'no') {
-        div.style.display = 'none';
-        document.getElementById('studentformsubmit').disabled = '';
-    } else if (value === 'yes') {
-        div.style.display = 'block';
-        document.getElementById('studentformsubmit').disabled = 'disabled';
-    }
-}
-</script>
 <footer id="colophon" class="clearfix">
 	<div class="footer-socket-wrapper clearfix">
 		<div class="inner-wrap">
@@ -185,6 +172,21 @@ function toggle(el){
 </footer>
 
 <script>
+function toggle(el){
+    var value = el.options[el.selectedIndex].value,
+        div = document.getElementById('rejection_div');
+
+    if (value === 'no') {
+        div.style.display = 'none';
+        document.getElementById('studentformsubmit').disabled = '';
+    } else if (value === 'yes') {
+        div.style.display = 'block';
+        document.getElementById('studentformsubmit').disabled = 'disabled';
+    }
+}
+</script>
+
+<script>
     const days = ["Sunday", "Monday", "Tuesday" ,"Wednesday", "Thursday", "Friday", "Saturday"];
     const monthNames = ["January", "February", "March", "April", "May", "June",
       "July", "August", "September", "October", "November", "December"];
@@ -198,6 +200,20 @@ function toggle(el){
     document.getElementById("form-date").value = y + "-" + m + "-" + d;
     document.getElementById("header-date").innerHTML = days[day] + ", " + monthNames[monthName] + " " + d + ", " + y;
 </script>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.mask/1.14.10/jquery.mask.min.js"></script>
+<script>
+$(document).ready(function() {
+    $( "#workdates-start" ).datepicker({ dateFormat: 'yy-mm-dd' });
+    $("#workdates-end").datepicker({ dateFormat: 'yy-mm-dd' }); 
+    $("#studtel").mask('(000) 000-0000');
+    $("#supphone").mask('(000) 000-0000');
+} );
+</script>
+
 		<a href="#masthead" id="scroll-up" style="display: none;"><i class="fa fa-chevron-up"></i></a>
 	</div><!-- #page -->
 </body></html>

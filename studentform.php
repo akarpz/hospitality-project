@@ -105,24 +105,24 @@ if(!isset($_SESSION['cas_data'])){
             <option value="HSIM">HSIM</option>
             </select><br><br>
             Non-profit agency that benefited from your service:
-            <input type="text" name="agency" required><br>
-            Agency Website: <input type="text" name="website" required><br>
+            <input type="text" name="agency" maxlength="2000" required><br>
+            Agency Website: <input type="text" name="website" maxlength="45" required><br>
             Location/address of community site:
-            <input type="text" name="location" required><br>
+            <input type="text" name="location" maxlength="2000" required><br>
             Date(s) of Work: <br>
             Started: <input type="text" name="workdates-start" id="workdates-start" required>
             Ended: <input type="text" name="workdates-end" id="workdates-end" required><br>
             Number of Hours Worked: <input type="number" name="hoursworked" min="1" max="99999" required><br>
-            Describe your specific activities: <input type="text" name="activities" required><br>
+            Describe your specific activities: <input type="text" name="activities" maxlength="2000" required><br>
             Describe the value in what you did for the agency/site: 
-            <input type="text" name="valuesite" required><br>
+            <input type="text" name="valuesite" maxlength="2000" required><br>
             Describe the value in what this experience did for YOU (your comments 
-            about the experience): <input type="text" name="valueyou" required><br>
+            about the experience): <input type="text" name="valueyou" maxlength="2000" required><br>
             <b>Contact information for supervisor at community site:</b><br><br><br>
-            Supervisor First Name: <input type="text" name="supfname" required><br>
-            Supervisor Last Name: <input type="text" name="suplname" required><br>
-            Supervisor Title: <input type="text" name="suptitle" required><br>
-            Supervisor E-Mail: <input type="text" name="supemail" required><br>
+            Supervisor First Name: <input type="text" name="supfname" maxlength="45" required><br>
+            Supervisor Last Name: <input type="text" name="suplname" maxlength="45" required><br>
+            Supervisor Title: <input type="text" name="suptitle" maxlength="45" required><br>
+            Supervisor E-Mail: <input type="text" name="supemail" maxlength="45" required><br>
             Supervisor Phone: <input type="text" name="supphone" maxlength="14" id="supphone" required><br>
             <b>Is the Supervisor a student?<b>
                 <select name = "supstudent?" onchange="toggle(this)">

@@ -86,6 +86,9 @@ $conn->close();
 <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
 <link rel="dns-prefetch" href="//fonts.googleapis.com">
 
+<link rel="stylesheet" href="http://cdn.webix.com/edge/webix.css" type="text/css"> 
+<script src="http://cdn.webix.com/edge/webix.js" type="text/javascript"></script> 
+
 <link rel="stylesheet" id="font-awesome-css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css?ver=4.6.3" type="text/css" media="all">
 <link rel="stylesheet" id="colormag_google_fonts-css" href="//fonts.googleapis.com/css?family=Open+Sans%3A400%2C600&amp;ver=4.7.3" type="text/css" media="all">
 <link rel="stylesheet" id="colormag_style-css" href="themes/mylerner/style.css" type="text/css" media="all">
@@ -162,11 +165,6 @@ $conn->close();
    	</header>
    	   	
    	<div class="entry-content clearfix">
-        <pre>
-        <?php
-        print_r($submission_results_list);
-        ?>
-        </pre>
         <script type="text/javascript">
     		var results = <?php echo json_encode($submission_results_list); ?>;
     		console.log(results.length);
@@ -174,6 +172,19 @@ $conn->close();
     			console.log(index);
 			console.log(index["approved?"]);
     		}
+    		
+    		webix.ui({
+			  rows:[
+			      { view:"template", 
+			        type:"header", template:"My App!" },
+			      { view:"datatable", 
+			        autoConfig:true, 
+			        data:{
+			          title:"My Fair Lady", year:1964, votes:533848, rating:8.9, rank:5
+			        }
+			      }
+			  ]
+			});
 		</script>
 
    </div>

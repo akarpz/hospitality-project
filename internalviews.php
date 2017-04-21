@@ -113,7 +113,7 @@
                 </tr>
                 <tr>
                     <td>All Data Last Year</td>
-                    <td>This will download the entire database actions from last year?</td>
+                    <td>This will download all data from last year</td>
                     <td><button id="download last year" type="button" onclick="location.href = 'reports.php';">Download</button></td>
                 </tr>
                 <tr>

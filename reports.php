@@ -62,7 +62,8 @@ switch($ref) {
     
     case "last":
         $sql_statement = "SELECT * FROM Submission 
-                            JOIN Student JOIN Supervisor 
+                            JOIN Student 
+                            JOIN Supervisor 
                             JOIN Student_Submissions 
                             between 
                             DATE_FORMAT('2017-04-20', '%Y-%m-%d') 

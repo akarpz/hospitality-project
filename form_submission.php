@@ -60,7 +60,7 @@ function check_student() {
     else{
     	$result->close();
         echo "Creating new student" . PHP_EOL;
-        if(!$newstudent = $conn->prepare("INSERT INTO Student (UDID, First_Name, Last_Name, Major, Student_Email) VALUES (?, ?, ?, ?, ?, ?)")) {
+        if(!$newstudent = $conn->prepare("INSERT INTO Student (UDID, First_Name, Last_Name, Major, Student_Email, Student_Phone) VALUES (?, ?, ?, ?, ?, ?)")) {
             echo "Student Insert Prepare failed: (" . $conn->errno . ") " . $conn->error;
         }
     	$newstudent->bind_param("ssssss", $_POST["id"], $_POST["fname"], $_POST["lname"], $_POST["major"], $_POST["email"], $_POST["studtel"]);

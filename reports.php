@@ -3,7 +3,7 @@
 
 $servername = "localhost";
 $username = "root";
-$password = " ";
+$password = "=76_kill_COMMON_market_8=";
 $db_name = "hospitality-serviceform-db";
 
 $conn = new mysqli($servername, $username, $password, $db_name);

@@ -3,7 +3,7 @@
 
 $servername = "localhost";
 $username = "root";
-$password = "=76_kill_COMMON_market_8=";
+$password = " ";
 $db_name = "hospitality-serviceform-db";
 
 $conn = new mysqli($servername, $username, $password, $db_name);
@@ -61,14 +61,10 @@ switch($ref) {
     break;
     
     case "last":
-        $sql_statement = "SELECT * FROM Submission 
-                            JOIN Student 
-                            JOIN Supervisor 
-                            JOIN Student_Submissions 
-                            between 
-                            DATE_FORMAT('2017-04-20', '%Y-%m-%d') 
-                            and 
-                            DATE_FORMAT('2017-04-18', '%Y-%m-%d');";
+        $sql_statement =    "SELECT * 
+                             FROM Submission 
+                             WHERE Submission_Date 
+                             between '2017-04-18' and '2017-04-25'";
                         
     break;  
 }

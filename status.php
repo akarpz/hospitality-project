@@ -174,7 +174,7 @@ $conn->close();
     		//var results = {benefactor: "Yodle", hours_worked: 100, submission_date: "2017-04-19", 'approved?': 1};
     		results = JSON.stringify(results);
     		var app = webix.ui({
-    			id:"data"
+    			id:"data",
     			container: "box",
 				rows:[
 			      { view:"template", 

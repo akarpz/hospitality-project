@@ -69,7 +69,7 @@ switch($ref) {
     break;  
 }
 
-if(!$result = $conn->query($sql)) {
+if(!$result = $conn->query($sql_statement)) {
     echo "query failed: (" . $conn->errno . ") " . $conn->error;
 }
 

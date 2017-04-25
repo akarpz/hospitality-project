@@ -60,6 +60,13 @@ for($i = 0; $i < count($submission_ids); $i++) {
 	if(!$sub_lookup->fetch()) {
 		echo "Submission Fetch failed: (" . $conn->errno . ") " . $conn->error;
 	}
+	if($approved == 1) {
+		$approved = "Yes";
+	} else if ($approved = 0) {
+		$approved = "No";
+	} else {
+		$approved = "Pending";
+	}
 	$submission_results_list[$i] = [
 		"benefactor" => $benefactor, 
 		"hours_worked" => $hours_worked,
@@ -171,7 +178,6 @@ $conn->close();
            		<script type="text/javascript" charset="utf-8">
     		var results = <?php echo json_encode($submission_results_list); ?>;
     		console.log(results.length);
-    		//var results = {benefactor: "Yodle", hours_worked: 100, submission_date: "2017-04-19", 'approved?': 1};
     		results = JSON.stringify(results);
     		var app = webix.ui({
     			id:"data",

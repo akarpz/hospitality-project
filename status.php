@@ -177,7 +177,9 @@ $conn->close();
         <div id="box"></div>
            		<script type="text/javascript" charset="utf-8">
     		var results = <?php echo json_encode($submission_results_list); ?>;
-    		console.log(results.length);
+    		console.log(results);
+    		var results_ex = {benefactor: "Yodle", hours_worked: 100, submission_date: "2017-04-19", 'approved?': 1};
+    		console.log(results_ex);
     		results = JSON.stringify(results);
     		var app = webix.ui({
     			id:"data",

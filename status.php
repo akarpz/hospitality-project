@@ -11,9 +11,34 @@ $dbname = "hospitality-serviceform-db";
 
 $conn = new mysqli($servername, $username, $password, $dbname);
 
-// Check connection
 if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
+}
+
+if(isset($_GET["cmd"] && $_GET["cmd"] == "del")) {
+	if (!($sub_id_lookup = $conn->prepare("DELETE FROM Submission WHERE Submission_ID = ?"))) {
+    	echo "Student_Submissions Prepare failed: (" . $conn->errno . ") " . $conn->error;
+	}
+
+	if (!$sub_id_lookup->bind_param("i", $_GET["id"])) {
+	    echo "Student_Submissions Binding parameters failed: (" . $conn->errno . ") " . $conn->error;
+	}
+	
+	if (!$sub_id_lookup->execute()) {
+	    echo "Student_Submissions Execute failed: (" . $conn->errno . ") " . $conn->error;
+	}
+	
+	if (!($sub_id_lookup = $conn->prepare("DELETE FROM Student_Submissions WHERE Submission_ID = ?"))) {
+    	echo "Student_Submissions Prepare failed: (" . $conn->errno . ") " . $conn->error;
+	}
+
+	if (!$sub_id_lookup->bind_param("i", $_GET["id"])) {
+	    echo "Student_Submissions Binding parameters failed: (" . $conn->errno . ") " . $conn->error;
+	}
+	
+	if (!$sub_id_lookup->execute()) {
+	    echo "Student_Submissions Execute failed: (" . $conn->errno . ") " . $conn->error;
+	}
 }
 
 if (!($sub_id_lookup = $conn->prepare("SELECT Submission_ID FROM Student_Submissions WHERE UDID = ?"))) {
@@ -199,7 +224,6 @@ $conn->close();
 		app.on_click.delbtn=function(e, id, trg){
 						webix.message("Deleting...");
 						webix.send("/status.php?cmd=del&id=" + id);
-						//block default onclick event
 						return false;
 			};
 			

@@ -66,6 +66,7 @@ for($i = 0; $i < count($submission_ids); $i++) {
 		$approved = "Pending";
 	}
 	$submission_results_list[$i] = [
+		"id" => $submission_ids[$i],
 		"benefactor" => $benefactor, 
 		"hours_worked" => $hours_worked,
 		"submission_date" => $sub_date,
@@ -180,6 +181,7 @@ $conn->close();
     			container: "box",
 			autoheight:true,
 			columns:[
+		{ id:"id",   header:"ID",fillspace:true},
         { id:"benefactor",   header:"Organization",fillspace:true},
         { id:"hours_worked",    header:"Hours Worked",fillspace:true},
         { id:"submission_date",   header:"Submission Date", fillspace:true},
@@ -197,8 +199,8 @@ $conn->close();
 		app.on_click.delbtn=function(e, id, trg){
 						//id.column - column id
 						//id.row - row id
-						webix.message("This doesn't work yet");
-						webix.send("/status.php");
+						webix.message("This doesn't work yet: " + id + " " + id.row + " " + id.id);
+						webix.send("/status.php?cmd=del&id=0");
 						//block default onclick event
 						return false;
 			};

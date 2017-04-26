@@ -110,8 +110,8 @@ if(!isset($_SESSION['cas_data'])){
             Location/address of community site:
             <input type="text" name="location" maxlength="2000" required><br>
             Date(s) of Work: <br>
-            Started: <input type="text" name="workdates-start" id="workdates-start" required>
-            Ended: <input type="text" name="workdates-end" id="workdates-end" required><br>
+            Started: <input type="text" name="workdates-start" id="workdates-start" readonly required>
+            Ended: <input type="text" name="workdates-end" id="workdates-end" readonly required><br>
             Number of Hours Worked: <input type="number" name="hoursworked" min="1" max="99999" required><br>
             Describe your specific activities: <input type="text" name="activities" maxlength="2000" required><br>
             Describe the value in what you did for the agency/site: 

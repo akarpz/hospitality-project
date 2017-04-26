@@ -1,3 +1,9 @@
+<html>
+<script>
+    //viewport.setAttribute('content', 'width=1024');
+    viewport.setAttribute('content', 'width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no');
+</script>
+</html>
 <?php 
 session_start();
 if(!isset($_SESSION['cas_data'])){
@@ -212,7 +218,7 @@ $conn->close();
         { id:"hours_worked",    header:"Hours Worked",fillspace:true},
         { id:"submission_date",   header:"Submission Date", fillspace:true},
 		{ id:"approved?", header:"Status",fillspace:true},
-		{ id:"link", header: "Supervisor Form Link", fillspace:true},
+		{ id:"link", header:"Supervisor Form Link", template:"<input class='supbtn' type='button' value='Get Link'>",fillspace:true},
 		{ id:"",template:"<input class='delbtn' type='button' value='Delete'>",fillspace:true}],
 			view:"datatable",
 			rowHeight:50, 
@@ -227,7 +233,10 @@ $conn->close();
 						webix.message("Deleting...");
 						webix.send("/status.php?cmd=del&id=" + id);
 						return false;
-			};
+		};
+		app.on_click.supbtn=function(e, id, trg) {
+				webix.alert({text:"https://serviceforms.lerner.udel.edu/supervisorform?ref=" + app.getItem(id).link,width:1000});
+		};
 			
 		</script>
    </div>

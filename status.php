@@ -65,7 +65,7 @@ while($sub_id_lookup->fetch()) {
 
 $sub_id_lookup->close();
 
-if(!($sub_lookup = $conn->prepare("SELECT Non_Profit_Benefactor, Hours_Worked, Submission_Date, Approved FROM Submission WHERE Submission_ID = ?"))) {
+if(!($sub_lookup = $conn->prepare("SELECT Non_Profit_Benefactor, Hours_Worked, Submission_Date, Approved, Supervisor_Form_Link FROM Submission WHERE Submission_ID = ?"))) {
 	echo "Submission Prepare failed: (" . $conn->errno . ") " . $conn->error;
 }
 
@@ -77,7 +77,7 @@ for($i = 0; $i < count($submission_ids); $i++) {
 	if(!$sub_lookup->execute()) {
 		echo "Submission Execute failed: (" . $conn->errno . ") " . $conn->error;
 	}
-	if(!$sub_lookup->bind_result($benefactor, $hours_worked, $sub_date, $approved)) {
+	if(!$sub_lookup->bind_result($benefactor, $hours_worked, $sub_date, $approved, $link)) {
 		echo "Submission Bind Result failed: (" . $conn->errno . ") " . $conn->error;
 	}
 	if(!$sub_lookup->fetch()) {
@@ -95,7 +95,8 @@ for($i = 0; $i < count($submission_ids); $i++) {
 		"benefactor" => $benefactor, 
 		"hours_worked" => $hours_worked,
 		"submission_date" => $sub_date,
-		"approved?" => $approved];
+		"approved?" => $approved,
+		"link" => $link];
 }
 
 $conn->close();
@@ -210,8 +211,9 @@ $conn->close();
         { id:"benefactor",   header:"Organization",fillspace:true},
         { id:"hours_worked",    header:"Hours Worked",fillspace:true},
         { id:"submission_date",   header:"Submission Date", fillspace:true},
-	{ id:"approved?", header:"Status",fillspace:true},
-	{ id:"",template:"<input class='delbtn' type='button' value='Delete'>",fillspace:true}],
+		{ id:"approved?", header:"Status",fillspace:true},
+		{ id:"link", header: "Supervisor Form Link", fillspace:true},
+		{ id:"",template:"<input class='delbtn' type='button' value='Delete'>",fillspace:true}],
 			view:"datatable",
 			rowHeight:50, 
 			data:[first_result]

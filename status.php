@@ -34,7 +34,6 @@ $sub_id_lookup->bind_result($submission_id_match);
 $i=0;
 $submission_ids = [];
 while($sub_id_lookup->fetch()) {
-	echo PHP_EOL . "Submission_ID match #" . $i . " : " . $submission_id_match . PHP_EOL;
 	$submission_ids[$i] = $submission_id_match;
 	$i++;
 }
@@ -45,7 +44,6 @@ if(!($sub_lookup = $conn->prepare("SELECT Non_Profit_Benefactor, Hours_Worked, S
 	echo "Submission Prepare failed: (" . $conn->errno . ") " . $conn->error;
 }
 
-echo "NUMBER OF RESULTS: " . count($submission_ids) . PHP_EOL;
 $submission_results_list = [];
 for($i = 0; $i < count($submission_ids); $i++) {
 	if(!$sub_lookup->bind_param("i", $submission_ids[$i])) {
@@ -61,9 +59,9 @@ for($i = 0; $i < count($submission_ids); $i++) {
 		echo "Submission Fetch failed: (" . $conn->errno . ") " . $conn->error;
 	}
 	if($approved == 1) {
-		$approved = "Yes";
+		$approved = "Approved";
 	} else if ($approved = 0) {
-		$approved = "No";
+		$approved = "Declined";
 	} else {
 		$approved = "Pending";
 	}
@@ -73,10 +71,7 @@ for($i = 0; $i < count($submission_ids); $i++) {
 		"submission_date" => $sub_date,
 		"approved?" => $approved];
 }
-echo PHP_EOL;
-print_r($submission_results_list);
 
-/* close connection */
 $conn->close();
 
 ?>
@@ -174,28 +169,39 @@ $conn->close();
    	</header>
    	   	
    	<div class="entry-content clearfix">
-        <div id="box"></div>
+        <div class="entry-content clearfix" id="box"></div>
            		<script type="text/javascript" charset="utf-8">
     		var results = <?php echo json_encode($submission_results_list); ?>;
+		var first_result = results[0];
+		console.log(first_result);
     		console.log(results);
-    		var results_ex = {benefactor: "Yodle", hours_worked: 100, submission_date: "2017-04-19", 'approved?': 1};
-    		console.log(results_ex);
-    		results = JSON.stringify(results);
     		var app = webix.ui({
     			id:"data",
     			container: "box",
-				rows:[
-			      { view:"template", 
-			        type:"header", template:"Submissions" },
-			      { view:"datatable", 
-			        autoConfig:true, 
-			        data:[results]
-			      }
-			  ]
+			autoheight:true,
+			columns:[
+        { id:"benefactor",   header:"Organization",fillspace:true},
+        { id:"hours_worked",    header:"Hours Worked",fillspace:true},
+        { id:"submission_date",   header:"Submission Date", fillspace:true},
+	{ id:"approved?", header:"Status",fillspace:true},
+	{ id:"",template:"<input class='delbtn' type='button' value='Delete'>",fillspace:true}],
+			view:"datatable",
+			rowHeight:50, 
+			data:[first_result]
 			});
-			for(let index of results) {
-				$$("data").add(index);
+			console.log("results length: " + results.length);
+			for(i=1;i<results.length;i++) {
+				console.log("result @: " + i + " " + results[i]);
+				$$("data").add(results[i],0);
      		}
+		app.on_click.delbtn=function(e, id, trg){
+						//id.column - column id
+						//id.row - row id
+						webix.message("This doesn't work yet");
+						webix.send("/status.php");
+						//block default onclick event
+						return false;
+			};
 			
 		</script>
    </div>

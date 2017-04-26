@@ -181,7 +181,7 @@ $conn->close();
     			container: "box",
 			autoheight:true,
 			columns:[
-		{ id:"id",   header:"ID",fillspace:true},
+		{ id:"id",   header:"ID",fillspace:true, hidden:true},
         { id:"benefactor",   header:"Organization",fillspace:true},
         { id:"hours_worked",    header:"Hours Worked",fillspace:true},
         { id:"submission_date",   header:"Submission Date", fillspace:true},
@@ -197,10 +197,8 @@ $conn->close();
 				$$("data").add(results[i],0);
      		}
 		app.on_click.delbtn=function(e, id, trg){
-						//id.column - column id
-						//id.row - row id
-						webix.message("This doesn't work yet: " + id + " " + id.row + " " + id.id);
-						webix.send("/status.php?cmd=del&id=0");
+						webix.message("Deleting...");
+						webix.send("/status.php?cmd=del&id=" + id);
 						//block default onclick event
 						return false;
 			};

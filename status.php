@@ -15,7 +15,7 @@ if ($conn->connect_error) {
     die("Connection failed: " . $conn->connect_error);
 }
 
-if(isset($_GET["cmd"] && $_GET["cmd"] == "del")) {
+if(isset($_GET["cmd"]) && $_GET["cmd"] == "del") {
 	if (!($sub_id_lookup = $conn->prepare("DELETE FROM Submission WHERE Submission_ID = ?"))) {
     	echo "Student_Submissions Prepare failed: (" . $conn->errno . ") " . $conn->error;
 	}

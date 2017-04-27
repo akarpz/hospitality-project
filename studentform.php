@@ -112,7 +112,7 @@ if(!isset($_SESSION['cas_data'])){
             Date(s) of Work: <br>
             Started: <input type="text" name="workdates-start" id="workdates-start" readonly required>
             Ended: <input type="text" name="workdates-end" id="workdates-end" readonly required><br>
-            Number of Hours Worked: <input type="number" name="hoursworked" min="1" max="99999" required><br>
+            Number of Hours Worked: <input type="text" name="hoursworked" id="hoursworked" maxlength="5" required><br>
             Describe your specific activities: <input type="text" name="activities" maxlength="2000" required><br>
             Describe the value in what you did for the agency/site: 
             <input type="text" name="valuesite" maxlength="2000" required><br>
@@ -211,6 +211,7 @@ $(document).ready(function() {
     $("#workdates-end").datepicker({ dateFormat: 'yy-mm-dd' }); 
     $("#studtel").mask('(000) 000-0000');
     $("#supphone").mask('(000) 000-0000');
+    $("#hoursworked").mask('00000');
 } );
 </script>
 

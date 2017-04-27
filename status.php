@@ -1,9 +1,3 @@
-<html>
-<script>
-    //viewport.setAttribute('content', 'width=1024');
-    viewport.setAttribute('content', 'width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no');
-</script>
-</html>
 <?php 
 session_start();
 if(!isset($_SESSION['cas_data'])){
@@ -212,6 +206,7 @@ $conn->close();
     			id:"data",
     			container: "box",
 			autoheight:true,
+			responsive:true,
 			columns:[
 		{ id:"id",   header:"ID",fillspace:true, hidden:true},
         { id:"benefactor",   header:"Organization",fillspace:true},
@@ -235,7 +230,7 @@ $conn->close();
 						return false;
 		};
 		app.on_click.supbtn=function(e, id, trg) {
-				webix.alert({text:"https://serviceforms.lerner.udel.edu/supervisorform?ref=" + app.getItem(id).link,width:1000});
+				webix.alert({text:"https://serviceforms.lerner.udel.edu/supervisorform.php?ref=" + app.getItem(id).link,width:800});
 		};
 			
 		</script>

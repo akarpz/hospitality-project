@@ -69,6 +69,12 @@ switch($ref) {
     break;  
 }
 
+//SELECT Student.First_Name, Student.Last_Name, Submission.Hours_Worked 
+//FROM Student 
+//JOIN Student_Submissions ON Student_Submissions.UDID=Student.UDID 
+//JOIN Submission ON Submission.Submission_ID=Student_Submissions.Submission_ID  
+//ORDER BY Hours_Worked DESC;
+
 if(!$result = $conn->query($sql_statement)) {
     echo "query failed: (" . $conn->errno . ") " . $conn->error;
 }

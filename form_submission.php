@@ -40,7 +40,7 @@ function check_student() {
         echo "Check for Student Prepare failed: (" . $conn->errno . ") " . $conn->error;
     }
     echo "Type of variable #1" . gettype($result) . PHP_EOL;
-    if(!$result->bind_param('s', $_POST["id"])) {
+    if(!$result->bind_param('i', $_POST["udid"])) {
         echo "Check for Student Bind failed: (" . $conn->errno . ") " . $conn->error;
     }
     if(!$result->execute()) {
@@ -52,7 +52,7 @@ function check_student() {
     }
     echo "UDID" . $udid . PHP_EOL;
     echo "number of rows in student check: " . $result->num_rows . PHP_EOL;
-    if($udid == $_POST["id"]) {
+    if($udid == $_POST["udid"]) {
         echo "Student exists" . PHP_EOL;
 	    $result->close();
         check_supervisor();
@@ -63,7 +63,7 @@ function check_student() {
         if(!$newstudent = $conn->prepare("INSERT INTO Student (UDID, First_Name, Last_Name, Major, Student_Email, Student_Phone) VALUES (?, ?, ?, ?, ?, ?)")) {
             echo "Student Insert Prepare failed: (" . $conn->errno . ") " . $conn->error;
         }
-    	$newstudent->bind_param("ssssss", $_POST["id"], $_POST["fname"], $_POST["lname"], $_POST["major"], $_POST["email"], $_POST["studtel"]);
+    	$newstudent->bind_param("isssss", $_POST["udid"], $_POST["fname"], $_POST["lname"], $_POST["major"], $_POST["email"], $_POST["studtel"]);
         $newstudent->execute();
         $newstudent->close();
         echo "finished checking student" . PHP_EOL;

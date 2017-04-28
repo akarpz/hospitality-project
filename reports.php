@@ -73,7 +73,7 @@ switch($ref) {
                           FROM Student 
                           JOIN Student_Submissions ON Student_Submissions.UDID=Student.UDID 
                           JOIN Submission ON Submission.Submission_ID=Student_Submissions.Submission_ID  
-                          ORDER BY Hours_Worked DESC;"
+                          ORDER BY Hours_Worked DESC";
 }
 
 
@@ -112,7 +112,7 @@ $data = str_replace( "\r" , "" , $data );
 } else {
     echo "0 results";
 }
-
+}
 
 header("Content-type: application/octet-stream");
 header("Content-Disposition: attachment; filename=report.xls");

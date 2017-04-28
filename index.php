@@ -20,7 +20,7 @@ function isapprovedfaculty($udid) {
   $username = "root";
   $password = "=76_kill_COMMON_market_8=";
   $db_name = "hospitality-serviceform-db";
-  $sql = "SELECT UDID FROM approved_internal_users WHERE UDID='" . $udid. "'";
+  $sql = "SELECT UDID FROM approved_internal_users WHERE UDID='" . $udid . "'";
   
   $conn = new mysqli($servername, $username, $password, $db_name);
 
@@ -44,7 +44,7 @@ function isapprovedfaculty($udid) {
   }
 }
 
-if(isapprovedfaculty($_SESSION['cas_data']['UDELNETID'])) {
+if(isapprovedfaculty($_SESSION['cas_data']['USER'])) {
   header("Location: /internalviews.php");
   exit();
 }

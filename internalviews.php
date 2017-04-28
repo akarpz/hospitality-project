@@ -1,9 +1,39 @@
 <?php
-/*session_start();*/
-/*if(!isset($_SESSION['cas_data'])){*/
-   /* header("Location: http://serviceforms.lerner.udel.edu/index.php");*/
-/*}*/
+// session_start();
+// if(!isset($_SESSION['cas_data'])) {
+//   header("Location: http://serviceforms.lerner.udel.edu/index.php");
+// }
+function isapprovedfaculty($udid) {
+  $servername = "localhost";
+  $username = "root";
+  $password = "=76_kill_COMMON_market_8=";
+  $db_name = "hospitality-serviceform-db";
+  $sql = "SELECT UDID FROM approved_internal_users WHERE UDID='" . $udid . "'";
+  
+  $conn = new mysqli($servername, $username, $password, $db_name);
 
+
+  if ($conn->connect_error) {
+      die("Connection failed: " . $conn->connect_error);
+  }
+  
+  if(!$result = $conn->query($sql)) {
+    echo "Internal User Query failed: (" . $conn->errno . ") " . $conn->error;
+  }
+  
+  if ($result->num_rows > 0) {
+      while($row = $result->fetch_assoc()) {
+          if($udid == $row["UDID"]) {
+            return true;
+          }
+      }
+  } else {
+      return false;
+  }
+}
+if(!isapprovedfaculty($_SESSION['cas_data']['USER'])){
+    header("Location: /index.php");
+}
 ?>
 <html lang="en-US"><head>
 <meta charset="UTF-8">

@@ -206,13 +206,14 @@ $conn->close();
     			id:"data",
     			container: "box",
 			autoheight:true,
+			responsive:true,
 			columns:[
 		{ id:"id",   header:"ID",fillspace:true, hidden:true},
         { id:"benefactor",   header:"Organization",fillspace:true},
         { id:"hours_worked",    header:"Hours Worked",fillspace:true},
         { id:"submission_date",   header:"Submission Date", fillspace:true},
 		{ id:"approved?", header:"Status",fillspace:true},
-		{ id:"link", header: "Supervisor Form Link", fillspace:true},
+		{ id:"link", header:"Supervisor Form Link", template:"<input class='supbtn' type='button' value='Get Link'>",fillspace:true},
 		{ id:"",template:"<input class='delbtn' type='button' value='Delete'>",fillspace:true}],
 			view:"datatable",
 			rowHeight:50, 
@@ -228,7 +229,10 @@ $conn->close();
 						webix.send("/status.php?cmd=del&id=" + id);
 						return false;
 			};
-			
+		app.on_click.supbtn=function(e, id, trg) {
+						webix.alert({width:750,text:"https://serviceforms.lerner.udel.edu/supervisorform.php?ref=" + app.getItem(id).link});
+						return false;
+		};
 		</script>
    </div>
 

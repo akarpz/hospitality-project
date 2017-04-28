@@ -32,7 +32,7 @@ function isapprovedfaculty($udid) {
   }
 }
 if(!isapprovedfaculty($_SESSION['cas_data']['USER'])){
-    header("Location: /index.php");
+    //header("Location: /index.php");
 }
 ?>
 <html lang="en-US"><head>

@@ -135,7 +135,7 @@ function create_student_submission($submission_id) {
     if(!$new_student_submission_record = $conn->prepare('INSERT INTO Student_Submissions VALUES (?, ?)')) {
         echo "Student_Submission Insert Prepare failed: (" . $conn->errno . ") " . $conn->error;
     }
-    if(!$new_student_submission_record->bind_param("ss", $_POST["id"], $submission_id)) {
+    if(!$new_student_submission_record->bind_param("is", $_POST["udid"], $submission_id)) {
         echo "Student_Submission Insert Bind failed: (" . $conn->errno . ") " . $conn->error;
     }
     if(!$new_student_submission_record->execute()) {

@@ -67,9 +67,17 @@ switch($ref) {
                              between '2017-04-18' and '2017-04-25'";
                         
     break;  
+    
+    case "":
+        $sql_statement = "SELECT Student.First_Name, Student.Last_Name, Student.UDID, Submission.Hours_Worked 
+                          FROM Student 
+                          JOIN Student_Submissions ON Student_Submissions.UDID=Student.UDID 
+                          JOIN Submission ON Submission.Submission_ID=Student_Submissions.Submission_ID  
+                          ORDER BY Hours_Worked DESC;"
 }
 
-//SELECT Student.First_Name, Student.Last_Name, Submission.Hours_Worked 
+
+//SELECT Student.First_Name, Student.Last_Name, Student.UDID, Submission.Hours_Worked 
 //FROM Student 
 //JOIN Student_Submissions ON Student_Submissions.UDID=Student.UDID 
 //JOIN Submission ON Submission.Submission_ID=Student_Submissions.Submission_ID  
@@ -83,12 +91,37 @@ if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
         print_r($row);
+          $line = '';
+    foreach( $row as $value )
+    {                                            
+        if ( ( !isset( $value ) ) || ( $value == "" ) )
+        {
+            $value = "\t";
+        }
+        else
+        {
+            $value = str_replace( '"' , '""' , $value );
+            $value = '"' . $value . '"' . "\t";
+        }
+        $line .= $value;
+    }
+    $data .= trim( $line ) . "\n";
+}
+$data = str_replace( "\r" , "" , $data );
     }
 } else {
     echo "0 results";
 }
 
+
+header("Content-type: application/octet-stream");
+header("Content-Disposition: attachment; filename=report.xls");
+header("Pragma: no-cache");
+header("Expires: 0");
+
+
 $conn->close();
+
 
 
 

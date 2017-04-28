@@ -124,14 +124,9 @@ if(!isset($_SESSION['cas_data'])){
             Supervisor Title: <input type="text" name="suptitle" maxlength="45" required><br>
             Supervisor E-Mail: <input type="text" name="supemail" maxlength="45" required><br>
             Supervisor Phone: <input type="text" name="supphone" maxlength="14" id="supphone" required><br>
-            <b>Is the Supervisor a student?<b>
-                <select name = "supstudent?" onchange="toggle(this)">
-                    <option value="no">NO</option>
-                    <option value="yes">YES</option>
-                </select><br><br>
-            <b>Is the Supervisor related to you?<b>
-                <select name = "suprelative?" onchange="toggle(this)">
-                    <option value="no">NO</option>
+            <b>Is the Supervisor a student or relative?<b>
+                <select name = "supstudent?" id="supstudent" onchange="toggle(this)">
+                    <option value="no" selected>NO</option>
                     <option value="yes">YES</option>
                 </select><br><br>
                 <div id="rejection_div" style="display:none">
@@ -147,11 +142,6 @@ if(!isset($_SESSION['cas_data'])){
 	</article>
 			
 		</div><!-- #content -->
-
-		<ul class="default-wp-page clearfix">
-			<li class="previous"><a href="http://my.lerner.udel.edu/undergraduate-students/undergraduate-advising" rel="prev"><span class="meta-nav">←</span> Advising</a></li>
-			<li class="next"><a href="http://my.lerner.udel.edu/undergraduate-students/undergraduate-advising/senior-check-out" rel="next">Senior Check-out <span class="meta-nav">→</span></a></li>
-		</ul>
 
 	</div><!-- #primary -->
 	</div><!-- #main -->
@@ -172,7 +162,7 @@ if(!isset($_SESSION['cas_data'])){
 </footer>
 
 <script>
-function toggle(el){
+function toggle(el) {
     var value = el.options[el.selectedIndex].value,
         div = document.getElementById('rejection_div');
 

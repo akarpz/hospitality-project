@@ -91,27 +91,21 @@ if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
         print_r($row);
-          $line = '';
-    foreach( $row as $value )
-    {                                            
-        if ( ( !isset( $value ) ) || ( $value == "" ) )
-        {
-            $value = "\t";
+        $line = '';
+        foreach( $row as $value ) {                                           
+            if ( ( !isset( $value ) ) || ( $value == "" ) ) {
+                $value = "\t";
+            } else {
+                $value = str_replace( '"' , '""' , $value );
+                $value = '"' . $value . '"' . "\t";
+            }
+            $line .= $value;
         }
-        else
-        {
-            $value = str_replace( '"' , '""' , $value );
-            $value = '"' . $value . '"' . "\t";
-        }
-        $line .= $value;
+        $data .= trim( $line ) . "\n";
     }
-    $data .= trim( $line ) . "\n";
-}
-$data = str_replace( "\r" , "" , $data );
-    }
+    $data = str_replace( "\r" , "" , $data );
 } else {
     echo "0 results";
-}
 }
 
 header("Content-type: application/octet-stream");

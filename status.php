@@ -230,7 +230,11 @@ $conn->close();
 						return false;
 			};
 		app.on_click.supbtn=function(e, id, trg) {
-						webix.alert({width:750,text:"https://serviceforms.lerner.udel.edu/supervisorform.php?ref=" + app.getItem(id).link});
+						webix.modalbox({
+    							title:"Supervisor Approval Form Link",
+    							buttons:["Ok"],
+    							text:"https://serviceforms.lerner.udel.edu/supervisorform.php?ref="+app.getItem(id).link,
+    							width:750});
 						return false;
 		};
 		</script>

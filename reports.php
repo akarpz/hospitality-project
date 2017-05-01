@@ -90,6 +90,7 @@ if(!$result = $conn->query($sql_statement)) {
 if ($result->num_rows > 0) {
     // output data of each row
     while($row = $result->fetch_assoc()) {
+	echo "row";
         print_r($row);
         $line = '';
         foreach( $row as $value ) {                                           

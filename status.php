@@ -207,6 +207,7 @@ $conn->close();
     			container: "box",
 			autoheight:true,
 			responsive:true,
+			clipboard:true,
 			columns:[
 		{ id:"id",   header:"ID",fillspace:true, hidden:true},
         { id:"benefactor",   header:"Organization",fillspace:true},

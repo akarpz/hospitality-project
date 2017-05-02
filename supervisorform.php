@@ -150,18 +150,15 @@ $conn->close();
             Otherwise you may contact the student to explain
             what about their submission you disagree with:</b><br><br>
             Your Name: <input type="text" name="supname"><br>
-            <b>Are you a student at UD?</b>
-                <select name = "supstudent?">
+            <b>Is the Supervisor a student or relative?<b>
+                <select name = "supstudent?" id="supstudent" onchange="toggle(this)">
+                    <option value="no" selected>NO</option>
                     <option value="yes">YES</option>
-                    <option value="no">NO</option>
                 </select><br><br>
-            <b>Are you related to the student who sent you this form?</b>
-                <select name = "suprelative?">
-                    <option value="yes">YES</option>
-                    <option value="no">NO</option>
-                </select><br><br>
-            <b>If you answer yes to either of the above questions, understand that the student will not be awarded
-            community service hours.</b><br><br>
+                <div id="rejection_div" style="display:none">
+                    <b>You've selected "Yes" to one of the above questions. Please submit form with a supervisor
+                        who is not a student or relative. The submit button is not be clickable.</b><br><br>
+                </div>
             
             <!-- Signature of Student: <input type="text" name="supsig"><br> -->
             <b>If all of the above information reflects your recolection of the services rendered
@@ -200,7 +197,20 @@ $conn->close();
 		</div>
 	</div>
 </footer>
+<script>
+    function toggle(el) {
+    var value = el.options[el.selectedIndex].value,
+        div = document.getElementById('rejection_div');
 
+    if (value === 'no') {
+        div.style.display = 'none';
+        document.getElementById('studentformsubmit').disabled = '';
+    } else if (value === 'yes') {
+        div.style.display = 'block';
+        document.getElementById('studentformsubmit').disabled = 'disabled';
+    }
+}
+</script>
 <script>
     const days = ["Sunday", "Monday", "Tuesday" ,"Wednesday", "Thursday", "Friday", "Saturday"];
     const monthNames = ["January", "February", "March", "April", "May", "June",

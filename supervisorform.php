@@ -166,7 +166,7 @@ $conn->close();
             <br><br>
             
             
-          <input type="submit" value="Submit">
+          <input type="submit" value="Submit" id="supformsubmit">
         </form>
 
    </div>
@@ -204,10 +204,10 @@ $conn->close();
 
     if (value === 'no') {
         div.style.display = 'none';
-        document.getElementById('studentformsubmit').disabled = '';
+        document.getElementById('supformsubmit').disabled = '';
     } else if (value === 'yes') {
         div.style.display = 'block';
-        document.getElementById('studentformsubmit').disabled = 'disabled';
+        document.getElementById('supformsubmit').disabled = 'disabled';
     }
 }
 </script>

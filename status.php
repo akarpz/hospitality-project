@@ -98,7 +98,6 @@ for($i = 0; $i < count($submission_ids); $i++) {
 		"approved?" => $approved,
 		"link" => $link];
 }
-echo count($submission_ids);
 $conn->close();
 ?>
 <html lang="en-US"><head>
@@ -198,9 +197,8 @@ $conn->close();
         <div class="entry-content clearfix" id="box"></div>
         
         <?php 
-			echo count($submission_ids);
 			if (count($submission_ids) == 0) { 
-				echo "You Have No Submissions Yet";
+				echo "<h3> You Have No Submissions Yet </h3>";
 			 }
 		?>
            		<script type="text/javascript" charset="utf-8">

@@ -6,8 +6,6 @@ include 'cas_setup.php';
 
 print_r($_SESSION);
 
-$_SESSION['cas_data']['USER'] = 33822;
-
 function isstudent($usertype) {
   if (strpos($usertype, 'STUDENT') !== false) {
     return true;

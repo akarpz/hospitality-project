@@ -196,13 +196,14 @@ $conn->close();
    	   	
    	<div class="entry-content clearfix">
         <div class="entry-content clearfix" id="box"></div>
-           		<script type="text/javascript" charset="utf-8">
-		<?php 
+        
+        <?php 
 			echo count($submission_ids);
 			if (count($submission_ids) == 0) { 
 				echo "You Have No Submissions Yet";
 			 }
 		?>
+           		<script type="text/javascript" charset="utf-8">
     		var results = <?php echo json_encode($submission_results_list); ?>;
 		var first_result = results[0];
 		console.log(first_result);

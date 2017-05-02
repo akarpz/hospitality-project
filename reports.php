@@ -74,6 +74,9 @@ switch($ref) {
                           JOIN Student_Submissions ON Student_Submissions.UDID=Student.UDID 
                           JOIN Submission ON Submission.Submission_ID=Student_Submissions.Submission_ID  
                           ORDER BY Hours_Worked DESC";
+    case "debug":
+	$sql_statement = "Select * FROM Submission";
+    break;
 }
 
 
@@ -86,33 +89,30 @@ switch($ref) {
 if(!$result = $conn->query($sql_statement)) {
     echo "query failed: (" . $conn->errno . ") " . $conn->error;
 }
+$fp = fopen('/reports/report.csv','w+');
+
+echo PHP_EOL . "number of results: " . $result->num_rows;
+echo PHP_EOL . "printing results: ". PHP_EOL;
 
 if ($result->num_rows > 0) {
-    // output data of each row
+	$GLOBALS['i'] = 0;
+	echo $GLOBALS['i'];
     while($row = $result->fetch_assoc()) {
-	echo "row";
+	echo "row at index: " . $GLOBALS['i'];
         print_r($row);
-        $line = '';
-        foreach( $row as $value ) {                                           
-            if ( ( !isset( $value ) ) || ( $value == "" ) ) {
-                $value = "\t";
-            } else {
-                $value = str_replace( '"' , '""' , $value );
-                $value = '"' . $value . '"' . "\t";
-            }
-            $line .= $value;
-        }
-        $data .= trim( $line ) . "\n";
+	fputcsv($fp, $row);
+	$GLOBALS['i'] += 1;
     }
-    $data = str_replace( "\r" , "" , $data );
 } else {
-    echo "0 results";
+	echo "no results";
 }
-
+fclose($fp);
 header("Content-type: application/octet-stream");
-header("Content-Disposition: attachment; filename=report.xls");
-header("Pragma: no-cache");
-header("Expires: 0");
+header("Content-Transfer-Encoding; CSV");
+header("Content-Disposition: attachment; filename=report.csv");
+//header("Pragma: no-cache");
+//header("Expires: 0");
+readfile("/reports/report.csv");
 
 
 $conn->close();

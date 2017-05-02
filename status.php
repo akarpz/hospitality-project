@@ -98,9 +98,8 @@ for($i = 0; $i < count($submission_ids); $i++) {
 		"approved?" => $approved,
 		"link" => $link];
 }
-
+echo count($submission_ids);
 $conn->close();
-
 ?>
 <html lang="en-US"><head>
 <meta charset="UTF-8">
@@ -198,6 +197,12 @@ $conn->close();
    	<div class="entry-content clearfix">
         <div class="entry-content clearfix" id="box"></div>
            		<script type="text/javascript" charset="utf-8">
+		<?php 
+			echo count($submission_ids);
+			if (count($submission_ids) == 0) { 
+				echo "You Have No Submissions Yet";
+			 }
+		?>
     		var results = <?php echo json_encode($submission_results_list); ?>;
 		var first_result = results[0];
 		console.log(first_result);

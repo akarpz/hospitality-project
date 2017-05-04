@@ -149,7 +149,7 @@ $conn->close();
             are descriptive of the services he/she provided. 
             Otherwise you may contact the student to explain
             what about their submission you disagree with:</b><br><br>
-            Your Name: <input type="text" name="supname"><br>
+            Your Name: <input type="text" name="supname" required><br>
             <b>Is the Supervisor a student or relative?<b>
                 <select name = "supstudent?" id="supstudent" onchange="toggle(this)">
                     <option value="no" selected>NO</option>
@@ -165,8 +165,7 @@ $conn->close();
             by the student volunteer, please press submit to confirm their community service hours.</b>
             <br><br>
             
-            
-          <input type="submit" value="Submit" id="supformsubmit">
+          <input type="submit" value="Approve" id="supformsubmit">
         </form>
 
    </div>
@@ -174,12 +173,6 @@ $conn->close();
 	</article>
 			
 		</div><!-- #content -->
-
-		<ul class="default-wp-page clearfix">
-			<li class="previous"><a href="http://my.lerner.udel.edu/undergraduate-students/undergraduate-advising" rel="prev"><span class="meta-nav">←</span> Advising</a></li>
-			<li class="next"><a href="http://my.lerner.udel.edu/undergraduate-students/undergraduate-advising/senior-check-out" rel="next">Senior Check-out <span class="meta-nav">→</span></a></li>
-		</ul>
-
 	</div><!-- #primary -->
 	</div><!-- #main -->
 	

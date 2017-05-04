@@ -1,4 +1,3 @@
-<html><pre>
 <?php
 
 $servername = "localhost";
@@ -18,11 +17,11 @@ $cutoff = "06-01";
 $now = new DateTime();
 $now = $now->format('m-d');
 $now = "08-01";
-echo $now;
-echo "something in between";
-echo $cutoff;
+//echo $now;
+//echo "something in between";
+//echo $cutoff;
 if($now<$cutoff) {
-    echo "we are in the current year";
+    //echo "we are in the current year";
     $yearnow = new DateTime();
     $yearnow = $yearnow->format('y');
     $yearone = $yearnow-1;
@@ -31,33 +30,33 @@ if($now<$cutoff) {
     
 }
 else {
-    echo "this is not the current year";
+    //echo "this is not the current year";
     $yearnow = new DateTime();
     $yearnow = $yearnow->format('y');
     $yearone = $yearnow;
     $yeartwo = $yearnow-1;
     
 }
-echo PHP_EOL;
-echo $yearone . PHP_EOL;
-echo $yeartwo . PHP_EOL;
+//echo PHP_EOL;
+//echo $yearone . PHP_EOL;
+//echo $yeartwo . PHP_EOL;
 
 $yearone = "20" . $yearone;
 $yeartwo = "20" . $yeartwo;
 $yearone =  $yearone . "-5" . "-31";
 $yeartwo =  $yeartwo . "-8" . "-25";
-echo "yearone: " . $yearone . PHP_EOL;
-echo "yeartwo: " . $yeartwo;
+//echo "yearone: " . $yearone . PHP_EOL;
+//echo "yeartwo: " . $yeartwo;
  
 
 
 
 switch($ref) {
     case "all":
-        $sql_statement = "SELECT * FROM Submission sub 
-                            JOIN Student stu 
-                            JOIN Supervisor sup
-                            JOIN Student_Submissions ss";
+        $sql_statement = "SELECT * FROM Submission 
+                            JOIN Student
+                            JOIN Supervisor
+                            JOIN Student_Submissions";
     break;
     
     case "last":
@@ -91,17 +90,17 @@ if(!$result = $conn->query($sql_statement)) {
 }
 $fp = fopen('/reports/report.csv','w+');
 
-echo PHP_EOL . "number of results: " . $result->num_rows;
-echo PHP_EOL . "printing results: ". PHP_EOL;
+//echo PHP_EOL . "number of results: " . $result->num_rows;
+//echo PHP_EOL . "printing results: ". PHP_EOL;
 
 if ($result->num_rows > 0) {
-	$GLOBALS['i'] = 0;
-	echo $GLOBALS['i'];
+	//$GLOBALS['i'] = 0;
+	//echo $GLOBALS['i'];
     while($row = $result->fetch_assoc()) {
-	echo "row at index: " . $GLOBALS['i'];
-        print_r($row);
+	//echo "row at index: " . $GLOBALS['i'];
+        //print_r($row);
 	fputcsv($fp, $row);
-	$GLOBALS['i'] += 1;
+	//$GLOBALS['i'] += 1;
     }
 } else {
 	echo "no results";
@@ -121,4 +120,3 @@ $conn->close();
 
 
 ?>
-</pre></html>

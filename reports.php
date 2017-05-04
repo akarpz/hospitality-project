@@ -79,8 +79,12 @@ switch($ref) {
 if(!$result = $conn->query($sql_statement)) {
     echo "query failed: (" . $conn->errno . ") " . $conn->error;
 }
-$fp = fopen('/reports/report.csv','w+');
-
+$filename = "/reports/report.csv";
+if (file_exists($filename)) {
+    unlink($filename);
+} else {
+    $fp = fopen($filename,'w+');
+}
 //echo PHP_EOL . "number of results: " . $result->num_rows;
 //echo PHP_EOL . "printing results: ". PHP_EOL;
 
@@ -93,11 +97,11 @@ if ($result->num_rows > 0) {
 }
 
 $conn->close();
-
+$outputfilename = "report_".$now.".csv";
 fclose($fp);
 header("Content-type: application/octet-stream");
 header("Content-Transfer-Encoding; CSV");
-header("Content-Disposition: attachment; filename=report.csv");
+header("Content-Disposition: attachment; filename=" . $outputfilename);
 //header("Pragma: no-cache");
 //header("Expires: 0");
 readfile("/reports/report.csv");

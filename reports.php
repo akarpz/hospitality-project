@@ -16,7 +16,6 @@ if ($conn->connect_error) {
 $cutoff = "06-01";
 $now = new DateTime();
 $now = $now->format('m-d');
-//$now = "08-01";
 if($now < $cutoff) {
     //echo "we are in the current year";
     $yearnow = new DateTime();
@@ -90,6 +89,10 @@ if (file_exists($filename)) {
 $fp = fopen($filename,'w+');
 
 if ($result->num_rows > 0) {
+    $finfo = $result->fetch_fields();
+    foreach ($finfo as $val) {
+        fputcsv($fp, $val);
+    }
     while($row = $result->fetch_assoc()) {
 	    fputcsv($fp, $row);
     }

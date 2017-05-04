@@ -144,6 +144,11 @@ if(!isapprovedfaculty($_SESSION['cas_data']['USER'])){
                     <td><button id="down_last" type="button" onclick="location.href = 'reports.php?ref=last';">Download</button></td>
                 </tr>
                 <tr>
+                    <td>Student Hours</td>
+                    <td>Download all Student information, ranked by hours</td>
+                    <td><button id="down_stu" type="button" onclick="location.href = 'reports.php?ref=josh';">Download</button></td>
+                </tr>
+                <tr>
                     <td>Students</td>
                     <td>Download all student information(not just last year)</td>
                     <td><button id="down_stu" type="button" onclick="location.href = 'reports.php?ref=stu';">Download</button></td>

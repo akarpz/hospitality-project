@@ -2,7 +2,7 @@
 
 session_start();
 if(!isset($_SESSION['cas_data'])){
-    //header("Location: http://serviceforms.lerner.udel.edu/index.php");
+    header("Location: http://serviceforms.lerner.udel.edu/index.php");
 }
 
 if($_POST["supstudent?"] == "yes" || $_POST["suprelative?"] == "yes") {

@@ -82,27 +82,25 @@ if(!$result = $conn->query($sql_statement)) {
 $filename = "/reports/report.csv";
 if (file_exists($filename)) {
     unlink($filename);
-} else {
-    $fp = fopen($filename,'w+');
 }
-//echo PHP_EOL . "number of results: " . $result->num_rows;
-//echo PHP_EOL . "printing results: ". PHP_EOL;
+
+$fp = fopen($filename,'w+');
 
 if ($result->num_rows > 0) {
     while($row = $result->fetch_assoc()) {
-	fputcsv($fp, $row);
+	    fputcsv($fp, $row);
     }
 } else {
 	echo "no results";
 }
 
 $conn->close();
-$outputfilename = "report_".$now.".csv";
+$outputfilename = "report_" . $now . ".csv";
 fclose($fp);
 header("Content-type: application/octet-stream");
 header("Content-Transfer-Encoding; CSV");
 header("Content-Disposition: attachment; filename=" . $outputfilename);
 //header("Pragma: no-cache");
 //header("Expires: 0");
-readfile("/reports/report.csv");
+readfile($filename);
 ?>

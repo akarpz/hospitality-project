@@ -1,8 +1,6 @@
 <?php
-// session_start();
-// if(!isset($_SESSION['cas_data'])) {
-//   header("Location: http://serviceforms.lerner.udel.edu/index.php");
-// }
+session_start();
+
 function isapprovedfaculty($udid) {
   $servername = "localhost";
   $username = "root";
@@ -45,7 +43,6 @@ if(!isapprovedfaculty($_SESSION['cas_data']['USER'])){
 
 <link rel="dns-prefetch" href="//maxcdn.bootstrapcdn.com">
 <link rel="dns-prefetch" href="//fonts.googleapis.com">
-<link rel="dns-prefetch" href="//s.w.org">
 
 <link rel="stylesheet" id="font-awesome-css" href="//maxcdn.bootstrapcdn.com/font-awesome/4.6.3/css/font-awesome.min.css?ver=4.6.3" type="text/css" media="all">
 <link rel="stylesheet" id="colormag_google_fonts-css" href="//fonts.googleapis.com/css?family=Open+Sans%3A400%2C600&amp;ver=4.7.3" type="text/css" media="all">
@@ -139,22 +136,22 @@ if(!isapprovedfaculty($_SESSION['cas_data']['USER'])){
                 <tr>
                     <td>All Data</td>
                     <td>This will download the entire database as a .csv.</td>
-                    <td><button id="download all" type="button" onclick="location.href = 'reports.php?ref=all';">Download</button></td>
+                    <td><button id="down_all" type="button" onclick="location.href = 'reports.php?ref=all';">Download</button></td>
                 </tr>
                 <tr>
                     <td>All Data Last Year</td>
                     <td>This will download all data from last year</td>
-                    <td><button id="download last year" type="button" onclick="location.href = 'reports.php';">Download</button></td>
+                    <td><button id="down_last" type="button" onclick="location.href = 'reports.php?ref=last';">Download</button></td>
                 </tr>
                 <tr>
                     <td>Students</td>
                     <td>Download all student information(not just last year)</td>
-                    <td><button id="download students" type="button" onclick="location.href = 'reports.php';">Download</button></td>
+                    <td><button id="down_stu" type="button" onclick="location.href = 'reports.php?ref=stu';">Download</button></td>
                 </tr>
                 <tr>
                     <td>Supervisors</td>
                     <td>Download all supervisor information(not just last year)</td>
-                    <td><button id="download most" type="button" onclick="location.href = 'reports.php';">Download</button></td>
+                    <td><button id="down_sup" type="button" onclick="location.href = 'reports.php?ref=sup';">Download</button></td>
                 </tr>
                 
             </table>
@@ -169,12 +166,6 @@ if(!isapprovedfaculty($_SESSION['cas_data']['USER'])){
 	</article>
 			
 		</div><!-- #content -->
-
-		<ul class="default-wp-page clearfix">
-			<li class="previous"><a href="http://my.lerner.udel.edu/undergraduate-students/undergraduate-advising" rel="prev"><span class="meta-nav">←</span> Advising</a></li>
-			<li class="next"><a href="http://my.lerner.udel.edu/undergraduate-students/undergraduate-advising/senior-check-out" rel="next">Senior Check-out <span class="meta-nav">→</span></a></li>
-		</ul>
-
 	</div><!-- #primary -->
 	</div><!-- #main -->
 	

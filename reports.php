@@ -39,6 +39,9 @@ $yeartwo = "20" . $yeartwo;
 $yearone =  $yearone . "-5" . "-31";
 $yeartwo =  $yeartwo . "-8" . "-25";
 
+echo "Year Two (former year): " . $yeartwo . PHP_EOL;
+echo "Year One (latter year): " . $yearone . PHP_EOL;
+
 switch($ref) {
     case "all":
         $sql_statement = "SELECT * FROM Submission 
@@ -51,7 +54,7 @@ switch($ref) {
         $sql_statement = "SELECT * 
                             FROM Submission 
                             WHERE Submission_Date 
-                            between '" . $yeartwo . "' and " . $yearone . "'";
+                            between '" . $yeartwo . "' and '" . $yearone . "'";
                         
     break;
     

@@ -75,11 +75,12 @@ switch($ref) {
     break;
     
     case "student_current":
-        $sql_statement = "SELECT Student.UDID, Student.First_Name, Student.Last_Name, Student.Major, Student.Student_Email, Student.Student_Phone 
+        $sql_statement = "SELECT Student.UDID, Student.First_Name, Student.Last_Name, Student.Major, Student.Student_Email, Student.Student_Phone, Sum(Submission.Hours_Worked) 
                           FROM Student 
                           Join Student_Submissions ON Student_Submissions.UDID = Student.UDID
                           Join Submission ON Submission.Submission_ID = Student_Submissions.Submission_ID
-                          WHERE Submission.Submission_Date between '" . $current_year_start . "' AND '" . $current_year_end . "'";
+                          WHERE Submission.Submission_Date between '" . $current_year_start . "' AND '" . $current_year_end . "'
+			  GROUP BY Student.UDID";
     break;
     
     case "student_previous":

@@ -121,9 +121,12 @@ $fp = fopen($filename,'w+');
 
 if ($result->num_rows > 0) {
     $finfo = $result->fetch_fields();
+    $num = 0;
     foreach ($finfo as $val) {
-        fputcsv($fp, $val);
+	$columns[$num]= $val->name;
+	$num++;
     }
+    fputcsv($fp, $columns);
     while($row = $result->fetch_assoc()) {
 	    fputcsv($fp, $row);
     }
@@ -138,7 +141,6 @@ fclose($fp);
 header("Content-type: application/octet-stream");
 header("Content-Transfer-Encoding; CSV");
 header("Content-Disposition: attachment; filename=" . $outputfilename);
-//header("Pragma: no-cache");
-//header("Expires: 0");
+header("Pragma: no-cache");
 readfile($filename);
 ?>

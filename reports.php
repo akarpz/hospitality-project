@@ -79,7 +79,7 @@ switch($ref) {
                           FROM Student 
                           Join Student_Submissions ON Student_Submissions.UDID = Student.UDID
                           Join Submission ON Submission.Submission_ID = Student_Submissions.Submission_ID
-                          WHERE Submission.Date between '" . $current_year_start . "' AND '" . $current_year_end . "'";
+                          WHERE Submission.Submission_Date between '" . $current_year_start . "' AND '" . $current_year_end . "'";
     break;
     
     case "student_previous":
@@ -87,7 +87,7 @@ switch($ref) {
                           FROM Student 
                           Join Student_Submissions ON Student_Submissions.UDID = Student.UDID
                           Join Submission ON Submission.Submission_ID = Student_Submissions.Submission_ID
-                          WHERE Submission.Date between '" . $previous_year_start . "' AND '" . $previous_year_end . "'";
+                          WHERE Submission.Submission_Date between '" . $previous_year_start . "' AND '" . $previous_year_end . "'";
     break;
     
     case "supervisor_all":
@@ -98,14 +98,14 @@ switch($ref) {
         $sql_statement = "SELECT First_Name, Last_Name, Supervisor_Title, Supervisor_Email, Supervisor_Phone 
                           FROM Supervisor
                           JOIN Submission ON Supervisor.Supervisor_ID = Submission.Supervisor_ID
-                          WHERE Submission.Date between '" . $current_year_start . "' AND '" . $current_year_end . "'";
+                          WHERE Submission.Submission_Date between '" . $current_year_start . "' AND '" . $current_year_end . "'";
     break;
     
     case "supervisor_previous":
         $sql_statement = "SELECT First_Name, Last_Name, Supervisor_Title, Supervisor_Email, Supervisor_Phone 
                           FROM Supervisor
                           JOIN Submission ON Supervisor.Supervisor_ID = Submission.Supervisor_ID
-                          WHERE Submission.Date between '" . $previous_year_start . "' AND '" . $previous_year_end . "'";
+                          WHERE Submission.Submission_Date between '" . $previous_year_start . "' AND '" . $previous_year_end . "'";
     break;
 }
 

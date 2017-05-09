@@ -38,8 +38,8 @@ $yeartwo = "20" . $yeartwo;
 $yearone =  $yearone . "-5" . "-31";
 $yeartwo =  $yeartwo . "-8" . "-25";
 
-echo "Year Two (former year): " . $yeartwo . PHP_EOL;
-echo "Year One (latter year): " . $yearone . PHP_EOL;
+//echo "Year Two (former year): " . $yeartwo . PHP_EOL;
+//echo "Year One (latter year): " . $yearone . PHP_EOL;
 
 switch($ref) {
     case "all":
@@ -90,9 +90,12 @@ $fp = fopen($filename,'w+');
 
 if ($result->num_rows > 0) {
     $finfo = $result->fetch_fields();
+    $num = 0;
     foreach ($finfo as $val) {
-        fputcsv($fp, $val);
+	$columns[$num]= $val->name;
+	$num++;
     }
+    fputcsv($fp, $columns);
     while($row = $result->fetch_assoc()) {
 	    fputcsv($fp, $row);
     }
@@ -106,7 +109,6 @@ fclose($fp);
 header("Content-type: application/octet-stream");
 header("Content-Transfer-Encoding; CSV");
 header("Content-Disposition: attachment; filename=" . $outputfilename);
-//header("Pragma: no-cache");
-//header("Expires: 0");
+header("Pragma: no-cache");
 readfile($filename);
 ?>

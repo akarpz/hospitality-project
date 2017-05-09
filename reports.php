@@ -75,7 +75,7 @@ switch($ref) {
     break;
     
     case "student_current":
-        $sql_statement = "SELECT Student.UDID, Student.First_Name, Student.Last_Name, Student.Major, Student.Email, Student.Phone 
+        $sql_statement = "SELECT Student.UDID, Student.First_Name, Student.Last_Name, Student.Major, Student.Student_Email, Student.Student_Phone 
                           FROM Student 
                           Join Student_Submissions ON Student_Submissions.UDID = Student.UDID
                           Join Submission ON Submission.Submission_ID = Student_Submissions.Submission_ID
@@ -83,7 +83,7 @@ switch($ref) {
     break;
     
     case "student_previous":
-        $sql_statement = "SELECT Student.UDID, Student.First_Name, Student.Last_Name, Student.Major, Student.Email, Student.Phone 
+        $sql_statement = "SELECT Student.UDID, Student.First_Name, Student.Last_Name, Student.Major, Student.Student_Email, Student.Student_Phone 
                           FROM Student 
                           Join Student_Submissions ON Student_Submissions.UDID = Student.UDID
                           Join Submission ON Submission.Submission_ID = Student_Submissions.Submission_ID

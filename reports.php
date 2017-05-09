@@ -20,7 +20,7 @@ if(($now->format('m-d')) < $cutoff) {
     $previous_year_start = "20" . ($now->format('y') - 2) . "-8-25";
     $previous_year_end = "20" . $now->format('y') - 1 . "-5-31";
     $current_year_start = "20" . ($now->format('y') - 1) . "-8-25";
-    $current_year_end = "20" . $now->format('y') . "-8-25";
+    $current_year_end = "20" . $now->format('y') . "-5-31";
 } else {
     $previous_year_start = "20" . ($now->format('y') - 1) . "-8-25";
     $previous_year_end = "20" . $now->format('y') . "-5-31";

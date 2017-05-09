@@ -28,11 +28,11 @@ if(($now->format('m-d')) < $cutoff) {
     $current_year_end = "20" . ($now->format('y') + 1) . "-5-31";
 }
 
-echo "Start date of last academic year:  " . $previous_year_start . PHP_EOL;
-echo "End date of last academic year: " . $previous_year_end . PHP_EOL;
+// echo "Start date of last academic year:  " . $previous_year_start . PHP_EOL;
+// echo "End date of last academic year: " . $previous_year_end . PHP_EOL;
 
-echo "Start date of this academic year:  " . $current_year_start . PHP_EOL;
-echo "End date of this academic year: " . $current_year_end . PHP_EOL;
+// echo "Start date of this academic year:  " . $current_year_start . PHP_EOL;
+// echo "End date of this academic year: " . $current_year_end . PHP_EOL;
 
 switch($ref) {
     case "all":

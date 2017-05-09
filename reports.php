@@ -80,15 +80,16 @@ switch($ref) {
                           Join Student_Submissions ON Student_Submissions.UDID = Student.UDID
                           Join Submission ON Submission.Submission_ID = Student_Submissions.Submission_ID
                           WHERE Submission.Submission_Date between '" . $current_year_start . "' AND '" . $current_year_end . "'
-			  GROUP BY Student.UDID";
+                          GROUP BY Student.UDID";
     break;
     
     case "student_previous":
-        $sql_statement = "SELECT Student.UDID, Student.First_Name, Student.Last_Name, Student.Major, Student.Student_Email, Student.Student_Phone 
+        $sql_statement = "SELECT Student.UDID, Student.First_Name, Student.Last_Name, Student.Major, Student.Student_Email, Student.Student_Phone, Sum(Submission.Hours_Worked) 
                           FROM Student 
                           Join Student_Submissions ON Student_Submissions.UDID = Student.UDID
                           Join Submission ON Submission.Submission_ID = Student_Submissions.Submission_ID
-                          WHERE Submission.Submission_Date between '" . $previous_year_start . "' AND '" . $previous_year_end . "'";
+                          WHERE Submission.Submission_Date between '" . $previous_year_start . "' AND '" . $previous_year_end . "'
+                          GROUP BY Student.UDID";
     break;
     
     case "supervisor_all":
@@ -124,7 +125,11 @@ if ($result->num_rows > 0) {
     $finfo = $result->fetch_fields();
     $num = 0;
     foreach ($finfo as $val) {
-	$columns[$num]= $val->name;
+    if ($val->name == "Sum(Submission.Hours_Worked)") {
+        $columns[$num] = "Total Hours Worked";
+    } else {
+        $columns[$num] = $val->name;
+    }
 	$num++;
     }
     fputcsv($fp, $columns);

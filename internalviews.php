@@ -139,24 +139,44 @@ if(!isapprovedfaculty($_SESSION['cas_data']['USER'])){
                     <td><button id="down_all" type="button" onclick="location.href = 'reports.php?ref=all';">Download</button></td>
                 </tr>
                 <tr>
-                    <td>All Data Last Year</td>
-                    <td>This will download all data from last year</td>
-                    <td><button id="down_last" type="button" onclick="location.href = 'reports.php?ref=last';">Download</button></td>
+                    <td>Submissions From Last Year</td>
+                    <td>Download all submission data from last year</td>
+                    <td><button id="down_subs_last" type="button" onclick="location.href = 'reports.php?ref= submissions_last_academic_year';">Download</button></td>
                 </tr>
                 <tr>
-                    <td>Student Hours</td>
-                    <td>Download all Student information, ranked by hours</td>
-                    <td><button id="down_stu" type="button" onclick="location.href = 'reports.php?ref=josh';">Download</button></td>
+                    <td>Submissions FromvCurrent Year</td>
+                    <td>Download submission data from this year</td>
+                    <td><button id="down_subs_cur" type="button" onclick="location.href = 'reports.php?ref= submissions_current_academic_year';">Download</button></td>
                 </tr>
                 <tr>
-                    <td>Students</td>
-                    <td>Download all student information(not just last year)</td>
-                    <td><button id="down_stu" type="button" onclick="location.href = 'reports.php?ref=stu';">Download</button></td>
+                    <td>All Students Ranked</td>
+                    <td>Download all student data ranked by hours</td>
+                    <td><button id="down_stu_all" type="button" onclick="location.href = 'reports.php?ref=student_all';">Download</button></td>
+                </tr>
+                <tr>
+                    <td>Current Year Students Ranked</td>
+                    <td>Download current student data ranked by hours</td>
+                    <td><button id="down_stu_cur" type="button" onclick="location.href = 'reports.php?ref=student_current';">Download</button></td>
+                </tr>
+                <tr>
+                    <td>Previous Year Students Ranked</td>
+                    <td>Download student data from last year ranked by hours</td>
+                    <td><button id="down_stu_prev" type="button" onclick="location.href = 'reports.php?ref=student_previous';">Download</button></td>
                 </tr>
                 <tr>
                     <td>Supervisors</td>
-                    <td>Download all supervisor information(not just last year)</td>
-                    <td><button id="down_sup" type="button" onclick="location.href = 'reports.php?ref=sup';">Download</button></td>
+                    <td>Download all supervisor data</td>
+                    <td><button id="down_sup_all" type="button" onclick="location.href = 'reports.php?ref=supervisor_all';">Download</button></td>
+                </tr>
+                <tr>
+                    <td>Supervisors From Current Year</td>
+                    <td>Download supervisor data from this year</td>
+                    <td><button id="down_sup_cur" type="button" onclick="location.href = 'reports.php?ref=supervisor_current';">Download</button></td>
+                </tr>
+                 <tr>
+                    <td>Supervisors From Previous Year</td>
+                    <td>Download supervisor data from last year</td>
+                    <td><button id="down_sup_prev" type="button" onclick="location.href = 'reports.php?ref=supervisor_previous';">Download</button></td>
                 </tr>
                 
             </table>

@@ -28,18 +28,12 @@ if(($now->format('m-d')) < $cutoff) {
     $current_year_end = "20" . ($now->format('y') + 1) . "-5-31";
 }
 
-// echo "Start date of last academic year:  " . $previous_year_start . PHP_EOL;
-// echo "End date of last academic year: " . $previous_year_end . PHP_EOL;
-
-// echo "Start date of this academic year:  " . $current_year_start . PHP_EOL;
-// echo "End date of this academic year: " . $current_year_end . PHP_EOL;
-
 switch($ref) {
     case "all":
-        $sql_statement = "SELECT * FROM Submission 
-                            JOIN Student
-                            JOIN Supervisor
-                            JOIN Student_Submissions";
+        $sql_statement = "SELECT * FROM Submission
+                            JOIN Student_Submissions ON Submission.Submission_ID=Student_Submissions.Submission_ID
+                            JOIN Student ON Student_Submissions.UDID=Student.UDID
+                            JOIN Supervisor ON Submission.Supervisor_ID=Supervisor_ID";
     break;
     
     case "submissions_last_academic_year":
@@ -56,18 +50,6 @@ switch($ref) {
                             WHERE Submission_Date 
                             between '" . $current_year_start . "' and '" . $current_year_end . "'";
                         
-    break;
-    
-    case "josh":
-        $sql_statement = "SELECT Student.First_Name, Student.Last_Name, Student.UDID, Submission.Hours_Worked 
-                          FROM Student 
-                          JOIN Student_Submissions ON Student_Submissions.UDID=Student.UDID 
-                          JOIN Submission ON Submission.Submission_ID=Student_Submissions.Submission_ID  
-                          ORDER BY Hours_Worked DESC";
-    break;
-    
-    case "debug":
-	    $sql_statement = "Select * FROM Submission";
     break;
     
     case "student_all":
